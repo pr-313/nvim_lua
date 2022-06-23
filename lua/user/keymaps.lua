@@ -58,6 +58,7 @@ keymap("v", ">", ">gv", opts)
 
 -- NvimTree
 keymap("n", "tt", ":NvimTreeToggle<CR>", opts)
+keymap("n", "tf", ":NvimTreeFindFileToggle<CR>", opts)
 
 -- Telescope
 keymap("n", "<C-f>", ":Telescope find_files<CR>", opts)
@@ -69,7 +70,7 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
 -- Comment
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
+keymap("n", "<leader>cc", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 keymap("x", "<leader>cc", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
 -- DAP
