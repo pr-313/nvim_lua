@@ -88,6 +88,9 @@ return packer.startup(function(use)
     commit = "518e27589c0463af15463c9d675c65e464efc2fe",
   }
 
+  -- Misc
+  use {"dstein64/vim-startuptime", commit="82c8a5491e13fa307fb2cb47182a30560f930377"}
+
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }
   use { "sindrets/diffview.nvim", commit = "2e77bedfe11f52621fad1d8c20ffbddd8e36d137" }
