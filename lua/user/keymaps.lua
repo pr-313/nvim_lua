@@ -25,19 +25,52 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Resize with arrows
 keymap("n", "<M-Up>", ":resize -2<CR>", opts)
 keymap("n", "<M-Down>", ":resize +2<CR>", opts)
-keymap("n", "<M-Left>", ":vertical resize +2<CR>", opts)
-keymap("n", "<M-Right>", ":vertical resize -2<CR>", opts)
+keymap("n", "<M-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<M-Right>", ":vertical resize +2<CR>", opts)
 
 -- Quick Write and quit
 keymap("n", "<leader>q", ":q<CR>", opts)
 keymap("n", "<leader>w", ":w<CR>", opts)
+keymap("n", "<leader>t", ":tabnew<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
+
+-- Folding
+keymap("n", "<Space>", "za", opts)
+keymap("v", "<Space>", "zf", opts)
+
+-- Moving Lines
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
+
+-- Quick Find
+keymap("v", "<leader>g", "y/<C-r>\"<cr>")
+
+-- Undo Breaks
+keymap("i", ",", ",<c-g>u", opts)
+keymap("i", ".", ".<c-g>u", opts)
+keymap("i", "!", "!<c-g>u", opts)
+keymap("i", "?", "?<c-g>u", opts)
+keymap("i", ";", ";<c-g>u", opts)
+keymap("i", "<CR>", "<CR><c-g>u", opts)
+keymap("i", "<space>", "<space><c-g>u", opts)
+
+-- Term Copy paste
+keymap("n", "<leader>y", "\"+y", opts)
+keymap("n", "Y", "y$", opts)
+keymap("n", "<leader>p", "\"+p", opts)
+keymap("v", "<leader>r", "y:%s@<C-r>\"@")
 
 -- Clear highlights
 keymap("n", "<M-s>", "<cmd>nohlsearch<CR>", opts)
+
+-- Quick Sets
+keymap("n", "<leader>W", ":set wrap! wrap?<CR>", opts)
+keymap("n", "<leader>H", ":set hlsearch! hlsearch?<CR>", opts)
 
 -- Close buffers
 keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
@@ -62,7 +95,11 @@ keymap("n", "tf", ":NvimTreeFindFileToggle<CR>", opts)
 
 -- Telescope
 keymap("n", "<C-f>", ":Telescope find_files<CR>", opts)
+keymap("n", "te", ":Telescope<CR>", opts)
 keymap("n", "<leader>f", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>h", ":Telescope oldfiles<CR>", opts)
+keymap("v", "<leader>f", "y:lua require('telescope.builtin').grep_string({search = vim.fn.getreg('\"')})<CR>", opts)
+keymap("n", "<leader>F", ":lua require('telescope.builtin').grep_string({ search = vim.fn.input(\"Grep For > \")})<CR>")
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
