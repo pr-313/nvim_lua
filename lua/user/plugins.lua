@@ -94,10 +94,12 @@ return packer.startup(function(use)
 
   -- Misc
   use {"dstein64/vim-startuptime", commit="82c8a5491e13fa307fb2cb47182a30560f930377"}
+  use {"mbbill/undotree", commit="08e259be24d4476c1ee745dc735eefd44f90efdc"}
 
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }
   use { "sindrets/diffview.nvim", commit = "2e77bedfe11f52621fad1d8c20ffbddd8e36d137" }
+  use { "tpope/vim-fugitive", commit = "80cd9c876e56c70135643601fe08e30010eb88dc" }
 
   -- DAP
   use { "mfussenegger/nvim-dap", commit = "014ebd53612cfd42ac8c131e6cec7c194572f21d" }

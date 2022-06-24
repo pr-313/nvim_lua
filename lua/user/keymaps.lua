@@ -38,6 +38,8 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
+keymap("n", "<leader>d", "V\"_d", opts)
+keymap("v", "<leader>d", "\"_d", opts)
 
 -- Folding
 keymap("n", "<Space>", "za", opts)
@@ -58,6 +60,7 @@ keymap("i", "?", "?<c-g>u", opts)
 keymap("i", ";", ";<c-g>u", opts)
 keymap("i", "<CR>", "<CR><c-g>u", opts)
 keymap("i", "<space>", "<space><c-g>u", opts)
+keymap("n", "tu", ":UndotreeToggle", opts)
 
 -- Term Copy paste
 keymap("n", "<leader>y", "\"+y", opts)
@@ -111,12 +114,15 @@ keymap("n", "<leader>cc", "<cmd>lua require('Comment.api').toggle_current_linewi
 keymap("x", "<leader>cc", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
 -- DAP
-keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
-keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
-keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
-keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
-keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
-keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
-keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
-keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
-keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+-- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+-- keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
+-- keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
+-- keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
+-- keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
+-- keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
+-- keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
+-- keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
+-- keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+-- Custom Keymaps Call
+  vim.cmd("source ~/my_nvim/*")
