@@ -23,10 +23,10 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
-keymap("n", "<M-Up>", ":resize -2<CR>", opts)
-keymap("n", "<M-Down>", ":resize +2<CR>", opts)
-keymap("n", "<M-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<M-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<M-k>", ":call TmuxResize('k', 4)<CR>", opts)
+keymap("n", "<M-j>", ":call TmuxResize('j', 4)<CR>", opts)
+keymap("n", "<M-h>", ":call TmuxResize('h', 4)<CR>", opts)
+keymap("n", "<M-l>", ":call TmuxResize('l', 4)<CR>", opts)
 
 -- Quick Write and quit
 keymap("n", "<leader>q", ":q<CR>", opts)
@@ -94,7 +94,7 @@ keymap("v", ">", ">gv", opts)
 
 -- NvimTree
 keymap("n", "tt", ":NvimTreeToggle<CR>", opts)
-keymap("n", "tf", ":NvimTreeFindFileToggle<CR>", opts)
+keymap("n", "tf", ":NvimTreeFindFile<CR>", opts)
 
 -- Telescope
 keymap("n", "<C-f>", ":Telescope find_files<CR>", opts)

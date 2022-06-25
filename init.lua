@@ -19,5 +19,7 @@ require "user.project"
 require "user.indentline"
 require "user.alpha"
 require "user.lsp"
+require "user.ufo"
 -- require "user.dap"
 require "user.diffview"
+vim.cmd("source ~/.config/nvim_lua/plugin/some_vim_funcs.vim")
