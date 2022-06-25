@@ -65,6 +65,9 @@ return packer.startup(function(use)
   use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
   use { "lunarvim/darkplus.nvim", commit = "2584cdeefc078351a79073322eb7f14d7fbb1835" }
 
+  -- Harpoon
+  use {"ThePrimeagen/harpoon", commit="d3d3d22b6207f46f8ca64946f4d781e975aec0fc"}
+
   -- cmp plugins
   use { "hrsh7th/nvim-cmp", commit = "433af3dffce64cbd3f99bdac9734768a6cc41951" } -- The completion plugin
   use { "hrsh7th/cmp-buffer", commit = "62fc67a2b0205136bc3e312664624ba2ab4a9323" } -- buffer completions
@@ -76,6 +79,7 @@ return packer.startup(function(use)
   -- Folding
   use {'kevinhwang91/nvim-ufo', commit = "d99d72253ce615d66e41660f68255ff2f65b4cf8" }
   use { 'kevinhwang91/promise-async', commit = "1a30ecd708b08adaa7de8ad3d207147aadf3e081"}
+
   -- snippets
   use { "L3MON4D3/LuaSnip", commit = "79b2019c68a2ff5ae4d732d50746c901dd45603a" } --snippet engine
   use { "rafamadriz/friendly-snippets", commit = "d27a83a363e61009278b6598703a763ce9c8e617" } -- a bunch of snippets to use
@@ -88,14 +92,10 @@ return packer.startup(function(use)
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim", commit = "8b02088743c07c2f82aec2772fbd2b3774195448" }
-  use {'nvim-telescope/telescope-fzf-native.nvim', 
-        run = 'make' }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    commit = "518e27589c0463af15463c9d675c65e464efc2fe",
-  }
+  use { "nvim-treesitter/nvim-treesitter", commit = "518e27589c0463af15463c9d675c65e464efc2fe"}
 
   -- Misc
   use {"dstein64/vim-startuptime", commit="82c8a5491e13fa307fb2cb47182a30560f930377"}

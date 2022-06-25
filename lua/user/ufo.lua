@@ -2,7 +2,6 @@ vim.wo.foldcolumn = '1'
 vim.wo.foldlevel = 5 -- feel free to decrease the value
 vim.wo.foldenable = true
 local ftMap = {
-    vim = 'nil',
     git =''
 }
 local handler = function(virtText, lnum, endLnum, width, truncate)
