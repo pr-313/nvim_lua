@@ -2,7 +2,9 @@ vim.wo.foldcolumn = '1'
 vim.wo.foldlevel = 5 -- feel free to decrease the value
 vim.wo.foldenable = true
 local ftMap = {
-    git =''
+    git ='',
+    verilog ='',
+    verilog_systemverilog=''
 }
 local handler = function(virtText, lnum, endLnum, width, truncate)
     local newVirtText = {}
@@ -46,7 +48,7 @@ local language_servers = {'pyright','bashls','sumneko_lua'} -- like {'gopls', 'c
 for _, ls in ipairs(language_servers) do
     require('lspconfig')[ls].setup({
         capabilities = capabilities,
-        other_fields = ...
+        -- other_fields = ...
     })
 end
 --

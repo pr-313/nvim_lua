@@ -52,3 +52,26 @@ function! TmuxResize(direction, amount)
     exec l:action.a:amount
 endfunction
 
+command! -bang FoldInc setlocal foldmethod=marker | setlocal foldmarker=include_hdl_start,include_hdl_stop | setlocal foldlevel=0 | setlocal foldmethod=manual
+command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
+command! -bang LLL :call SourceConfig()
+command! -bang Path :let @+ = expand("%:p")
+command! -bang Conf :tabnew ~/.config/nvim/init.vim
+command! -bang FoldV setlocal foldmethod=syntax | setlocal foldlevel=0 | setlocal foldmethod=manual
+command! -bang LetmeWrite setlocal cpoptions-=W
+
+let g:verilog_disable_indent_lst= "all"
+let g:verilog_syntax_fold_lst = "class,function,task,module"
+
+if exists("loaded_matchit")
+      let b:match_ignorecase=0
+        let b:match_words=
+            \ '\<begin\>:\<end\>,' .
+            \ '\<randcase\>\|\<case\>\|\<casex\>\|\<casez\>:\<endcase\>,' .
+            \ '\<module\>:\<endmodule\>,' .
+            \ '\<function\>:\<endfunction\>,' .
+            \ '\(`ifdef\|`ifndef\)\>:`else\>:`endif\>,' .
+            \ '\<task\>:\<endtask\>,' .
+            \ '\<specify\>:\<endspecify\>,' .
+            \ '\<include_hdl_start\>:\<include_hdl_stop\>'
+    endif
