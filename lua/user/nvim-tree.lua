@@ -28,7 +28,7 @@ nvim_tree.setup {
   reload_on_bufenter = false,
   respect_buf_cwd = false,
   git = {
-    enable=true,
+    enable=false,
     ignore=false
   },
   actions = {
