@@ -109,6 +109,9 @@ keymap("v", ">", ">gv", opts)
 keymap("n", "tt", ":NvimTreeToggle<CR>", opts)
 keymap("n", "tf", ":NvimTreeFindFile<CR>", opts)
 
+-- Indent Blankline
+keymap("n", "<leader>il", ":IndentBlanklineToggle<CR>", opts)
+
 -- Telescope
 -- keymap("n", "<C-f>", ":Telescope find_files<CR>", opts)
 -- keymap("n", "te", ":Telescope<CR>", opts)

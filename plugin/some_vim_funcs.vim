@@ -57,11 +57,12 @@ command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | 
 command! -bang LLL :call SourceConfig()
 command! -bang Path :let @+ = expand("%:p")
 command! -bang Conf :tabnew ~/.config/nvim/init.vim
-command! -bang FoldV setlocal foldmethod=syntax | setlocal foldlevel=0 | setlocal foldmethod=manual
+command! -bang FoldV setlocal foldmethod=syntax | setlocal foldlevel=5 | setlocal foldmethod=manual
 command! -bang LetmeWrite setlocal cpoptions-=W
 
+let g:indent_blankline_enabled = v:false                                                                                                                                                                                              
 let g:verilog_disable_indent_lst= "all"
-let g:verilog_syntax_fold_lst = "class,function,task,module"
+let g:verilog_syntax_fold_lst = "class,function,task,module,specify,interface,sequence,block"
 
 if exists("loaded_matchit")
       let b:match_ignorecase=0

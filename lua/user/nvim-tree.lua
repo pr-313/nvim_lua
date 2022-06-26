@@ -11,13 +11,31 @@ end
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
-  update_focused_file = {
-    enable = false,
-    update_cwd = true,
-  },
+  auto_reload_on_write = false,
+  create_in_closed_folder = false,
+  disable_netrw = false,
+  hijack_cursor = false,
+  hijack_netrw = true,
+  hijack_unnamed_buffer_when_opening = false,
+  ignore_buffer_on_setup = false,
+  open_on_setup = false,
+  open_on_setup_file = false,
+  open_on_tab = false,
+  sort_by = "name",
+  root_dirs = {},
+  prefer_startup_root = false,
+  sync_root_with_cwd = true,
+  reload_on_bufenter = false,
+  respect_buf_cwd = false,
   git = {
     enable=true,
     ignore=false
+  },
+  actions = {
+    change_dir = {
+      enable=true,
+      global=true,
+    }
   },
   renderer = {
     root_folder_modifier = ":t",
@@ -49,7 +67,7 @@ nvim_tree.setup {
   },
   diagnostics = {
     enable = false,
-    show_on_dirs = true,
+    show_on_dirs = false,
     icons = {
       hint = "",
       info = "",
@@ -62,6 +80,7 @@ nvim_tree.setup {
     height = 30,
     side = "left",
     mappings = {
+      custom_only=true,
       list = {
         { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
         { key = "h", cb = tree_cb "close_node" },
@@ -69,8 +88,8 @@ nvim_tree.setup {
         { key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
         { key = "<C-e>",                          action = "edit_in_place" },
         { key = "O",                              action = "edit_no_picker" },
-        { key = { "<C-]>", "<2-RightMouse>" },    action = "cd" },
-        { key = "<C-v>",                          action = "vsplit" },
+        { key = { "C", "<2-RightMouse>" },        action = "cd" },
+        { key = "s",                              action = "vsplit" },
         { key = "<C-x>",                          action = "split" },
         { key = "<C-t>",                          action = "tabnew" },
         { key = "<",                              action = "prev_sibling" },
@@ -82,7 +101,7 @@ nvim_tree.setup {
         { key = "J",                              action = "last_sibling" },
         { key = "I",                              action = "toggle_git_ignored" },
         { key = "H",                              action = "toggle_dotfiles" },
-        { key = "U",                              action = "toggle_custom" },
+        -- { key = "U",                              action = "toggle_custom" },
         { key = "R",                              action = "refresh" },
         { key = "a",                              action = "create" },
         { key = "d",                              action = "remove" },
@@ -97,12 +116,12 @@ nvim_tree.setup {
         { key = "gy",                             action = "copy_absolute_path" },
         { key = "[c",                             action = "prev_git_item" },
         { key = "]c",                             action = "next_git_item" },
-        { key = "-",                              action = "dir_up" },
-        { key = "s",                              action = "system_open" },
+        { key = "u",                              action = "dir_up" },
+        -- { key = "s",                              action = "system_open" },
         { key = "f",                              action = "live_filter" },
         { key = "F",                              action = "clear_live_filter" },
         { key = "q",                              action = "close" },
-        { key = "W",                              action = "collapse_all" },
+        { key = "X",                              action = "collapse_all" },
         { key = "E",                              action = "expand_all" },
         { key = "S",                              action = "search_node" },
         { key = ".",                              action = "run_file_command" },
