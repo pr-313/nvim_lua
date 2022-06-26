@@ -76,6 +76,9 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp", commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8" }
   use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
 
+  -- Fzf 
+    use { 'ibhagwan/fzf-lua', commit = ""}-- optional for icon support requires = { 'kyazdani42/nvim-web-devicons' } }
+
   -- Folding
   use {'kevinhwang91/nvim-ufo', commit = "d99d72253ce615d66e41660f68255ff2f65b4cf8" }
   use { 'kevinhwang91/promise-async', commit = "1a30ecd708b08adaa7de8ad3d207147aadf3e081"}
@@ -91,8 +94,8 @@ return packer.startup(function(use)
   -- use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
 
   -- Telescope
-  use { "nvim-telescope/telescope.nvim", commit = "8b02088743c07c2f82aec2772fbd2b3774195448" }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- use { "nvim-telescope/telescope.nvim", commit = "8b02088743c07c2f82aec2772fbd2b3774195448" }
+  -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", commit = "518e27589c0463af15463c9d675c65e464efc2fe"}

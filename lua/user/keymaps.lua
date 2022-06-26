@@ -1,7 +1,7 @@
 -- Shorten function name
 local keymap = vim.keymap.set
 -- Silent keymap option
-local opts = { silent = true }
+local opts = { noremap = true, silent = true }
 
 --Remap space as leader key
 keymap("", ",", "<Nop>", opts)
@@ -110,14 +110,25 @@ keymap("n", "tt", ":NvimTreeToggle<CR>", opts)
 keymap("n", "tf", ":NvimTreeFindFile<CR>", opts)
 
 -- Telescope
-keymap("n", "<C-f>", ":Telescope find_files<CR>", opts)
-keymap("n", "te", ":Telescope<CR>", opts)
-keymap("n", "<leader>f", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>h", ":Telescope oldfiles<CR>", opts)
-keymap("v", "<leader>f", "y:lua require('telescope.builtin').grep_string({search = vim.fn.getreg('\"')})<CR>", opts)
-keymap("n", "<leader>F", ":lua require('telescope.builtin').grep_string({ search = vim.fn.input(\"Grep For > \")})<CR>")
-keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+-- keymap("n", "<C-f>", ":Telescope find_files<CR>", opts)
+-- keymap("n", "te", ":Telescope<CR>", opts)
+-- keymap("n", "<leader>f", ":Telescope live_grep<CR>", opts)
+-- keymap("n", "<leader>h", ":Telescope oldfiles<CR>", opts)
+-- keymap("v", "<leader>f", "y:lua require('telescope.builtin').grep_string({search = vim.fn.getreg('\"')})<CR>", opts)
+-- keymap("n", "<leader>F", ":lua require('telescope.builtin').grep_string({ search = vim.fn.input(\"Grep For > \")})<CR>")
+-- keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
+-- keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+
+-- Fzf
+keymap("n", "<C-f>", ":FzfLua files<CR>", opts)
+keymap("n", "te", ":FzfLua<CR>", opts)
+keymap("n", "<leader>f", ":FzfLua live_grep<CR>", opts)
+keymap("n", "<leader>B", ":FzfLua lgrep_curbuf<CR>", opts)
+keymap("n", "<leader>h", ":FzfLua oldfiles<CR>", opts)
+keymap("v", "<leader>f", "<ESC>:FzfLua grep_visual<CR>", opts)
+keymap("n", "<leader>F", ":FzfLua grep<CR>", opts)
+-- keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
+-- keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
