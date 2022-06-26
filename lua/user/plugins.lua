@@ -76,8 +76,8 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp", commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8" }
   use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
 
-  -- Fzf 
-    use { 'ibhagwan/fzf-lua', commit = ""}-- optional for icon support requires = { 'kyazdani42/nvim-web-devicons' } }
+  -- Fzf
+    use { 'ibhagwan/fzf-lua', commit = "341f0641ea4b0bd1cb798d7138f1a84c90848b02"}-- optional for icon support requires = { 'kyazdani42/nvim-web-devicons' } }
 
   -- Folding
   use {'kevinhwang91/nvim-ufo', commit = "d99d72253ce615d66e41660f68255ff2f65b4cf8" }
