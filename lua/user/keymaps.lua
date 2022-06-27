@@ -151,5 +151,3 @@ keymap("x", "<leader>cc", '<ESC><CMD>lua require("Comment.api").toggle_linewise_
 -- keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 -- keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
--- Custom Keymaps Call
-  vim.cmd("source ~/my_nvim/*")
