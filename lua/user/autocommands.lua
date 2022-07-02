@@ -1,4 +1,8 @@
 -- Use 'q' to quit from common plugins
+local id = vim.api.nvim_create_augroup("MyGroup", {
+    clear = true
+})
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },
   callback = function()
@@ -7,6 +11,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
       set nobuflisted 
     ]]
   end,
+  group="MyGroup"
 })
 
 -- Remove statusline and tabline when in Alpha
@@ -18,6 +23,7 @@ vim.api.nvim_create_autocmd({ "User" }, {
       set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
     ]]
   end,
+  group="MyGroup"
 })
 
 -- Set wrap and spell in markdown and gitcommit
@@ -27,6 +33,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
   end,
+  group="MyGroup"
 })
 
 vim.cmd "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
@@ -36,6 +43,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
     vim.cmd "set formatoptions-=cro"
   end,
+  group="MyGroup"
 })
 
 -- Highlight Yanked Text
@@ -43,6 +51,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   callback = function()
     vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
   end,
+  group="MyGroup"
 })
 
 
@@ -53,6 +62,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
       set foldmethod=syntax 
     ]]
   end,
+  group="MyGroup"
 })
 
 
@@ -63,4 +73,20 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
       setlocal filetype=verilog_systemverilog
     ]]
   end,
+  group="MyGroup"
+})
+
+vim.api.nvim_create_autocmd({ "BufReadPre","BufRead" }, {
+  pattern = {"*"},
+  callback = function()
+        if vim.fn.getfsize(vim.fn.expand("%:p")) > 1000000 then
+            require("cmp").setup.buffer {enabled=false}
+            vim.opt_local.filetype="text"
+            vim.cmd [[
+                :LspStop
+                :UfoDisable
+            ]]
+        end
+  end,
+  group="MyGroup"
 })
