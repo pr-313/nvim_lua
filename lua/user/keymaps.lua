@@ -60,7 +60,7 @@ keymap("i", "?", "?<c-g>u", opts)
 keymap("i", ";", ";<c-g>u", opts)
 keymap("i", "<CR>", "<CR><c-g>u", opts)
 keymap("i", "<space>", "<space><c-g>u", opts)
-keymap("n", "tu", ":UndotreeToggle", opts)
+keymap("n", "tu", ":UndotreeToggle<CR>", opts)
 
 -- Term Copy paste
 keymap("n", "<leader>y", "\"+y", opts)
