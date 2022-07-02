@@ -12,6 +12,8 @@ local servers = {
   "bashls",
   "jsonls",
   "yamlls",
+  "marksman",
+  "grammarly"
 }
 
 
