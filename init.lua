@@ -25,4 +25,4 @@ require "user.fzf-lua"
 require "user.usercmds"
 -- require "user.dap"
 require "user.diffview"
-vim.cmd("source ~/.config/nvim/plugin/some_vim_funcs.vim")
+vim.cmd("source ~/.config/nvim_lua/plugin/some_vim_funcs.vim")
