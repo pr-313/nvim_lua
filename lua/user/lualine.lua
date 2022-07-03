@@ -43,7 +43,7 @@ lualine.setup {
     component_separators = {'|', '|'},
     section_separators = {'|', '|'},
     globalstatus = false,
-    always_divide_middle = true,
+    always_divide_middle = false,
     disabled_filetypes = { "alpha", "dashboard" },
   },
   sections = {

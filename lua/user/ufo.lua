@@ -4,7 +4,8 @@ vim.wo.foldenable = true
 local ftMap = {
     git ='',
     verilog ='',
-    verilog_systemverilog=''
+    verilog_systemverilog='',
+    text = ''
 }
 local handler = function(virtText, lnum, endLnum, width, truncate)
     local newVirtText = {}

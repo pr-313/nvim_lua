@@ -58,6 +58,7 @@ command! -bang LLL :call SourceConfig()
 command! -bang Path :let @+ = expand("%:p")
 command! -bang Conf :tabnew ~/.config/nvim/init.vim
 command! -bang FoldV setlocal foldmethod=syntax | setlocal foldlevel=5 | setlocal foldmethod=manual
+command! -bang FoldNLV setlocal foldmethod=syntax | setlocal foldlevel=1 | setlocal foldmethod=manual
 command! -bang LetmeWrite setlocal cpoptions-=W
 
 let g:indent_blankline_enabled = v:false                                                                                                                                                                                              
