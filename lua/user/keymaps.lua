@@ -34,8 +34,8 @@ keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>t", ":tabnew<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":tabnext<CR>", opts)
+keymap("n", "<S-h>", ":tabprevious<CR>", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 keymap("n", "<leader>d", "V\"_d", opts)
@@ -60,7 +60,7 @@ keymap("i", "?", "?<c-g>u", opts)
 keymap("i", ";", ";<c-g>u", opts)
 keymap("i", "<CR>", "<CR><c-g>u", opts)
 keymap("i", "<space>", "<space><c-g>u", opts)
-keymap("n", "tu", ":UndotreeToggle", opts)
+keymap("n", "tu", ":UndotreeToggle<CR>", opts)
 
 -- Term Copy paste
 keymap("n", "<leader>y", "\"+y", opts)
@@ -151,5 +151,3 @@ keymap("x", "<leader>cc", '<ESC><CMD>lua require("Comment.api").toggle_linewise_
 -- keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 -- keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
--- Custom Keymaps Call
-  vim.cmd("source ~/my_nvim/*")

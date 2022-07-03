@@ -54,7 +54,7 @@ endfunction
 
 command! -bang FoldInc setlocal foldmethod=marker | setlocal foldmarker=include_hdl_start,include_hdl_stop | setlocal foldlevel=0 | setlocal foldmethod=manual
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
-command! -bang LLL :call SourceConfig()
+command! -bang LLL :luafile $MYVIMRC
 command! -bang Path :let @+ = expand("%:p")
 command! -bang Conf :tabnew ~/.config/nvim/init.vim
 command! -bang FoldV setlocal foldmethod=syntax | setlocal foldlevel=5 | setlocal foldmethod=manual
