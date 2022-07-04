@@ -89,7 +89,7 @@ nvim_tree.setup {
         { key = "<C-e>",                          action = "edit_in_place" },
         { key = "O",                              action = "edit_no_picker" },
         { key = { "C", "<2-RightMouse>" },        action = "cd" },
-        { key = "s",                              action = "vsplit" },
+        { key = "V",                              action = "vsplit" },
         { key = "<C-x>",                          action = "split" },
         { key = "<C-t>",                          action = "tabnew" },
         { key = "<",                              action = "prev_sibling" },

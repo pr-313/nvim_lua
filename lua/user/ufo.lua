@@ -1,3 +1,7 @@
+local status_ok, ufo = pcall(require, "ufo")
+if not status_ok then
+	return
+end
 vim.wo.foldcolumn = '1'
 vim.wo.foldlevel = 5 -- feel free to decrease the value
 vim.wo.foldenable = true
@@ -54,7 +58,7 @@ for _, ls in ipairs(language_servers) do
 end
 --
 
-require('ufo').setup({
+ufo.setup({
     open_fold_hl_timeout = 0,
     provider_selector = function(bufnr, filetype)
         return ftMap[filetype]
