@@ -35,6 +35,9 @@ nvim_tree.setup {
     change_dir = {
       enable=true,
       global=true,
+    },
+    open_file = {
+      resize_window=false,
     }
   },
   renderer = {
