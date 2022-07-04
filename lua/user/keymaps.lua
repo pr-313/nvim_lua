@@ -30,6 +30,7 @@ keymap("n", "<M-l>", ":call TmuxResize('l', 4)<CR>", opts)
 
 -- Quick Write and quit
 keymap("n", "<leader>q", ":q<CR>", opts)
+keymap("n", "<leader>Q", ":qa<CR>", opts)
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>t", ":tabnew<CR>", opts)
 
