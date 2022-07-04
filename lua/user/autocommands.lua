@@ -76,7 +76,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   group="MyGroup"
 })
 
-vim.api.nvim_create_autocmd({ "BufReadPre","BufRead" }, {
+vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = {"*"},
   callback = function()
         if vim.fn.getfsize(vim.fn.expand("%:p")) > 1000000 then
