@@ -47,7 +47,7 @@ dashboard.section.buttons.val = {
   -- dashboard.button("p", " " .. " Find project", ":lua require('telescope').extensions.projects.projects()<CR>"),
   dashboard.button("r", " " .. " Recent files", ":FzfLua oldfiles <CR>"),
   dashboard.button("tt", " " .. " File Tree", ":NvimTreeToggle<CR>"),
-  dashboard.button("c", " " .. " Config", ":e ~/.config/nvim_lua/ <CR>"),
+  dashboard.button("c", " " .. " Config", ":e ~/.config/nvim/ <CR>"),
   dashboard.button("q", " " .. " Quit", ":qa<CR>"),
 }
 local function footer()
