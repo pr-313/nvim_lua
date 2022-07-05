@@ -138,13 +138,15 @@ cmp.setup({
 })
 
 require'cmp'.setup.cmdline(':', {
-  sources = {
-    { name = 'cmdline' }
-  }
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'cmdline' }
+    }
 })
 
 require'cmp'.setup.cmdline('/', {
-  sources = {
-    { name = 'buffer' }
-  }
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'buffer' }
+    }
 })
