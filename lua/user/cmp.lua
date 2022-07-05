@@ -136,3 +136,15 @@ cmp.setup({
 		ghost_text = true,
 	},
 })
+
+require'cmp'.setup.cmdline(':', {
+  sources = {
+    { name = 'cmdline' }
+  }
+})
+
+require'cmp'.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
+})
