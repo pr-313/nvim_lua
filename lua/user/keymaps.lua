@@ -42,6 +42,9 @@ keymap("n", "N", "Nzzzv", opts)
 keymap("n", "<leader>d", "V\"_d", opts)
 keymap("v", "<leader>d", "\"_d", opts)
 
+-- Window Maximizer
+keymap("n", "<leader><leader>", ":MaximizerToggle<CR>", opts)
+
 -- Folding
 keymap("n", "<Space>", "za", opts)
 keymap("v", "<Space>", "zf", opts)
