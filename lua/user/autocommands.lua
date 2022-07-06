@@ -76,7 +76,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   group="MyGroup"
 })
 
-vim.api.nvim_create_autocmd({ "BufRead" }, {
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
   pattern = {"*"},
   callback = function()
         if vim.fn.getfsize(vim.fn.expand("%:p")) > 1000000 then
@@ -86,6 +86,13 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
             vim.cmd [[
                 :LspStop
                 :UfoDisable
+            ]]
+        else 
+            require("cmp").setup.buffer {enabled=true}
+            require("cmp").setup.cmdline ( '/' , {enabled=true} )
+            vim.cmd [[
+                :LspRestart
+                :UfoEnable
             ]]
         end
   end,
