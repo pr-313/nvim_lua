@@ -45,4 +45,3 @@
   "verilog_systemverilog.vim": { "branch": "master", "commit": "5bf36012ecd4f82a987acaee1c8504cbc8711aeb" },
   "vim-fugitive": { "branch": "master", "commit": "5b0b138483de17a8fd8dfcec0b491782c8fbf102" },
   "vim-maximizer": { "branch": "master", "commit": "2e54952fe91e140a2e69f35f22131219fcd9c5f1" }
-}
