@@ -113,6 +113,10 @@ return packer.startup(function(use)
   use { "sidebar-nvim/sidebar.nvim"                   ,  commit = "4e07c8ea5cc86e21d69bb000f9f8e5df536da8b4"}
   
 
+  -- Sidebar
+  use { "sidebar-nvim/sidebar.nvim"             ,  commit = "4e07c8ea5cc86e21d69bb000f9f8e5df536da8b4"}
+  
+
   -- Misc
   use {"dstein64/vim-startuptime"                     ,  commit="82c8a5491e13fa307fb2cb47182a30560f930377"}
   use {"mbbill/undotree"                              ,  commit="08e259be24d4476c1ee745dc735eefd44f90efdc"}
