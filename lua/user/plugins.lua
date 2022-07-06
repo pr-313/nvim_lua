@@ -75,6 +75,7 @@ return packer.startup(function(use)
   use { "saadparwaiz1/cmp_luasnip", commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" } -- snippet completions
   use { "hrsh7th/cmp-nvim-lsp", commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8" }
   use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
+  use { "hrsh7th/cmp-cmdline", commit="c36ca4bc1dedb12b4ba6546b96c43896fd6e7252"}
 
   -- Fzf
     use { 'ibhagwan/fzf-lua', commit = "341f0641ea4b0bd1cb798d7138f1a84c90848b02"}-- optional for icon support requires = { 'kyazdani42/nvim-web-devicons' } }
@@ -103,6 +104,8 @@ return packer.startup(function(use)
   -- Misc
   use {"dstein64/vim-startuptime", commit="82c8a5491e13fa307fb2cb47182a30560f930377"}
   use {"mbbill/undotree", commit="08e259be24d4476c1ee745dc735eefd44f90efdc"}
+  use {"rlane/pounce.nvim", commit="fab6ab7b80f6c2716fc5b0afca1a77408a1d7675"}
+  use { "szw/vim-maximizer", commit = "2e54952fe91e140a2e69f35f22131219fcd9c5f1" }
 
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }

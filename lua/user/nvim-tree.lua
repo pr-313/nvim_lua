@@ -15,9 +15,9 @@ nvim_tree.setup {
   create_in_closed_folder = false,
   disable_netrw = false,
   hijack_cursor = false,
-  hijack_netrw = true,
+  hijack_netrw = false,
   hijack_unnamed_buffer_when_opening = false,
-  ignore_buffer_on_setup = false,
+  ignore_buffer_on_setup = true,
   open_on_setup = false,
   open_on_setup_file = false,
   open_on_tab = false,
@@ -35,6 +35,9 @@ nvim_tree.setup {
     change_dir = {
       enable=true,
       global=true,
+    },
+    open_file = {
+      resize_window=false,
     }
   },
   renderer = {
@@ -79,6 +82,7 @@ nvim_tree.setup {
     width = 30,
     height = 30,
     side = "left",
+    -- hide_root_folder=true,
     mappings = {
       custom_only=true,
       list = {
@@ -89,7 +93,7 @@ nvim_tree.setup {
         { key = "<C-e>",                          action = "edit_in_place" },
         { key = "O",                              action = "edit_no_picker" },
         { key = { "C", "<2-RightMouse>" },        action = "cd" },
-        { key = "s",                              action = "vsplit" },
+        { key = "V",                              action = "vsplit" },
         { key = "<C-x>",                          action = "split" },
         { key = "<C-t>",                          action = "tabnew" },
         { key = "<",                              action = "prev_sibling" },

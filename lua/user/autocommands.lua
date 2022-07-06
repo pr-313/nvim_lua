@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd({ "User" }, {
   callback = function()
     vim.cmd [[
       set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-      set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
+      set laststatus=0 | autocmd BufUnload <buffer> set laststatus=2
     ]]
   end,
   group="MyGroup"
@@ -76,12 +76,13 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   group="MyGroup"
 })
 
-vim.api.nvim_create_autocmd({ "BufReadPre","BufRead" }, {
+vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = {"*"},
   callback = function()
         if vim.fn.getfsize(vim.fn.expand("%:p")) > 1000000 then
-            require("cmp").setup.buffer {enabled=false}
             vim.opt_local.filetype="text"
+            require("cmp").setup.buffer {enabled=false}
+            require("cmp").setup.cmdline ( '/' , {enabled=false} )
             vim.cmd [[
                 :LspStop
                 :UfoDisable
@@ -89,4 +90,14 @@ vim.api.nvim_create_autocmd({ "BufReadPre","BufRead" }, {
         end
   end,
   group="MyGroup"
+})
+
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = {"*.log"},
+  callback = function()
+    vim.cmd [[
+      setlocal filetype=text
+    ]]
+  end,
 })

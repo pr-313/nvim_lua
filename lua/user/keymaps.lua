@@ -30,6 +30,7 @@ keymap("n", "<M-l>", ":call TmuxResize('l', 4)<CR>", opts)
 
 -- Quick Write and quit
 keymap("n", "<leader>q", ":q<CR>", opts)
+keymap("n", "<leader>Q", ":qa<CR>", opts)
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>t", ":tabnew<CR>", opts)
 
@@ -40,6 +41,9 @@ keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 keymap("n", "<leader>d", "V\"_d", opts)
 keymap("v", "<leader>d", "\"_d", opts)
+
+-- Window Maximizer
+keymap("n", "<leader><leader>", ":MaximizerToggle<CR>", opts)
 
 -- Folding
 keymap("n", "<Space>", "za", opts)
@@ -126,7 +130,7 @@ keymap("n", "<leader>il", ":IndentBlanklineToggle<CR>", opts)
 keymap("n", "<C-f>", ":FzfLua files<CR>", opts)
 keymap("n", "te", ":FzfLua<CR>", opts)
 keymap("n", "<leader>f", ":FzfLua live_grep<CR>", opts)
-keymap("n", "<leader>B", ":FzfLua lgrep_curbuf<CR>", opts)
+keymap("n", "<leader>l", ":FzfLua lgrep_curbuf<CR>", opts)
 keymap("n", "<leader>h", ":FzfLua oldfiles<CR>", opts)
 keymap("v", "<leader>f", "<ESC>:FzfLua grep_visual<CR>", opts)
 keymap("n", "<leader>F", ":FzfLua grep<CR>", opts)
@@ -140,6 +144,12 @@ keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 keymap("n", "<leader>cc", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 keymap("x", "<leader>cc", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
+-- Pounce
+
+keymap("n", "s", "<cmd>Pounce<CR>", opts)
+keymap("n", "S", "<cmd>Pounce<CR>", opts)
+keymap("v", "s", "<cmd>Pounce<CR>", opts)
+
 -- DAP
 -- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
 -- keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
@@ -151,3 +161,5 @@ keymap("x", "<leader>cc", '<ESC><CMD>lua require("Comment.api").toggle_linewise_
 -- keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 -- keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
+-- Custom Keymaps Call
+  vim.cmd("silent! source ~/my_nvim/*")

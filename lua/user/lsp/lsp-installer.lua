@@ -34,7 +34,7 @@ lsp_installer.settings({
     },
 
     -- The directory in which to install all servers.
-    -- install_root_dir = "/runs/simrun_tav/libs/lsp_server",
+    install_root_dir = "/runs/simrun_tav/libs/lsp_server",
 
     pip = {
         -- These args will be added to `pip install` calls. Note that setting extra args might impact intended behavior
