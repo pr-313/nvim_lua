@@ -140,6 +140,9 @@ keymap("n", "<leader>F", ":FzfLua grep<CR>", opts)
 -- Tagbar
 keymap("n", "tg", ":TagbarToggle<CR>", opts)
 
+-- Sidebar
+keymap("n", "ts", ":SidebarNvimToggle<CR>", opts)
+
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 

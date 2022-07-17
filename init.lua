@@ -25,5 +25,6 @@ require "user.fzf-lua"
 require "user.usercmds"
 -- require "user.dap"
 require "user.diffview"
+require "user.sidebar"
 require "user.pounce"
 vim.cmd("source ~/.config/nvim/plugin/some_vim_funcs.vim")
