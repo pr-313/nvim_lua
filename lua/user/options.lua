@@ -28,7 +28,6 @@ vim.opt.cursorline = true                       -- highlight the current line
 vim.opt.number = true                           -- set numbered lines
 vim.opt.laststatus = 2
 vim.opt.showcmd = true
-vim.opt.foldlevel = 0
 vim.opt.ruler = false
 vim.opt.numberwidth = 4                         -- set number column width to 2 {default 4}
 vim.opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
