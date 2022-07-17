@@ -108,6 +108,7 @@ return packer.startup(function(use)
   use {"rlane/pounce.nvim"                            ,  commit="fab6ab7b80f6c2716fc5b0afca1a77408a1d7675"}
   use { "szw/vim-maximizer"                           ,  commit = "2e54952fe91e140a2e69f35f22131219fcd9c5f1" }
   use { "godlygeek/tabular"                           ,  commit = "339091ac4dd1f17e225fe7d57b48aff55f99b23a" }
+  use { "preservim/tagbar"                            ,  commit = "0243b19920a683df531f19bb7fb80c0ff83927dd" }
 
   -- Git
   use { "lewis6991/gitsigns.nvim"                     ,  commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }

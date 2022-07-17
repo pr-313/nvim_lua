@@ -137,6 +137,9 @@ keymap("n", "<leader>F", ":FzfLua grep<CR>", opts)
 -- keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 -- keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
+-- Tagbar
+keymap("n", "tg", ":TagbarToggle<CR>", opts)
+
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
