@@ -71,6 +71,7 @@ keymap("n", "<leader>y", "\"+y", opts)
 keymap("n", "Y", "y$", opts)
 keymap("n", "<leader>p", "\"+p", opts)
 keymap("v", "<leader>r", "y:%s@<C-r>\"@")
+keymap("v", "<leader>y", "\"+y", opts)
 
 -- Clear highlights
 keymap("n", "<M-s>", "<cmd>nohlsearch<CR>", opts)
