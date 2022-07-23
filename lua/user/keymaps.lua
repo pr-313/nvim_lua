@@ -145,7 +145,7 @@ keymap("n", "tg", ":TagbarToggle<CR>", opts)
 keymap("n", "ts", ":SidebarNvimToggle<CR>", opts)
 
 -- Git
-keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>gg", ":LazyGit<CR>", opts)
 
 -- Comment
 keymap("n", "<leader>cc", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
