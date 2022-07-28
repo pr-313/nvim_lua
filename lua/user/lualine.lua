@@ -44,7 +44,7 @@ lualine.setup {
     section_separators = {'|', '|'},
     globalstatus = false,
     always_divide_middle = false,
-    disabled_filetypes = { "alpha", "dashboard" },
+    disabled_filetypes = {"NvimTree"},
   },
   sections = {
     lualine_a = {'mode'},

@@ -56,12 +56,12 @@ command! -bang FoldInc setlocal foldmethod=marker | setlocal foldmarker=include_
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 command! -bang LLL :luafile $MYVIMRC
 command! -bang Path :let @+ = expand("%:p")
-command! -bang Conf :tabnew ~/.config/nvim/init.vim
+command! -bang Conf :tabnew ~/.config/nvim/init.lua
 command! -bang FoldV setlocal foldmethod=syntax | setlocal foldlevel=5 | setlocal foldmethod=manual
 command! -bang FoldNLV setlocal foldmethod=syntax | setlocal foldlevel=1 | setlocal foldmethod=manual
 command! -bang LetmeWrite setlocal cpoptions-=W
 
-let g:indent_blankline_enabled = v:false                                                                                                                                                                                              
+let g:indent_blankline_enabled = v:false                                                                                                                                                                                    
 let g:verilog_disable_indent_lst= "all"
 let g:verilog_syntax_fold_lst = "class,function,task,module,specify,interface,sequence,block"
 let g:tagbar_ctags_bin="/runs/simrun_tav/libs/bin/ctags"

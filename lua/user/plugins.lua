@@ -79,7 +79,7 @@ return packer.startup(function(use)
 
   -- Fzf
     use { 'ibhagwan/fzf-lua'                          ,  commit = "341f0641ea4b0bd1cb798d7138f1a84c90848b02"}-- optional for icon support requires = { 'kyazdani42/nvim-web-devicons' } }
-    use { 'junegunn/fzf'                              ,  commit = "c79c306adb40b50756481e1667fcf523de07a7b3", run = './install --bin', }
+    use { 'junegunn/fzf'                              ,  commit = "a0ef8987fb5374452d08f32352cfa6933371ee54", run = './install --bin', }
 
   -- Folding
   use {'kevinhwang91/nvim-ufo'                        ,  commit = "d99d72253ce615d66e41660f68255ff2f65b4cf8" }
