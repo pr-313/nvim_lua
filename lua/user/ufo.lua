@@ -9,7 +9,8 @@ local ftMap = {
     git ='',
     verilog ='',
     verilog_systemverilog='',
-    text = ''
+    text = '',
+    html = ''
 }
 local handler = function(virtText, lnum, endLnum, width, truncate)
     local newVirtText = {}
