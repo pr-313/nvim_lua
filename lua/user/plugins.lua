@@ -107,15 +107,10 @@ return packer.startup(function(use)
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter"             ,  commit = "518e27589c0463af15463c9d675c65e464efc2fe"}
-  use { "nvim-treesitter/nvim-treesitter-angular", commit = "53d55ba0473c3ac58e25ce3d016a0409481c645c"}
+  use { "nvim-treesitter/nvim-treesitter-angular"     , commit = "53d55ba0473c3ac58e25ce3d016a0409481c645c"}
 
   -- Sidebar
   use { "sidebar-nvim/sidebar.nvim"                   ,  commit = "4e07c8ea5cc86e21d69bb000f9f8e5df536da8b4"}
-  
-
-  -- Sidebar
-  use { "sidebar-nvim/sidebar.nvim"             ,  commit = "4e07c8ea5cc86e21d69bb000f9f8e5df536da8b4"}
-  
 
   -- Misc
   use {"dstein64/vim-startuptime"                     ,  commit="82c8a5491e13fa307fb2cb47182a30560f930377"}
