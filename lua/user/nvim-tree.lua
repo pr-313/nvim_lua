@@ -8,6 +8,9 @@ if not config_status_ok then
   return
 end
 
+--some netrw nice to haves
+vim.g.netrw_liststyle = 3
+
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
