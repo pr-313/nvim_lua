@@ -61,11 +61,10 @@ command! -bang FoldV setlocal foldmethod=syntax | setlocal foldlevel=5 | setloca
 command! -bang FoldNLV setlocal foldmethod=syntax | setlocal foldlevel=1 | setlocal foldmethod=manual
 command! -bang LetmeWrite setlocal cpoptions-=W
 
-let g:indent_blankline_enabled = v:false                                                                                                                                                                                    
 let g:verilog_disable_indent_lst= "all"
 let g:verilog_syntax_fold_lst = "class,function,task,module,specify,interface,sequence,block"
 let g:jupyter_ascending_python_executable="python3"
-let g:tagbar_ctags_bin="/runs/simrun_tav/libs/bin/ctags"
+" let g:tagbar_ctags_bin="/runs/simrun_tav/libs/bin/ctags"
 
 if exists("loaded_matchit")
       let b:match_ignorecase=0
