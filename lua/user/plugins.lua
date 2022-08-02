@@ -81,7 +81,7 @@ return packer.startup(function(use)
     use { "untitled-ai/jupyter_ascending.vim"           ,  commit = "69652a47765daf110ad16e04d57f04fac6ceef81"}
     -- Fzf
     use { 'ibhagwan/fzf-lua'                          ,  commit = "341f0641ea4b0bd1cb798d7138f1a84c90848b02"}
-    use { 'junegunn/fzf'                              ,  commit = "ecc418ba77e52660ffdd9ed84727b12c3f377680", run = './install --bin', }
+    use { 'junegunn/fzf'                              ,  commit = "ecc418ba77e52660ffdd9ed84727b12c3f377680", run = './install --all', }
 
     -- Folding
     -- use {'kevinhwang91/nvim-ufo'                        ,  commit = "d99d72253ce615d66e41660f68255ff2f65b4cf8" }
