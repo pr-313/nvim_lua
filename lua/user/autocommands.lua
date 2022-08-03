@@ -85,7 +85,6 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
             require("cmp").setup.cmdline ( '/' , {enabled=false} )
             vim.cmd [[
                 :LspStop
-                :UfoDisable
             ]]
         end
   end,
