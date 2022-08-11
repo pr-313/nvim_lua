@@ -3,25 +3,18 @@ local fn = vim.fn
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-    PACKER_BOOTSTRAP = fn.system {
-        "git",
-        "clone",
-        "--depth",
-        "1",
-        "https://github.com/wbthomason/packer.nvim",
-        install_path,
-    }
+    PACKER_BOOTSTRAP = fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path, }
     print "Installing packer close and reopen Neovim..."
     vim.cmd [[packadd packer.nvim]]
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
+-- vim.cmd [[
+--   augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--   augroup end
+-- ]]
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -36,7 +29,7 @@ packer.init {
             return require("packer.util").float { border = "rounded" }
         end,
     },
-    compile_path = require("packer.util").join_paths('~/.config/nvim_lua', 'plugin', 'packer_compiled.lua'),
+    -- compile_path = require("packer.util").join_paths('~/.config/nvim_lua', 'plugin', 'packer_compiled.lua'),
     -- package_root   = require("packer.util").join_paths('~/.local/nvim/packer_all', 'site', 'pack')
 }
 
@@ -45,13 +38,13 @@ return packer.startup(function(use)
     -- My plugins here
     use { "wbthomason/packer.nvim"                      ,  commit = "00ec5adef58c5ff9a07f11f45903b9dbbaa1b422" } -- Have packer manage itself
     use { "nvim-lua/plenary.nvim"                       ,  commit = "9069d14a120cadb4f6825f76821533f2babcab92" } -- Useful lua functions used by lots of plugins
-    use { "windwp/nvim-autopairs"                       ,  commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" } -- Autopairs                                                               ,  integrates with both cmp and treesitter
+    -- use { "windwp/nvim-autopairs"                       ,  commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" } -- Autopairs                                                               ,  integrates with both cmp and treesitter
     use { "numToStr/Comment.nvim"                       ,  commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" }
     use { "JoosepAlviste/nvim-ts-context-commentstring" ,  commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" }
     use { "kyazdani42/nvim-web-devicons"                ,  commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" }
     use { "kyazdani42/nvim-tree.lua"                    ,  commit = "e6c1b4cd5be9f14c169b5dbe0665a148f8af498c" }
     -- use { "akinsho/bufferline.nvim"                  ,  commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" }
-    use { "moll/vim-bbye"                               ,  commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
+    -- use { "moll/vim-bbye"                               ,  commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
     use { "nvim-lualine/lualine.nvim"                   ,  commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" }
     use { "akinsho/toggleterm.nvim"                     ,  commit = "aaeed9e02167c5e8f00f25156895a6fd95403af8" }
     -- use { "ahmedkhalf/project.nvim"                  ,  commit = "541115e762764bc44d7d3bf501b6e367842d3d4f" }
@@ -78,7 +71,8 @@ return packer.startup(function(use)
     use { "hrsh7th/cmp-cmdline"                         ,  commit ="c36ca4bc1dedb12b4ba6546b96c43896fd6e7252"}
 
     -- Jupyter
-    use { "untitled-ai/jupyter_ascending.vim"           ,  commit = "69652a47765daf110ad16e04d57f04fac6ceef81"}
+    -- use { "untitled-ai/jupyter_ascending.vim"           ,  commit = "69652a47765daf110ad16e04d57f04fac6ceef81"}
+
     -- Fzf
     use { 'ibhagwan/fzf-lua'                          ,  commit = "341f0641ea4b0bd1cb798d7138f1a84c90848b02"}
     use { 'junegunn/fzf'                              ,  commit = "ecc418ba77e52660ffdd9ed84727b12c3f377680", run = './install --all', }
@@ -109,7 +103,7 @@ return packer.startup(function(use)
 
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter"             ,  commit = "518e27589c0463af15463c9d675c65e464efc2fe"}
-    use { "nvim-treesitter/nvim-treesitter-angular"     , commit = "53d55ba0473c3ac58e25ce3d016a0409481c645c"}
+    -- use { "nvim-treesitter/nvim-treesitter-angular"     , commit = "53d55ba0473c3ac58e25ce3d016a0409481c645c"}
 
     -- Sidebar
     use { "sidebar-nvim/sidebar.nvim"                   ,  commit = "4e07c8ea5cc86e21d69bb000f9f8e5df536da8b4"}

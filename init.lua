@@ -28,4 +28,5 @@ require "user.diffview"
 require "user.sidebar"
 require "user.pounce"
 require "user.sessions"
+require "user.lazygit"
 vim.cmd("source ~/.config/nvim/plugin/some_vim_funcs.vim")
