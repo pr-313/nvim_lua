@@ -22,15 +22,66 @@ if not status_ok then
     return
 end
 
+local util = require("packer.util")
+
 -- Have packer use a popup window
 packer.init {
+    -- compile_path      = require("packer.util").join_paths('~/.config/nvim_lua', 'plugin', 'packer_compiled.lua'),
+    -- package_root      = require("packer.util").join_paths('~/.local/nvim/packer_all', 'site', 'pack')
+    -- snapshot_path        = util.join_paths(vim.fn.stdpath('cache'), 'packer.nvim'), -- default save directory for snapshots
+    ensure_dependencies  = true, -- should packer install plugin dependencies?
+    snapshot             = nil, -- name of the snapshot you would like to load at startup
+    plugin_package       = 'packer', -- the default package for plugins
+    max_jobs             = nil, -- limit the number of simultaneous jobs. nil means no limit
+    auto_clean           = true, -- during sync(), remove unused plugins
+    compile_on_sync      = true, -- during sync(), run packer.compile()
+    disable_commands     = false, -- disable creating commands
+    opt_default          = false, -- default to using opt (as opposed to start) plugins
+    transitive_opt       = true, -- make dependencies of opt plugins also opt by default
+    transitive_disable   = true, -- automatically disable dependencies of disabled plugins
+    auto_reload_compiled = true, -- automatically reload the compiled file after creating it.
+    -- git = {
+    --     cmd = 'git', -- the base command for git operations
+    --     subcommands = { -- format strings for git subcommands
+    --         update         = 'pull --ff-only --progress --rebase=false',
+    --         install        = 'clone --depth %i --no-single-branch --progress',
+    --         fetch          = 'fetch --depth 999999 --progress',
+    --         checkout       = 'checkout %s --',
+    --         update_branch  = 'merge --ff-only @{u}',
+    --         current_branch = 'branch --show-current',
+    --         diff           = 'log --color=never --pretty=format:fmt --no-show-signature head@{1}...head',
+    --         diff_fmt       = '%%h %%s (%%cr)',
+    --         get_rev        = 'rev-parse --short head',
+    --         get_msg        = 'log --color=never --pretty=format:fmt --no-show-signature head -n 1',
+    --         submodules     = 'submodule update --init --recursive --progress'
+    --     },
+    --     depth              = 1, -- git clone depth
+    --     clone_timeout      = 100, -- timeout, in seconds, for git clones
+    --     default_url_format = 'https://github.com/%s' -- lua format string used for "aaa/bbb" style plugins
+    -- },
     display = {
-        open_fn = function()
-            return require("packer.util").float { border = "rounded" }
-        end,
+        non_interactive = false, -- if true, disable display windows for all operations
+        open_fn         = nil, -- an optional function to open a window for packer's display
+        open_cmd        = '65vnew \\[packer\\]', -- an optional command to open a window for packer's display
+        working_sym     = '⟳', -- the symbol for a plugin being installed/updated
+        error_sym       = '✗', -- the symbol for a plugin with an error in installation/updating
+        done_sym        = '✓', -- the symbol for a plugin which has completed installation/updating
+        removed_sym     = '-', -- the symbol for an unused plugin which was removed
+        moved_sym       = '→', -- the symbol for a plugin which was moved (e.g. from opt to start)
+        header_sym      = '━', -- the symbol for the header line in packer's display
+        show_all_info   = true, -- should packer show all update details automatically?
+        prompt_border   = 'double', -- border style of prompt popups.
+        keybindings     = { -- keybindings for the display window
+            quit          = 'q',
+            toggle_info   = '<cr>',
+            diff          = 'd',
+            prompt_revert = 'r',
+        }
     },
-    -- compile_path = require("packer.util").join_paths('~/.config/nvim_lua', 'plugin', 'packer_compiled.lua'),
-    -- package_root   = require("packer.util").join_paths('~/.local/nvim/packer_all', 'site', 'pack')
+    luarocks   = { python_cmd = 'python' }, -- set the python command to use for running hererocks 
+    log        = { level = 'warn' }, -- the default print log level. one of: "trace", "debug", "info", "warn", "error", "fatal".
+    profile    = { enable = false, threshold = 1 },-- integer in milliseconds, plugins which load faster than this won't be shown in profile output
+    autoremove = false, -- remove disabled or unused plugins without prompting the user
 }
 
 -- Install your plugins here
