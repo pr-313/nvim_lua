@@ -122,6 +122,9 @@ keymap("n", "tf", ":NvimTreeFindFile<CR>", opts)
 -- Indent Blankline
 keymap("n", "<leader>il", ":IndentBlanklineToggle<CR>", opts)
 
+-- ToggleTerm
+keymap("n", "<C-\\>", ":ToggleTerm<CR>", opts)
+
 -- Telescope
 -- keymap("n", "<C-f>", ":Telescope find_files<CR>", opts)
 -- keymap("n", "te", ":Telescope<CR>", opts)
