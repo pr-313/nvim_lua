@@ -47,7 +47,7 @@ return packer.startup(function(use)
     -- use { "akinsho/bufferline.nvim"                  ,  commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" }
     -- use { "moll/vim-bbye"                               ,  commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
     use { "nvim-lualine/lualine.nvim"                   ,  commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" }
-    use { "akinsho/toggleterm.nvim"                     ,  commit = "aaeed9e02167c5e8f00f25156895a6fd95403af8" , cmd={"ToggleTerm"}}
+    use { "akinsho/toggleterm.nvim"                     ,  commit = "aaeed9e02167c5e8f00f25156895a6fd95403af8" , cmd={"ToggleTerm"}, opt=true}
     -- use { "ahmedkhalf/project.nvim"                  ,  commit = "541115e762764bc44d7d3bf501b6e367842d3d4f" }
     use { "lukas-reineke/indent-blankline.nvim"         ,  commit = "6177a59552e35dfb69e1493fd68194e673dc3ee2" , cmd={"IndentBlanklineToggle"}, opt=true}
     use { "goolord/alpha-nvim"                          ,  commit = "ef27a59e5b4d7b1c2fe1950da3fe5b1c5f3b4c94" }
@@ -75,7 +75,7 @@ return packer.startup(function(use)
 
     -- Fzf
     use { 'ibhagwan/fzf-lua'                            ,  commit = "341f0641ea4b0bd1cb798d7138f1a84c90848b02" , cmd={"FzfLua"}, opt=true}
-    use { 'junegunn/fzf'                                ,  commit = "ecc418ba77e52660ffdd9ed84727b12c3f377680" , run = './install --bin', }
+    use { 'junegunn/fzf'                                ,  commit = "ecc418ba77e52660ffdd9ed84727b12c3f377680" , run = './install --bin', opt=true}
 
     -- Folding
     -- use {'kevinhwang91/nvim-ufo'                        ,  commit = "d99d72253ce615d66e41660f68255ff2f65b4cf8" }
@@ -106,24 +106,24 @@ return packer.startup(function(use)
     use { "nvim-treesitter/nvim-treesitter-angular"     ,  commit = "53d55ba0473c3ac58e25ce3d016a0409481c645c"}
 
     -- Sidebar
-    use { "sidebar-nvim/sidebar.nvim"                   ,  commit = "4e07c8ea5cc86e21d69bb000f9f8e5df536da8b4" , cmd={"SidebarNvimToggle"}}
+    use { "sidebar-nvim/sidebar.nvim"                   ,  commit = "4e07c8ea5cc86e21d69bb000f9f8e5df536da8b4" , cmd={"SidebarNvimToggle"}, opt=true}
 
     -- Quickfix
     use {'kevinhwang91/nvim-bqf'                        ,  commit = "8b62211ad7529c314e80b22968eef6ba275c781c"}
 
     -- Misc
     use {"dstein64/vim-startuptime"                     ,  commit = "82c8a5491e13fa307fb2cb47182a30560f930377"}
-    use {"mbbill/undotree"                              ,  commit = "08e259be24d4476c1ee745dc735eefd44f90efdc" , cmd={"UndotreeToggle"}}
-    use {"rlane/pounce.nvim"                            ,  commit = "fab6ab7b80f6c2716fc5b0afca1a77408a1d7675" , cmd={"Pounce"}}
-    use { "szw/vim-maximizer"                           ,  commit = "2e54952fe91e140a2e69f35f22131219fcd9c5f1" , cmd={"MaximizerToggle"}}
+    use {"mbbill/undotree"                              ,  commit = "08e259be24d4476c1ee745dc735eefd44f90efdc" , cmd={"UndotreeToggle"}, opt=true}
+    use {"rlane/pounce.nvim"                            ,  commit = "fab6ab7b80f6c2716fc5b0afca1a77408a1d7675" , cmd={"Pounce"}, opt=true}
+    use { "szw/vim-maximizer"                           ,  commit = "2e54952fe91e140a2e69f35f22131219fcd9c5f1" , cmd={"MaximizerToggle"}, opt=true}
     use { "godlygeek/tabular"                           ,  commit = "339091ac4dd1f17e225fe7d57b48aff55f99b23a" }
-    use { "preservim/tagbar"                            ,  commit = "0243b19920a683df531f19bb7fb80c0ff83927dd" , cmd={"TagbarToggle"}}
+    use { "preservim/tagbar"                            ,  commit = "0243b19920a683df531f19bb7fb80c0ff83927dd" , cmd={"TagbarToggle"}, opt=true}
 
     -- Git
     use { "lewis6991/gitsigns.nvim"                     ,  commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }
     use { "sindrets/diffview.nvim"                      ,  commit = "2e77bedfe11f52621fad1d8c20ffbddd8e36d137" }
-    use { "kdheepak/lazygit.nvim"                       ,  commit = "9c73fd69a4c1cb3b3fc35b741ac968e331642600" , cmd={"LazyGit"}}
-    use { "tpope/vim-fugitive"                          ,  commit = "80cd9c876e56c70135643601fe08e30010eb88dc" , cmd={"G","Gvdiffsplit"}}
+    use { "kdheepak/lazygit.nvim"                       ,  commit = "9c73fd69a4c1cb3b3fc35b741ac968e331642600" , cmd={"LazyGit"}, opt=true}
+    use { "tpope/vim-fugitive"                          ,  commit = "80cd9c876e56c70135643601fe08e30010eb88dc" , cmd={"G","Gvdiffsplit"}, opt=true}
 
     -- DAP
     -- use { "mfussenegger/nvim-dap"                       ,  commit = "014ebd53612cfd42ac8c131e6cec7c194572f21d" }
