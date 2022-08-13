@@ -11,8 +11,6 @@ local servers = {
   "pyright",
   "bashls",
   "jsonls",
-  "yamlls",
-  "grammarly",
   "vimls"
 }
 

@@ -37,6 +37,7 @@ packer.init {
 return packer.startup(function(use)
     -- My plugins here
     use { "wbthomason/packer.nvim"                      ,  commit = "00ec5adef58c5ff9a07f11f45903b9dbbaa1b422" } -- Have packer manage itself
+    use { "lewis6991/impatient.nvim"                    ,  commit = "969f2c5c90457612c09cf2a13fee1adaa986d350" }
     use { "nvim-lua/plenary.nvim"                       ,  commit = "9069d14a120cadb4f6825f76821533f2babcab92" } -- Useful lua functions used by lots of plugins
     -- use { "windwp/nvim-autopairs"                       ,  commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" } -- Autopairs                                                               ,  integrates with both cmp and treesitter
     use { "numToStr/Comment.nvim"                       ,  commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" }
@@ -46,10 +47,9 @@ return packer.startup(function(use)
     -- use { "akinsho/bufferline.nvim"                  ,  commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" }
     -- use { "moll/vim-bbye"                               ,  commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
     use { "nvim-lualine/lualine.nvim"                   ,  commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" }
-    use { "akinsho/toggleterm.nvim"                     ,  commit = "aaeed9e02167c5e8f00f25156895a6fd95403af8" }
+    use { "akinsho/toggleterm.nvim"                     ,  commit = "aaeed9e02167c5e8f00f25156895a6fd95403af8" , cmd={"ToggleTerm"}}
     -- use { "ahmedkhalf/project.nvim"                  ,  commit = "541115e762764bc44d7d3bf501b6e367842d3d4f" }
-    use { "lewis6991/impatient.nvim"                    ,  commit = "969f2c5c90457612c09cf2a13fee1adaa986d350" }
-    use { "lukas-reineke/indent-blankline.nvim"         ,  commit = "6177a59552e35dfb69e1493fd68194e673dc3ee2" }
+    use { "lukas-reineke/indent-blankline.nvim"         ,  commit = "6177a59552e35dfb69e1493fd68194e673dc3ee2" , cmd={"IndentBlanklineToggle"}, opt=true}
     use { "goolord/alpha-nvim"                          ,  commit = "ef27a59e5b4d7b1c2fe1950da3fe5b1c5f3b4c94" }
     use {"vhda/verilog_systemverilog.vim"               ,  commit="e63a6d7093ab4a483eac7479e7d9ae8efff67472"}
 
@@ -74,8 +74,8 @@ return packer.startup(function(use)
     -- use { "untitled-ai/jupyter_ascending.vim"           ,  commit = "69652a47765daf110ad16e04d57f04fac6ceef81"}
 
     -- Fzf
-    use { 'ibhagwan/fzf-lua'                          ,  commit = "341f0641ea4b0bd1cb798d7138f1a84c90848b02"}
-    use { 'junegunn/fzf'                              ,  commit = "ecc418ba77e52660ffdd9ed84727b12c3f377680", run = './install --all', }
+    use { 'ibhagwan/fzf-lua'                            ,  commit = "341f0641ea4b0bd1cb798d7138f1a84c90848b02" , cmd={"FzfLua"}, opt=true}
+    use { 'junegunn/fzf'                                ,  commit = "ecc418ba77e52660ffdd9ed84727b12c3f377680" , run = './install --bin', }
 
     -- Folding
     -- use {'kevinhwang91/nvim-ufo'                        ,  commit = "d99d72253ce615d66e41660f68255ff2f65b4cf8" }
@@ -103,32 +103,32 @@ return packer.startup(function(use)
 
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter"             ,  commit = "518e27589c0463af15463c9d675c65e464efc2fe"}
-    -- use { "nvim-treesitter/nvim-treesitter-angular"     , commit = "53d55ba0473c3ac58e25ce3d016a0409481c645c"}
+    use { "nvim-treesitter/nvim-treesitter-angular"     ,  commit = "53d55ba0473c3ac58e25ce3d016a0409481c645c"}
 
     -- Sidebar
-    use { "sidebar-nvim/sidebar.nvim"                   ,  commit = "4e07c8ea5cc86e21d69bb000f9f8e5df536da8b4"}
+    use { "sidebar-nvim/sidebar.nvim"                   ,  commit = "4e07c8ea5cc86e21d69bb000f9f8e5df536da8b4" , cmd={"SidebarNvimToggle"}}
 
     -- Quickfix
     use {'kevinhwang91/nvim-bqf'                        ,  commit = "8b62211ad7529c314e80b22968eef6ba275c781c"}
 
     -- Misc
-    use {"dstein64/vim-startuptime"                     ,  commit="82c8a5491e13fa307fb2cb47182a30560f930377"}
-    use {"mbbill/undotree"                              ,  commit="08e259be24d4476c1ee745dc735eefd44f90efdc"}
-    use {"rlane/pounce.nvim"                            ,  commit="fab6ab7b80f6c2716fc5b0afca1a77408a1d7675"}
-    use { "szw/vim-maximizer"                           ,  commit = "2e54952fe91e140a2e69f35f22131219fcd9c5f1" }
+    use {"dstein64/vim-startuptime"                     ,  commit = "82c8a5491e13fa307fb2cb47182a30560f930377"}
+    use {"mbbill/undotree"                              ,  commit = "08e259be24d4476c1ee745dc735eefd44f90efdc" , cmd={"UndotreeToggle"}}
+    use {"rlane/pounce.nvim"                            ,  commit = "fab6ab7b80f6c2716fc5b0afca1a77408a1d7675" , cmd={"Pounce"}}
+    use { "szw/vim-maximizer"                           ,  commit = "2e54952fe91e140a2e69f35f22131219fcd9c5f1" , cmd={"MaximizerToggle"}}
     use { "godlygeek/tabular"                           ,  commit = "339091ac4dd1f17e225fe7d57b48aff55f99b23a" }
-    use { "preservim/tagbar"                            ,  commit = "0243b19920a683df531f19bb7fb80c0ff83927dd" }
+    use { "preservim/tagbar"                            ,  commit = "0243b19920a683df531f19bb7fb80c0ff83927dd" , cmd={"TagbarToggle"}}
 
     -- Git
     use { "lewis6991/gitsigns.nvim"                     ,  commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }
     use { "sindrets/diffview.nvim"                      ,  commit = "2e77bedfe11f52621fad1d8c20ffbddd8e36d137" }
-    use { "kdheepak/lazygit.nvim"                       ,  commit = "9c73fd69a4c1cb3b3fc35b741ac968e331642600" }
-    use { "tpope/vim-fugitive"                          ,  commit = "80cd9c876e56c70135643601fe08e30010eb88dc" }
+    use { "kdheepak/lazygit.nvim"                       ,  commit = "9c73fd69a4c1cb3b3fc35b741ac968e331642600" , cmd={"LazyGit"}}
+    use { "tpope/vim-fugitive"                          ,  commit = "80cd9c876e56c70135643601fe08e30010eb88dc" , cmd={"G","Gvdiffsplit"}}
 
     -- DAP
-    use { "mfussenegger/nvim-dap"                       ,  commit = "014ebd53612cfd42ac8c131e6cec7c194572f21d" }
-    use { "rcarriga/nvim-dap-ui"                        ,  commit = "d76d6594374fb54abf2d94d6a320f3fd6e9bb2f7" }
-    use { "ravenxrz/DAPInstall.nvim"                    ,  commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
+    -- use { "mfussenegger/nvim-dap"                       ,  commit = "014ebd53612cfd42ac8c131e6cec7c194572f21d" }
+    -- use { "rcarriga/nvim-dap-ui"                        ,  commit = "d76d6594374fb54abf2d94d6a320f3fd6e9bb2f7" }
+    -- use { "ravenxrz/DAPInstall.nvim"                    ,  commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
