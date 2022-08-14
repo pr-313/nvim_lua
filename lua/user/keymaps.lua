@@ -35,8 +35,8 @@ keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>t", ":tabnew<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":tabnext<CR>", opts)
-keymap("n", "<S-h>", ":tabprevious<CR>", opts)
+-- keymap("n", "<S-l>", ":tabnext<CR>", opts)
+-- keymap("n", "<S-h>", ":tabprevious<CR>", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 keymap("n", "<leader>d", "V\"_d", opts)
