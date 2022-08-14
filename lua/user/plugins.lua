@@ -90,12 +90,13 @@ return packer.startup(function(use)
     use { "wbthomason/packer.nvim"                         ,  commit = "00ec5adef58c5ff9a07f11f45903b9dbbaa1b422" } -- Have packer manage itself
     use { "lewis6991/impatient.nvim"                       ,  commit = "969f2c5c90457612c09cf2a13fee1adaa986d350" }
     use { "nvim-lua/plenary.nvim"                          ,  commit = "9069d14a120cadb4f6825f76821533f2babcab92" } -- Useful lua functions used by lots of plugins
-    -- use { "windwp/nvim-autopairs"                       ,  commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" } -- Autopairs                                                               ,  integrates with both cmp and treesitter
+    -- use { "windwp/nvim-autopairs"                       ,  commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" } -- Autopairs, integrates with both cmp and treesitter
     use { "numToStr/Comment.nvim"                          ,  commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" }
     use { "JoosepAlviste/nvim-ts-context-commentstring"    ,  commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" }
     use { "kyazdani42/nvim-web-devicons"                   ,  commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" }
-    use { "kyazdani42/nvim-tree.lua"                       ,  commit = "e6c1b4cd5be9f14c169b5dbe0665a148f8af498c" }
     use { "romgrk/barbar.nvim"                             ,  commit = "f89dfb873fa12bc473b079f62a11c078b73713f3" }
+    use { "kyazdani42/nvim-tree.lua"                       ,  commit = "e6c1b4cd5be9f14c169b5dbe0665a148f8af498c", cmd={"NvimTreeToggle","NvimTreeFindFile"}, opt=true
+                                                           ,  config = function () require"user.nvim-tree" end}
     -- use { "moll/vim-bbye"                               ,  commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
     use { "nvim-lualine/lualine.nvim"                      ,  commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" }
     use { "akinsho/toggleterm.nvim"                        ,  commit = "aaeed9e02167c5e8f00f25156895a6fd95403af8" , cmd={"ToggleTerm"}, opt=true,
