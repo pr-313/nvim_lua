@@ -163,7 +163,8 @@ return packer.startup(function(use)
     use {'kevinhwang91/nvim-bqf'                           ,  commit = "8b62211ad7529c314e80b22968eef6ba275c781c"}
 
     -- Misc
-    use {"dstein64/vim-startuptime"                        ,  commit = "82c8a5491e13fa307fb2cb47182a30560f930377"}
+    
+    use {"tweekmonster/startuptime.vim"                    ,  commit = "dfa57f522d6f61793fe5fea65bca7484751b8ca2"}
     use {"mbbill/undotree"                                 ,  commit = "08e259be24d4476c1ee745dc735eefd44f90efdc" , cmd={"UndotreeToggle"}, opt=true}
     use {"rlane/pounce.nvim"                               ,  commit = "fab6ab7b80f6c2716fc5b0afca1a77408a1d7675" , cmd={"Pounce"}, opt=true
                                                            ,  config = function() require'user.pounce' end}
