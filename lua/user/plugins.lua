@@ -94,7 +94,8 @@ return packer.startup(function(use)
     use { "numToStr/Comment.nvim"                          ,  commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" }
     use { "JoosepAlviste/nvim-ts-context-commentstring"    ,  commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" }
     use { "kyazdani42/nvim-web-devicons"                   ,  commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" }
-    use { "romgrk/barbar.nvim"                             ,  commit = "f89dfb873fa12bc473b079f62a11c078b73713f3" }
+    -- use { "romgrk/barbar.nvim"                             ,  commit = "f89dfb873fa12bc473b079f62a11c078b73713f3" }
+    use { 'alvarosevilla95/luatab.nvim'                    ,  commit = "79d53c11bd77274b49b50f1d6fdb10529d7354b7" }
     use { "kyazdani42/nvim-tree.lua"                       ,  commit = "e6c1b4cd5be9f14c169b5dbe0665a148f8af498c", cmd={"NvimTreeToggle","NvimTreeFindFile"}, opt=true
                                                            ,  config = function () require"user.nvim-tree" end}
     -- use { "moll/vim-bbye"                               ,  commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
