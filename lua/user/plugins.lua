@@ -177,6 +177,7 @@ return packer.startup(function(use)
     -- Git
     use { "lewis6991/gitsigns.nvim"                        ,  commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }
     use { "sindrets/diffview.nvim"                         ,  commit = "2e77bedfe11f52621fad1d8c20ffbddd8e36d137" }
+    use { "akinsho/git-conflict.nvim"                      ,  commit = "be9b2b80b7e9021db03322d46b56bff5c22cd253" }
     use { "kdheepak/lazygit.nvim"                          ,  commit = "9c73fd69a4c1cb3b3fc35b741ac968e331642600" , cmd={"LazyGit"}, opt=true}
     use { "tpope/vim-fugitive"                             ,  commit = "80cd9c876e56c70135643601fe08e30010eb88dc" , cmd={"G","Gvdiffsplit"}, opt=true}
 
