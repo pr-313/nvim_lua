@@ -154,6 +154,12 @@ keymap("n", "ts", ":SidebarNvimToggle<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", ":LazyGit<CR>", opts)
+keymap('n', 'co', '<Plug>(git-conflict-ours)')
+keymap('n', 'ct', '<Plug>(git-conflict-theirs)')
+keymap('n', 'cb', '<Plug>(git-conflict-both)')
+keymap('n', 'c0', '<Plug>(git-conflict-none)')
+keymap('n', ']x', '<Plug>(git-conflict-prev-conflict)')
+keymap('n', '[x', '<Plug>(git-conflict-next-conflict)')
 
 -- Comment
 keymap("n", "<leader>cc", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
