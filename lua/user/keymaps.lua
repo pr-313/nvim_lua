@@ -183,4 +183,4 @@ keymap("v", "s", "<cmd>Pounce<CR>", opts)
 -- keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Custom Keymaps Call
-  vim.cmd("silent! source ~/my_nvim/*")
+  vim.cmd("silent! source ~/my_nvim/*.vim")
