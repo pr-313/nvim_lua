@@ -67,6 +67,8 @@ let g:tagbar_ctags_bin="/runs/simrun_tav/libs/bin/ctags"
 let g:jupyter_ascending_python_executable="python3"
 " let g:tagbar_ctags_bin="/runs/simrun_tav/libs/bin/ctags"
 
+set includeexpr=substitute(v:fname,',.*','','g')
+
 if exists("loaded_matchit")
       let b:match_ignorecase=0
         let b:match_words=
