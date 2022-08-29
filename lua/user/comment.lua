@@ -15,14 +15,14 @@ comment.setup {
         ---Line-comment toggle keymap
         line = '<leader>cc',
         ---Block-comment toggle keymap
-        block = '<leader>cb',
+        -- block = 'gcb',
     },
     ---LHS of operator-pending mappings in NORMAL and VISUAL mode
     opleader = {
         ---Line-comment keymap
-        line = '<leader>cc',
+        line = 'cc',
         ---Block-comment keymap
-        block = '<leader>cb',
+        block = 'cb',
     },
     ---LHS of extra mappings
     -- extra = {
