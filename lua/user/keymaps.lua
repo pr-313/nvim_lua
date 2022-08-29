@@ -162,7 +162,7 @@ keymap('n', ']x', '<Plug>(git-conflict-prev-conflict)')
 keymap('n', '[x', '<Plug>(git-conflict-next-conflict)')
 
 -- Comment
-keymap("x", "<leader>cc", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
+-- keymap("x", "<leader>cc", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
 -- Pounce
 
