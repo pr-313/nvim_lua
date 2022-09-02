@@ -129,7 +129,7 @@ return packer.startup(function(use)
     -- use { "untitled-ai/jupyter_ascending.vim"           ,  commit = "69652a47765daf110ad16e04d57f04fac6ceef81"}
 
     -- Fzf
-    use { 'ibhagwan/fzf-lua'                               ,  commit = "341f0641ea4b0bd1cb798d7138f1a84c90848b02", cmd={'FzfLua'}, opt=true
+    use { 'ibhagwan/fzf-lua'                               ,  commit = "0944e1e85fc74c7c006c696b74b7af3acf345d8b", cmd={'FzfLua'}, opt=true
                                                            ,  config = function () require"user.fzf-lua" end}
     use { 'junegunn/fzf'                                   ,  commit = "ecc418ba77e52660ffdd9ed84727b12c3f377680", run = './install --all'}
 
