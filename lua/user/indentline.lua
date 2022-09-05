@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-vim.g.indent_blankline_enabled = false
+vim.g.indent_blankline_enabled = true
 
 indent_blankline.setup {
   indent_blankline_enabled=false,
