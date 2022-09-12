@@ -58,6 +58,9 @@ keymap("n", "<M-m>", ":copen<CR>", opts)
 keymap("n", "<M-b>", ":cprevious<CR>", opts)
 keymap("n", "<M-n>", ":cnext<CR>", opts)
 
+-- Verilog
+keymap("n", "<M-V>", ":set filetype=verilog_systemverilog<CR>", opts)
+
 -- Quick Find
 keymap("v", "<leader>g", "y/<C-r>\"<cr>")
 
