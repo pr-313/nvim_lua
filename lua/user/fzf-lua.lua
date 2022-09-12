@@ -249,9 +249,9 @@ fzf_lua.setup {
       prompt          = 'GitFiles❯ ',
       cmd             = 'git ls-files --exclude-standard',
       multiprocess    = true,           -- run command in a separate process
-      git_icons       = true,           -- show git icons?
-      file_icons      = true,           -- show file icons?
-      color_icons     = true,           -- colorize file|git icons
+      git_icons       = false,           -- show git icons?
+      file_icons      = false,           -- show file icons?
+      color_icons     = false,           -- colorize file|git icons
       -- force display the cwd header line regardles of your current working
       -- directory can also be used to hide the header when not wanted
       -- show_cwd_header = true
@@ -260,9 +260,9 @@ fzf_lua.setup {
       prompt          = 'GitStatus❯ ',
       cmd             = "git status -s",
       previewer       = "git_diff",
-      file_icons      = true,
-      git_icons       = true,
-      color_icons     = true,
+      file_icons      = false,
+      git_icons       = false,
+      color_icons     = false,
       actions = {
         -- actions inherit from 'actions.files' and merge
         ["right"]   = { actions.git_unstage, actions.resume },
@@ -327,9 +327,9 @@ fzf_lua.setup {
     prompt            = 'Rg❯ ',
     input_prompt      = 'Grep For❯ ',
     multiprocess      = true,           -- run command in a separate process
-    git_icons         = true,           -- show git icons?
-    file_icons        = true,           -- show file icons?
-    color_icons       = true,           -- colorize file|git icons
+    git_icons         = false,           -- show git icons?
+    file_icons        = false,           -- show file icons?
+    color_icons       = false,           -- colorize file|git icons
     -- executed command priority is 'cmd' (if exists)
     -- otherwise auto-detect prioritizes `rg` over `grep`
     -- default options are controlled by 'rg|grep_opts'
@@ -368,14 +368,17 @@ fzf_lua.setup {
   oldfiles = {
     prompt            = 'History❯ ',
     cwd_only          = false,
+    file_icons        = false,         -- show file icons?
+    color_icons       = false,         -- colorize file|git icons
+    sort_lastused     = false,         -- sort buffers() by last used
     stat_file         = true,         -- verify files exist on disk
     include_current_session = false,  -- include bufs from current session
   },
   buffers = {
     prompt            = 'Buffers❯ ',
-    file_icons        = true,         -- show file icons?
-    color_icons       = true,         -- colorize file|git icons
-    sort_lastused     = true,         -- sort buffers() by last used
+    file_icons        = false,         -- show file icons?
+    color_icons       = false,         -- colorize file|git icons
+    sort_lastused     = false,         -- sort buffers() by last used
     actions = {
       -- actions inherit from 'actions.buffers' and merge
       -- by supplying a table of functions we're telling
@@ -389,8 +392,8 @@ fzf_lua.setup {
     prompt            = 'Tabs❯ ',
     tab_title         = "Tab",
     tab_marker        = "<<",
-    file_icons        = true,         -- show file icons?
-    color_icons       = true,         -- colorize file|git icons
+    file_icons        = false,         -- show file icons?
+    color_icons       = false,         -- colorize file|git icons
     actions = {
       -- actions inherit from 'actions.buffers' and merge
       ["default"]     = actions.buf_switch,
@@ -441,9 +444,9 @@ fzf_lua.setup {
     prompt                = 'Tags❯ ',
     ctags_file            = "tags",
     multiprocess          = true,
-    file_icons            = true,
-    git_icons             = true,
-    color_icons           = true,
+    file_icons            = false,
+    git_icons             = false,
+    color_icons           = false,
     -- 'tags_live_grep' options, `rg` prioritizes over `grep`
     rg_opts               = "--no-heading --color=always --smart-case",
     grep_opts             = "--color=auto --perl-regexp",
@@ -459,9 +462,9 @@ fzf_lua.setup {
     prompt                = 'BTags❯ ',
     ctags_file            = "tags",
     multiprocess          = true,
-    file_icons            = true,
-    git_icons             = true,
-    color_icons           = true,
+    file_icons            = false,
+    git_icons             = false,
+    color_icons           = false,
     rg_opts               = "--no-heading --color=always",
     grep_opts             = "--color=auto --perl-regexp",
     fzf_opts = {
@@ -483,17 +486,17 @@ fzf_lua.setup {
     end,
   },
   quickfix = {
-    file_icons        = true,
-    git_icons         = true,
+    file_icons        = false,
+    git_icons         = false,
   },
   lsp = {
     prompt_postfix    = '❯ ',       -- will be appended to the LSP label
                                     -- to override use 'prompt' instead
     cwd_only          = false,      -- LSP/diagnostics for cwd only?
     async_or_timeout  = 5000,       -- timeout(ms) or 'true' for async calls
-    file_icons        = true,
+    file_icons        = false,
     git_icons         = false,
-    lsp_icons         = true,
+    lsp_icons         = false,
     ui_select         = true,       -- use 'vim.ui.select' for code actions
     symbol_style      = 1,          -- style for document/workspace symbols
                                     -- false: disable,    1: icon+kind
