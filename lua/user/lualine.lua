@@ -16,9 +16,9 @@ lualine.setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch'},
-    lualine_c = {{'filename', 
+    lualine_c = {{'filename',
                     path = 1}},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_x = {{require('auto-session-library').current_session_name},'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
