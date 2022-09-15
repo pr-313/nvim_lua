@@ -129,7 +129,7 @@ return packer.startup(function(use)
     -- use { "untitled-ai/jupyter_ascending.vim"           ,  commit = "69652a47765daf110ad16e04d57f04fac6ceef81"}
 
     -- Fzf
-    use { 'ibhagwan/fzf-lua'                               ,  commit = "0944e1e85fc74c7c006c696b74b7af3acf345d8b", cmd={'FzfLua'}, opt=true
+    use { 'ibhagwan/fzf-lua'                               ,  commit = "4def48226ec994ec5b5f7fb7e6814c79845aba0f", cmd={'FzfLua'}, opt=true
                                                            ,  config = function () require"user.fzf-lua" end}
     use { 'junegunn/fzf'                                   ,  commit = "ecc418ba77e52660ffdd9ed84727b12c3f377680", run = './install --all'}
 
@@ -155,7 +155,7 @@ return packer.startup(function(use)
 
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter"                ,  commit = "518e27589c0463af15463c9d675c65e464efc2fe"}
-    use { "nvim-treesitter/nvim-treesitter-angular"        ,  commit = "53d55ba0473c3ac58e25ce3d016a0409481c645c"}
+    -- use { "nvim-treesitter/nvim-treesitter-angular"        ,  commit = "53d55ba0473c3ac58e25ce3d016a0409481c645c"}
 
     -- Sidebar
     use { "sidebar-nvim/sidebar.nvim"                      ,  commit = "4e07c8ea5cc86e21d69bb000f9f8e5df536da8b4" , cmd={"SidebarNvimToggle"}, opt=true
@@ -166,18 +166,19 @@ return packer.startup(function(use)
 
     -- Misc
     
-    use {"tweekmonster/startuptime.vim"                    ,  commit = "dfa57f522d6f61793fe5fea65bca7484751b8ca2"}
+    use {"tweekmonster/startuptime.vim"                    ,  commit = "dfa57f522d6f61793fe5fea65bca7484751b8ca2" , cmd={"StartupTime"}, opt=true}
     use {"mbbill/undotree"                                 ,  commit = "08e259be24d4476c1ee745dc735eefd44f90efdc" , cmd={"UndotreeToggle"}, opt=true}
     use {"rlane/pounce.nvim"                               ,  commit = "fab6ab7b80f6c2716fc5b0afca1a77408a1d7675" , cmd={"Pounce"}, opt=true
                                                            ,  config = function() require'user.pounce' end}
     use { "szw/vim-maximizer"                              ,  commit = "2e54952fe91e140a2e69f35f22131219fcd9c5f1" , cmd={"MaximizerToggle"}, opt=true}
-    use { "godlygeek/tabular"                              ,  commit = "339091ac4dd1f17e225fe7d57b48aff55f99b23a" }
+    use { "godlygeek/tabular"                              ,  commit = "339091ac4dd1f17e225fe7d57b48aff55f99b23a" , cmd={"Tab"}, opt=true}
     use { "preservim/tagbar"                               ,  commit = "0243b19920a683df531f19bb7fb80c0ff83927dd" , cmd={"TagbarToggle"}, opt=true}
 
     -- Git
     use { "lewis6991/gitsigns.nvim"                        ,  commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }
-    use { "sindrets/diffview.nvim"                         ,  commit = "2e77bedfe11f52621fad1d8c20ffbddd8e36d137" }
-    use { "akinsho/git-conflict.nvim"                      ,  commit = "be9b2b80b7e9021db03322d46b56bff5c22cd253" }
+    use { "f-person/git-blame.nvim"                        ,  commit = "0cd43a623d98d71cd5bb3d86f4c5a6e98f6c9cc5" }
+    use { "sindrets/diffview.nvim"                         ,  commit = "b31fafb71f35e4f2a4bd95481ff7d59b1caae387" , cmd={"DiffviewOpen", "DiffviewFileHistory"}, opt=true
+                                                           ,  config = function () require('user.diffview') end}
     use { "kdheepak/lazygit.nvim"                          ,  commit = "9c73fd69a4c1cb3b3fc35b741ac968e331642600" , cmd={"LazyGit"}, opt=true}
     use { "tpope/vim-fugitive"                             ,  commit = "80cd9c876e56c70135643601fe08e30010eb88dc" , cmd={"G","Gvdiffsplit"}, opt=true}
 
