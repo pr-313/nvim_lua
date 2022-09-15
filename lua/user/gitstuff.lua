@@ -92,16 +92,3 @@ vim.g.lazygit_floating_window_use_plenary = 0 -- use plenary.nvim to manage floa
 vim.g.lazygit_use_neovim_remote = 1 -- fallback to 0 if neovim-remote is not installed
 
 
-local status_ok, git_conflict = pcall(require, "git-conflict")
-if not status_ok then
-    return
-end
-
-git_conflict.setup{
-    default_mappings = true, -- disable buffer local mapping created by this plugin
-    disable_diagnostics = true, -- This will disable the diagnostics in a buffer whilst it is conflicted
-    highlights = { -- They must have background color, otherwise the default color will be used
-        incoming = 'DiffText',
-        current = 'DiffAdd',
-    }
-}

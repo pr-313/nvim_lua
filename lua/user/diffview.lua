@@ -8,7 +8,7 @@ diffview.setup({
   diff_binaries = false,    -- Show diffs for binaries
   enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
   git_cmd = { "/runs/simrun_tav/libs/bin/git" },      -- The git executable followed by default args.
-  use_icons = true,         -- Requires nvim-web-devicons
+  use_icons = false,         -- Requires nvim-web-devicons
   icons = {                 -- Only applies when use_icons is true.
     folder_closed = "",
     folder_open = "",
