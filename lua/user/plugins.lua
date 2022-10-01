@@ -100,7 +100,7 @@ return packer.startup(function(use)
                                                            ,  config = function () require"user.nvim-tree" end}
     -- use { "moll/vim-bbye"                               ,  commit = "" }
     use { "nvim-lualine/lualine.nvim"                      ,  commit = "a52f078" }
-    use { "akinsho/toggleterm.nvim"                        ,  commit = "2a787c4" , cmd={"ToggleTerm"}, opt=true,
+    use { "akinsho/toggleterm.nvim"                        ,  commit = "2a787c4" , cmd={"ToggleTerm","Lazygit"}, opt=true,
                                                               config = function () require"user.toggleterm" end}
     -- use { "ahmedkhalf/project.nvim"                     ,  commit = "" }
     use { "lukas-reineke/indent-blankline.nvim"            ,  commit = "db7cbcb" , cmd={"IndentBlanklineToggle"}, opt=true
@@ -178,7 +178,7 @@ return packer.startup(function(use)
     use { "f-person/git-blame.nvim"                        ,  commit = "08e75b7" }
     use { "sindrets/diffview.nvim"                         ,  commit = "6baa30d" , cmd={"DiffviewOpen", "DiffviewFileHistory"}, opt=true
                                                            ,  config = function () require('user.diffview') end}
-    use { "kdheepak/lazygit.nvim"                          ,  commit = "9c73fd6" , cmd={"LazyGit"}, opt=true}
+    -- use { "kdheepak/lazygit.nvim"                          ,  commit = "9c73fd6" , cmd={"LazyGit"}, opt=true}
     use { "tpope/vim-fugitive"                             ,  commit = "dd8107c" , cmd={"G","Gvdiffsplit"}, opt=true}
 
     -- DAP
