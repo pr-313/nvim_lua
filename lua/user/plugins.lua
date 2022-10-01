@@ -142,7 +142,7 @@ return packer.startup(function(use)
     use { "rafamadriz/friendly-snippets"                   ,  commit = "2be79d8" } -- a bunch of snippets to use
 
     -- Clipboard ++
-    use { "tversteeg/registers.nvim"                       ,  commit = "23f9efc" }
+    use { "tversteeg/registers.nvim"                       ,  commit = "e947bdb" }
 
     -- Sessions
     use { 'rmagatti/auto-session'                          ,  commit = "39319bf" }
