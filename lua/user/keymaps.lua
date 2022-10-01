@@ -156,7 +156,7 @@ keymap("n", "tg", ":TagbarToggle<CR>", opts)
 keymap("n", "ts", ":SidebarNvimToggle<CR>", opts)
 
 -- Git
-keymap("n", "<leader>gg", ":LazyGit<CR>", opts)
+keymap("n", "<leader>gg", ":Lazygit<CR>", opts)
 keymap('n', ',co', '<Plug>(git-conflict-ours)')
 keymap('n', ',ct', '<Plug>(git-conflict-theirs)')
 keymap('n', ',cb', '<Plug>(git-conflict-both)')
