@@ -6,7 +6,7 @@ end
 vim.g.indent_blankline_enabled = true
 
 indent_blankline.setup {
-  indent_blankline_enabled=false,
+  indent_blankline_enabled=true,
   show_current_context = true,
   indent_blankline_char = "▏",
   indent_blankline_show_trailing_blankline_indent = false,

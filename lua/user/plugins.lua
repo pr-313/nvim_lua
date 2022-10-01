@@ -103,8 +103,7 @@ return packer.startup(function(use)
     use { "akinsho/toggleterm.nvim"                        ,  commit = "2a787c4" , cmd={"ToggleTerm","Lazygit"}, opt=true,
                                                               config = function () require"user.toggleterm" end}
     -- use { "ahmedkhalf/project.nvim"                     ,  commit = "" }
-    use { "lukas-reineke/indent-blankline.nvim"            ,  commit = "db7cbcb" , cmd={"IndentBlanklineToggle"}, opt=true
-                                                           ,  config = function () require"user.indentline" end}
+    use { "lukas-reineke/indent-blankline.nvim"            ,  commit = "db7cbcb" }
     use { "goolord/alpha-nvim"                             ,  commit = "0bb6fc0" }
     use {"vhda/verilog_systemverilog.vim"                  ,  commit = "0141e62" }
 
