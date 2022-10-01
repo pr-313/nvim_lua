@@ -40,7 +40,7 @@ nvim_tree.setup {
             global=true,
         },
         open_file = {
-            resize_window=true,
+            resize_window=false,
         }
     },
     renderer = {
