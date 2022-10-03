@@ -103,8 +103,7 @@ return packer.startup(function(use)
     use { "akinsho/toggleterm.nvim"                        ,  commit = "2a787c4" , cmd={"ToggleTerm","Lazygit"}, opt=true,
                                                               config = function () require"user.toggleterm" end}
     -- use { "ahmedkhalf/project.nvim"                     ,  commit = "" }
-    use { "lukas-reineke/indent-blankline.nvim"            ,  commit = "db7cbcb" , cmd={"IndentBlanklineToggle"}, opt=true
-                                                           ,  config = function () require"user.indentline" end}
+    use { "lukas-reineke/indent-blankline.nvim"            ,  commit = "db7cbcb" }
     use { "goolord/alpha-nvim"                             ,  commit = "0bb6fc0" }
     use {"vhda/verilog_systemverilog.vim"                  ,  commit = "0141e62" }
 
@@ -132,6 +131,10 @@ return packer.startup(function(use)
     use { 'ibhagwan/fzf-lua'                               ,  commit = "e7c6108", cmd={'FzfLua'}, opt=true
                                                            ,  config = function () require"user.fzf-lua" end}
     use { 'junegunn/fzf'                                   ,  commit = "04d0b02", run = './install --all'}
+    -- Telescope
+    use { "nvim-telescope/telescope.nvim"                  ,  commit = "76ea9a8" , cmd={"Telescope"}, opt=true
+                                                           ,  config = function () require('user.telescope') end}
+    use {'nvim-telescope/telescope-fzf-native.nvim'        ,  run = 'make' , commit = "65c0ee3"}
 
     -- Folding
     -- use {'kevinhwang91/nvim-ufo'                        ,  commit = "" }
@@ -186,9 +189,6 @@ return packer.startup(function(use)
     -- use { "rcarriga/nvim-dap-ui"                        ,  commit = "" }
     -- use { "ravenxrz/DAPInstall.nvim"                    ,  commit = "" }
 
-    -- Telescope
-    -- use { "nvim-telescope/telescope.nvim"               ,  commit = "" }
-    -- use {'nvim-telescope/telescope-fzf-native.nvim'     ,  run = 'make' }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
