@@ -13,7 +13,8 @@ dashboard.section.header.val = {
 [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
 }
 dashboard.section.buttons.val = {
-  dashboard.button("<C-f>", " " .. " Find file", ":FzfLua files <CR>"),
+  --[[ dashboard.button("<C-f>", " " .. " Find file", ":FzfLua files <CR>"), ]]
+  dashboard.button("<C-f>", " " .. " Find file", ":Telescope find_files<CR>"),
   dashboard.button("e", " " .. " New file", ":ene <BAR> startinsert <CR>"),
   -- dashboard.button("p", " " .. " Find project", ":lua require('telescope').extensions.projects.projects()<CR>"),
   dashboard.button("r", " " .. " Recent files", ":FzfLua oldfiles <CR>"),

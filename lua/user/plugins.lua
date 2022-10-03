@@ -186,8 +186,8 @@ return packer.startup(function(use)
     -- use { "ravenxrz/DAPInstall.nvim"                    ,  commit = "" }
 
     -- Telescope
-    -- use { "nvim-telescope/telescope.nvim"               ,  commit = "" }
-    -- use {'nvim-telescope/telescope-fzf-native.nvim'     ,  run = 'make' }
+    use { "nvim-telescope/telescope.nvim"               ,  commit = "76ea9a8" }
+    use {'nvim-telescope/telescope-fzf-native.nvim'     ,  run = 'make' , commit = "65c0ee3"}
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

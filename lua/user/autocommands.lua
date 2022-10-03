@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = {"*.inc"},
+  pattern = {"*.inc","*.v","*.sv","*.svh"},
   callback = function()
     vim.cmd [[
       setlocal filetype=verilog_systemverilog
