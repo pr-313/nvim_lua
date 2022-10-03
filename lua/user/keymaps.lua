@@ -134,8 +134,8 @@ keymap("n", "<C-f>", ":Telescope find_files<CR>", opts)
 keymap("n", "te", ":Telescope<CR>", opts)
 keymap("n", "<leader>f", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>h", ":Telescope oldfiles<CR>", opts)
-keymap("v", "<leader>f", "y:lua require('telescope.builtin').grep_string({search = vim.fn.getreg('\"')})<CR>", opts)
-keymap("n", "<leader>F", ":lua require('telescope.builtin').grep_string({ search = vim.fn.input(\"Grep For > \")})<CR>")
+--[[ keymap("v", "<leader>f", "y:lua require('telescope.builtin').grep_string({search = vim.fn.getreg('\"')})<CR>", opts) ]]
+--[[ keymap("n", "<leader>F", ":lua require('telescope.builtin').grep_string({ search = vim.fn.input(\"Grep For > \")})<CR>") ]]
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
@@ -145,8 +145,8 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 --[[ keymap("n", "<leader>f", ":FzfLua live_grep<CR>", opts) ]]
 --[[ keymap("n", "<leader>l", ":FzfLua lgrep_curbuf<CR>", opts) ]]
 --[[ keymap("n", "<leader>h", ":FzfLua oldfiles<CR>", opts) ]]
---[[ keymap("v", "<leader>f", "<ESC>:FzfLua grep_visual<CR>", opts) ]]
---[[ keymap("n", "<leader>F", ":FzfLua grep<CR>", opts) ]]
+keymap("v", "<leader>f", "<ESC>:FzfLua grep_visual<CR>", opts)
+keymap("n", "<leader>F", ":FzfLua grep<CR>", opts)
 -- keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 -- keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 

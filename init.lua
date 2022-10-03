@@ -27,7 +27,7 @@ require "user.register"
 -- require "user.dap"
 -- require "user.project"
 -- require "user.illuminate"
-require "user.telescope"
+--[[ require "user.telescope" ]]
 -- require "user.autopairs"
 -- require "user.ufo"
 vim.cmd("source ~/.config/nvim/plugin/some_vim_funcs.vim")
