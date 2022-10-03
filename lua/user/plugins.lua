@@ -78,7 +78,7 @@ packer.init {
             prompt_revert = 'r',
         }
     },
-    luarocks   = { python_cmd = 'python' }, -- set the python command to use for running hererocks 
+    luarocks   = { python_cmd = 'python' }, -- set the python command to use for running hererocks
     log        = { level = 'warn' }, -- the default print log level. one of: "trace", "debug", "info", "warn", "error", "fatal".
     profile    = { enable = false, threshold = 1 },-- integer in milliseconds, plugins which load faster than this won't be shown in profile output
     autoremove = false, -- remove disabled or unused plugins without prompting the user
@@ -103,7 +103,8 @@ return packer.startup(function(use)
     use { "akinsho/toggleterm.nvim"                        ,  commit = "2a787c4" , cmd={"ToggleTerm","Lazygit"}, opt=true,
                                                               config = function () require"user.toggleterm" end}
     -- use { "ahmedkhalf/project.nvim"                     ,  commit = "" }
-    use { "lukas-reineke/indent-blankline.nvim"            ,  commit = "db7cbcb" }
+    use { "lukas-reineke/indent-blankline.nvim"            ,  commit = "db7cbcb", cmd={"IndentBlanklineToggle"}, opt=true,
+                                                              config = function () require"user.indentline" end}
     use { "goolord/alpha-nvim"                             ,  commit = "0bb6fc0" }
     use {"vhda/verilog_systemverilog.vim"                  ,  commit = "0141e62" }
 
