@@ -66,7 +66,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
+vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = {"*.inc","*.v","*.sv","*.svh"},
   callback = function()
     vim.cmd [[
