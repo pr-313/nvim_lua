@@ -31,3 +31,4 @@ require "user.register"
 -- require "user.autopairs"
 -- require "user.ufo"
 vim.cmd("source ~/.config/nvim/plugin/some_vim_funcs.vim")
+vim.cmd("silent! source ~/my_nvim/*.vim")
