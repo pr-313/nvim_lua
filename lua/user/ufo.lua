@@ -50,7 +50,7 @@ capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true
 }
-local language_servers = {'pyright','bashls','sumneko_lua'} -- like {'gopls', 'clangd'}
+local language_servers = {'pylsp','bashls','sumneko_lua'} -- like {'gopls', 'clangd'}
 for _, ls in ipairs(language_servers) do
     require('lspconfig')[ls].setup({
         capabilities = capabilities,
