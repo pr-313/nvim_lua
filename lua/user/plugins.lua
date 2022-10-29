@@ -93,14 +93,14 @@ return packer.startup(function(use)
     -- use { "windwp/nvim-autopairs"                       ,  commit = "" } -- Autopairs, integrates with both cmp and treesitter
     use { "numToStr/Comment.nvim"                          ,  commit = "ad7ffa8" }
     use { "JoosepAlviste/nvim-ts-context-commentstring"    ,  commit = "2941f00" }
-    use { "kyazdani42/nvim-web-devicons"                   ,  commit = "a8cf88c" }
+    use { "kyazdani42/nvim-web-devicons"                   ,  commit = "9061e2d" }
     -- use { "romgrk/barbar.nvim"                             ,  commit = "" }
     use { 'alvarosevilla95/luatab.nvim'                    ,  commit = "79d53c1" }
-    use { "kyazdani42/nvim-tree.lua"                       ,  commit = "c446527", cmd={"NvimTreeToggle","NvimTreeFindFile"}, opt=true
+    use { "kyazdani42/nvim-tree.lua"                       ,  commit = "3845039", cmd={"NvimTreeToggle","NvimTreeFindFile"}, opt=true
                                                            ,  config = function () require"user.nvim-tree" end}
     -- use { "moll/vim-bbye"                               ,  commit = "" }
-    use { "nvim-lualine/lualine.nvim"                      ,  commit = "edca2b0" }
-    use { "akinsho/toggleterm.nvim"                        ,  commit = "2a787c4" , cmd={"ToggleTerm","Lazygit"}, opt=true,
+    use { "nvim-lualine/lualine.nvim"                      ,  commit = "3325d5d" }
+    use { "akinsho/toggleterm.nvim"                        ,  commit = "8f302c9" , cmd={"ToggleTerm","Lazygit"}, opt=true,
                                                               config = function () require"user.toggleterm" end}
     -- use { "ahmedkhalf/project.nvim"                     ,  commit = "" }
     use { "lukas-reineke/indent-blankline.nvim"            ,  commit = "db7cbcb" , cmd={"IndentBlanklineToggle"}, opt=true
@@ -109,19 +109,19 @@ return packer.startup(function(use)
     use {"vhda/verilog_systemverilog.vim"                  ,  commit = "0141e62" }
 
     -- Colorschemes
-    use { "gruvbox-community/gruvbox"                      ,  commit = "95b120a" }
-    use { "folke/tokyonight.nvim"                          ,  commit = "e6307e1" }
+    use { "gruvbox-community/gruvbox"                      ,  commit = "ec6ef45" }
+    use { "folke/tokyonight.nvim"                          ,  commit = "29e2c68" }
     use { "lunarvim/darkplus.nvim"                         ,  commit = "f20cba5" }
 
-    -- Harpoon
+    -- Haarpoon
     use {"ThePrimeagen/harpoon"                            ,  commit = "4dfe94e" }
 
     -- cmp plugins
-    use { "hrsh7th/nvim-cmp"                               ,  commit = "3347dd3" } -- The completion plugin
+    use { "hrsh7th/nvim-cmp"                               ,  commit = "9bb8ee6" } -- The completion plugin
     use { "hrsh7th/cmp-buffer"                             ,  commit = "3022dbc" } -- buffer completions
     use { "hrsh7th/cmp-path"                               ,  commit = "91ff86c" } -- path completions
-    use { "saadparwaiz1/cmp_luasnip"                       ,  commit = "a9de941" } -- snippet completions
-    use { "hrsh7th/cmp-nvim-lsp"                           ,  commit = "3cf38d9" }
+    use { "saadparwaiz1/cmp_luasnip"                       ,  commit = "1809552" } -- snippet completions
+    use { "hrsh7th/cmp-nvim-lsp"                           ,  commit = "78924d1" }
     use { "hrsh7th/cmp-nvim-lua"                           ,  commit = "d276254" }
     use { "hrsh7th/cmp-cmdline"                            ,  commit = "c66c379" }
 
@@ -129,9 +129,9 @@ return packer.startup(function(use)
     -- use { "untitled-ai/jupyter_ascending.vim"           ,  commit = ""}
 
     -- Fzf
-    use { 'ibhagwan/fzf-lua'                               ,  commit = "025d8c5", cmd={'FzfLua'}, opt=true
+    use { 'ibhagwan/fzf-lua'                               ,  commit = "abc3aed", cmd={'FzfLua'}, opt=true
                                                            ,  config = function () require"user.fzf-lua" end}
-    use { 'junegunn/fzf'                                   ,  commit = "f9d5330", run = './install --all'}
+    use { 'junegunn/fzf'                                   ,  commit = "168829b", run = './install --all'}
 
     -- Folding
     -- use {'kevinhwang91/nvim-ufo'                        ,  commit = "" }
@@ -139,22 +139,22 @@ return packer.startup(function(use)
 
     -- snippets
     use { "L3MON4D3/LuaSnip"                               ,  commit = "663d544" } --snippet engine
-    use { "rafamadriz/friendly-snippets"                   ,  commit = "fd16b4d" } -- a bunch of snippets to use
+    use { "rafamadriz/friendly-snippets"                   ,  commit = "c93311f" } -- a bunch of snippets to use
 
     -- Clipboard ++
-    use { "tversteeg/registers.nvim"                       ,  commit = "a87a7c5" }
+    use { "tversteeg/registers.nvim"                       ,  commit = "6671ecd" }
 
     -- Sessions
     use { 'rmagatti/auto-session'                          ,  commit = "39319bf" }
 
     -- LSP
-    use { "neovim/nvim-lspconfig"                          ,  commit = "35a731b" } -- enable LSP
+    use { "neovim/nvim-lspconfig"                          ,  commit = "2315a39" } -- enable LSP
     use { "williamboman/nvim-lsp-installer"                ,  commit = "23820a8" } -- simple to use language server installer
     -- use { "jose-elias-alvarez/null-ls.nvim"             ,  commit = "" } -- for formatters and linters
     -- use { "RRethy/vim-illuminate"                       ,  commit = "" }
 
     -- Treesitter
-    use { "nvim-treesitter/nvim-treesitter"                ,  commit = "addc129a"}
+    use { "nvim-treesitter/nvim-treesitter"                ,  commit = "287ffdcc"}
     -- use { "nvim-treesitter/nvim-treesitter-angular"        ,  commit = ""}
 
     -- Sidebar
@@ -162,7 +162,7 @@ return packer.startup(function(use)
                                                            ,  config = function() require'user.sidebar' end}
 
     -- Quickfix
-    use {'kevinhwang91/nvim-bqf'                           ,  commit = "c33b5c5"}
+    use {'kevinhwang91/nvim-bqf'                           ,  commit = "5885bf2"}
 
     -- Misc
     use {"tweekmonster/startuptime.vim"                    ,  commit = "dfa57f5" , cmd={"StartupTime"}, opt=true}
@@ -174,9 +174,9 @@ return packer.startup(function(use)
     use { "preservim/tagbar"                               ,  commit = "83933d5" , cmd={"TagbarToggle"}, opt=true}
 
     -- Git
-    use { "lewis6991/gitsigns.nvim"                        ,  commit = "2c6f96d" }
-    use { "f-person/git-blame.nvim"                        ,  commit = "08e75b7" }
-    use { "sindrets/diffview.nvim"                         ,  commit = "a1fbcaa" , cmd={"DiffviewOpen", "DiffviewFileHistory"}, opt=true
+    use { "lewis6991/gitsigns.nvim"                        ,  commit = "6321c88" }
+    use { "f-person/git-blame.nvim"                        ,  commit = "7c49827" }
+    use { "sindrets/diffview.nvim"                         ,  commit = "94a3422" , cmd={"DiffviewOpen", "DiffviewFileHistory"}, opt=true
                                                            ,  config = function () require('user.diffview') end}
     -- use { "kdheepak/lazygit.nvim"                          ,  commit = "9c73fd6" , cmd={"LazyGit"}, opt=true}
     use { "tpope/vim-fugitive"                             ,  commit = "dd8107c" , cmd={"G","Gvdiffsplit"}, opt=true}
