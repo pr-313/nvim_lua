@@ -1,12 +1,16 @@
-local fn = vim.fn
-
--- Automatically install packer
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-    PACKER_BOOTSTRAP = fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path, }
-    print "Installing packer close and reopen Neovim..."
-    vim.cmd [[packadd packer.nvim]]
+-- Automatically install lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--single-branch",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  })
 end
+vim.opt.runtimepath:prepend(lazypath)
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 -- vim.cmd [[
@@ -17,182 +21,153 @@ end
 -- ]]
 
 -- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
+local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
     return
 end
 
-local util = require("packer.util")
-
 -- Have packer use a popup window
-packer.init {
-    -- compile_path      = require("packer.util").join_paths('~/.config/nvim_lua', 'plugin', 'packer_compiled.lua'),
-    -- package_root      = require("packer.util").join_paths('~/.local/nvim/packer_all', 'site', 'pack')
-    -- snapshot_path        = util.join_paths(vim.fn.stdpath('cache'), 'packer.nvim'), -- default save directory for snapshots
-    ensure_dependencies  = true, -- should packer install plugin dependencies?
-    snapshot             = nil, -- name of the snapshot you would like to load at startup
-    plugin_package       = 'packer', -- the default package for plugins
-    max_jobs             = nil, -- limit the number of simultaneous jobs. nil means no limit
-    auto_clean           = true, -- during sync(), remove unused plugins
-    compile_on_sync      = true, -- during sync(), run packer.compile()
-    disable_commands     = false, -- disable creating commands
-    opt_default          = false, -- default to using opt (as opposed to start) plugins
-    transitive_opt       = true, -- make dependencies of opt plugins also opt by default
-    transitive_disable   = true, -- automatically disable dependencies of disabled plugins
-    auto_reload_compiled = true, -- automatically reload the compiled file after creating it.
-    -- git = {
-    --     cmd = 'git', -- the base command for git operations
-    --     subcommands = { -- format strings for git subcommands
-    --         update         = 'pull --ff-only --progress --rebase=false',
-    --         install        = 'clone --depth %i --no-single-branch --progress',
-    --         fetch          = 'fetch --depth 999999 --progress',
-    --         checkout       = 'checkout %s --',
-    --         update_branch  = 'merge --ff-only @{u}',
-    --         current_branch = 'branch --show-current',
-    --         diff           = 'log --color=never --pretty=format:fmt --no-show-signature head@{1}...head',
-    --         diff_fmt       = '%%h %%s (%%cr)',
-    --         get_rev        = 'rev-parse --short head',
-    --         get_msg        = 'log --color=never --pretty=format:fmt --no-show-signature head -n 1',
-    --         submodules     = 'submodule update --init --recursive --progress'
-    --     },
-    --     depth              = 1, -- git clone depth
-    --     clone_timeout      = 100, -- timeout, in seconds, for git clones
-    --     default_url_format = 'https://github.com/%s' -- lua format string used for "aaa/bbb" style plugins
-    -- },
-    display = {
-        non_interactive = false, -- if true, disable display windows for all operations
-        open_fn         = nil, -- an optional function to open a window for packer's display
-        open_cmd        = '65vnew \\[packer\\]', -- an optional command to open a window for packer's display
-        working_sym     = '⟳', -- the symbol for a plugin being installed/updated
-        error_sym       = '✗', -- the symbol for a plugin with an error in installation/updating
-        done_sym        = '✓', -- the symbol for a plugin which has completed installation/updating
-        removed_sym     = '-', -- the symbol for an unused plugin which was removed
-        moved_sym       = '→', -- the symbol for a plugin which was moved (e.g. from opt to start)
-        header_sym      = '━', -- the symbol for the header line in packer's display
-        show_all_info   = true, -- should packer show all update details automatically?
-        prompt_border   = 'double', -- border style of prompt popups.
-        keybindings     = { -- keybindings for the display window
-            quit          = 'q',
-            toggle_info   = '<cr>',
-            diff          = 'd',
-            prompt_revert = 'r',
-        }
+lazy.setup("user.plugins_only",
+{
+  root = vim.fn.stdpath("data") .. "/lazy", -- directory where plugins will be installed
+  defaults = {
+    lazy = true, -- should plugins be lazy-loaded?
+    version = nil,
+    -- version = "*", -- enable this to try installing the latest stable versions of plugins
+  },
+  lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json", -- lockfile generated after running update.
+  concurrency = nil, ---@type number limit the maximum amount of concurrent tasks
+  git = {
+    -- defaults for the `Lazy log` command
+    -- log = { "-10" }, -- show the last 10 commits
+    log = { "--since=3 days ago" }, -- show commits from the last 3 days
+    timeout = 120, -- kill processes that take more than 2 minutes
+    url_format = "https://github.com/%s.git",
+  },
+  dev = {
+    -- directory where you store your local plugin projects
+    path = "~/projects",
+    ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
+    patterns = {}, -- For example {"folke"}
+  },
+  install = {
+    -- install missing plugins on startup. This doesn't increase startup time.
+    missing = true,
+    -- try to load one of these colorschemes when starting an installation during startup
+    colorscheme = { "habamax" },
+  },
+  ui = {
+    -- a number <1 is a percentage., >1 is a fixed size
+    size = { width = 0.8, height = 0.8 },
+    -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
+    border = "none",
+    icons = {
+      loaded = "●",
+      not_loaded = "○",
+      cmd = " ",
+      config = "",
+      event = "",
+      ft = " ",
+      init = " ",
+      keys = " ",
+      plugin = " ",
+      runtime = " ",
+      source = " ",
+      start = "",
+      task = "✔ ",
+      lazy = "鈴 ",
+      list = {
+        "●",
+        "➜",
+        "★",
+        "‒",
+      },
     },
-    luarocks   = { python_cmd = 'python' }, -- set the python command to use for running hererocks 
-    log        = { level = 'warn' }, -- the default print log level. one of: "trace", "debug", "info", "warn", "error", "fatal".
-    profile    = { enable = false, threshold = 1 },-- integer in milliseconds, plugins which load faster than this won't be shown in profile output
-    autoremove = false, -- remove disabled or unused plugins without prompting the user
-}
+    throttle = 20, -- how frequently should the ui process render events
+    custom_keys = {
+      -- you can define custom key maps here.
+      -- To disable one of the defaults, set it to false
 
--- Install your plugins here
-return packer.startup(function(use)
-    -- My plugins here
-    use { "wbthomason/packer.nvim"                         ,  commit = "6afb674" } -- Have packer manage itself
-    use { "lewis6991/impatient.nvim"                       ,  commit = "b842e16" }
-    use { "nvim-lua/plenary.nvim"                          ,  commit = "4b7e520" } -- Useful lua functions used by lots of plugins
-    -- use { "windwp/nvim-autopairs"                       ,  commit = "" } -- Autopairs, integrates with both cmp and treesitter
-    use { "numToStr/Comment.nvim"                          ,  commit = "ad7ffa8" }
-    use { "JoosepAlviste/nvim-ts-context-commentstring"    ,  commit = "2941f00" }
-    use { "kyazdani42/nvim-web-devicons"                   ,  commit = "9061e2d" }
-    -- use { "romgrk/barbar.nvim"                             ,  commit = "" }
-    use { 'alvarosevilla95/luatab.nvim'                    ,  commit = "79d53c1" }
-    use { "kyazdani42/nvim-tree.lua"                       ,  commit = "3845039", cmd={"NvimTreeToggle","NvimTreeFindFile"}, opt=true
-                                                           ,  config = function () require"user.nvim-tree" end}
-    -- use { "moll/vim-bbye"                               ,  commit = "" }
-    use { "nvim-lualine/lualine.nvim"                      ,  commit = "3325d5d" }
-    use { "akinsho/toggleterm.nvim"                        ,  commit = "8f302c9" , cmd={"ToggleTerm","Lazygit"}, opt=true,
-                                                              config = function () require"user.toggleterm" end}
-    -- use { "ahmedkhalf/project.nvim"                     ,  commit = "" }
-    use { "lukas-reineke/indent-blankline.nvim"            ,  commit = "db7cbcb" , cmd={"IndentBlanklineToggle"}, opt=true
-                                                           ,  config = function () require"user.indentline" end}
-    use { "goolord/alpha-nvim"                             ,  commit = "0bb6fc0" }
-    use {"vhda/verilog_systemverilog.vim"                  ,  commit = "0141e62" }
+      -- open lazygit log
+      ["<localleader>l"] = function(plugin)
+        require("lazy.util").open_cmd({ "lazygit", "log" }, {
+          cwd = plugin.dir,
+          terminal = true,
+          close_on_exit = true,
+          enter = true,
+        })
+      end,
 
-    -- Colorschemes
-    use { "gruvbox-community/gruvbox"                      ,  commit = "ec6ef45" }
-    use { "folke/tokyonight.nvim"                          ,  commit = "29e2c68" }
-    use { "lunarvim/darkplus.nvim"                         ,  commit = "f20cba5" }
+      -- open a terminal for the plugin dir
+      ["<localleader>t"] = function(plugin)
+        require("lazy.util").open_cmd({ vim.go.shell }, {
+          cwd = plugin.dir,
+          terminal = true,
+          close_on_exit = true,
+          enter = true,
+        })
+      end,
+    },
+  },
+  diff = {
+    -- diff command <d> can be one of:
+    -- * browser: opens the github compare view. Note that this is always mapped to <K> as well,
+    --   so you can have a different command for diff <d>
+    -- * git: will run git diff and open a buffer with filetype git
+    -- * terminal_git: will open a pseudo terminal with git diff
+    -- * diffview.nvim: will open Diffview to show the diff
+    cmd = "git",
+  },
+  checker = {
+    -- automatically check for plugin updates
+    enabled = false,
+    concurrency = nil, ---@type number? set to 1 to check for updates very slowly
+    notify = true, -- get a notification when new updates are found
+    frequency = 3600, -- check for updates every hour
+  },
+  change_detection = {
+    -- automatically check for config file changes and reload the ui
+    enabled = true,
+    notify = true, -- get a notification when changes are found
+  },
+  performance = {
+    cache = {
+      enabled = true,
+      path = vim.fn.stdpath("cache") .. "/lazy/cache",
+      -- Once one of the following events triggers, caching will be disabled.
+      -- To cache all modules, set this to `{}`, but that is not recommended.
+      -- The default is to disable on:
+      --  * VimEnter: not useful to cache anything else beyond startup
+      --  * BufReadPre: this will be triggered early when opening a file from the command line directly
+      disable_events = { "VimEnter", "BufReadPre" },
+      ttl = 3600 * 24 * 5, -- keep unused modules for up to 5 days
+    },
+    reset_packpath = true, -- reset the package path to improve startup time
+    rtp = {
+      reset = true, -- reset the runtime path to $VIMRUNTIME and your config directory
+      ---@type string[]
+      paths = {}, -- add any custom paths here that you want to indluce in the rtp
+      ---@type string[] list any plugins you want to disable here
+      disabled_plugins = {
+        -- "gzip",
+        -- "matchit",
+        -- "matchparen",
+        -- "netrwPlugin",
+        -- "tarPlugin",
+        -- "tohtml",
+        -- "tutor",
+        -- "zipPlugin",
+      },
+    },
+  },
+  -- lazy can generate helptags from the headings in markdown readme files,
+  -- so :help works even for plugins that don't have vim docs.
+  -- when the readme opens with :help it will be correctly displayed as markdown
+  readme = {
+    root = vim.fn.stdpath("state") .. "/lazy/readme",
+    files = { "README.md" },
+    -- only generate markdown helptags for plugins that dont have docs
+    skip_if_doc_exists = true,
+  },
+})
 
-    -- Haarpoon
-    use {"ThePrimeagen/harpoon"                            ,  commit = "4dfe94e" }
-
-    -- cmp plugins
-    use { "hrsh7th/nvim-cmp"                               ,  commit = "9bb8ee6" } -- The completion plugin
-    use { "hrsh7th/cmp-buffer"                             ,  commit = "3022dbc" } -- buffer completions
-    use { "hrsh7th/cmp-path"                               ,  commit = "91ff86c" } -- path completions
-    use { "saadparwaiz1/cmp_luasnip"                       ,  commit = "1809552" } -- snippet completions
-    use { "hrsh7th/cmp-nvim-lsp"                           ,  commit = "78924d1" }
-    use { "hrsh7th/cmp-nvim-lua"                           ,  commit = "d276254" }
-    use { "hrsh7th/cmp-cmdline"                            ,  commit = "c66c379" }
-
-    -- Jupyter
-    -- use { "untitled-ai/jupyter_ascending.vim"           ,  commit = ""}
-
-    -- Fzf
-    use { 'ibhagwan/fzf-lua'                               ,  commit = "abc3aed", cmd={'FzfLua'}, opt=true
-                                                           ,  config = function () require"user.fzf-lua" end}
-    use { 'junegunn/fzf'                                   ,  commit = "168829b", run = './install --all'}
-
-    -- Folding
-    -- use {'kevinhwang91/nvim-ufo'                        ,  commit = "" }
-    -- use { 'kevinhwang91/promise-async'                  ,  commit = ""}
-
-    -- snippets
-    use { "L3MON4D3/LuaSnip"                               ,  commit = "663d544" } --snippet engine
-    use { "rafamadriz/friendly-snippets"                   ,  commit = "c93311f" } -- a bunch of snippets to use
-
-    -- Clipboard ++
-    use { "tversteeg/registers.nvim"                       ,  commit = "6671ecd" }
-
-    -- Sessions
-    use { 'rmagatti/auto-session'                          ,  commit = "39319bf" }
-
-    -- LSP
-    use { "neovim/nvim-lspconfig"                          ,  commit = "2315a39" } -- enable LSP
-    use { "williamboman/nvim-lsp-installer"                ,  commit = "23820a8" } -- simple to use language server installer
-    -- use { "jose-elias-alvarez/null-ls.nvim"             ,  commit = "" } -- for formatters and linters
-    -- use { "RRethy/vim-illuminate"                       ,  commit = "" }
-
-    -- Treesitter
-    use { "nvim-treesitter/nvim-treesitter"                ,  commit = "287ffdcc"}
-    -- use { "nvim-treesitter/nvim-treesitter-angular"        ,  commit = ""}
-
-    -- Sidebar
-    use { "sidebar-nvim/sidebar.nvim"                      ,  commit = "990ce5f" , cmd={"SidebarNvimToggle"}, opt=true
-                                                           ,  config = function() require'user.sidebar' end}
-
-    -- Quickfix
-    use {'kevinhwang91/nvim-bqf'                           ,  commit = "5885bf2"}
-
-    -- Misc
-    use {"tweekmonster/startuptime.vim"                    ,  commit = "dfa57f5" , cmd={"StartupTime"}, opt=true}
-    use {"mbbill/undotree"                                 ,  commit = "bd60cb5" , cmd={"UndotreeToggle"}, opt=true}
-    use {"rlane/pounce.nvim"                               ,  commit = "a573820" , cmd={"Pounce"}, opt=true
-                                                           ,  config = function() require'user.pounce' end}
-    use { "szw/vim-maximizer"                              ,  commit = "2e54952" , cmd={"MaximizerToggle"}, opt=true}
-    use { "godlygeek/tabular"                              ,  commit = "339091a" , cmd={"Tab"}, opt=true}
-    use { "preservim/tagbar"                               ,  commit = "83933d5" , cmd={"TagbarToggle"}, opt=true}
-
-    -- Git
-    use { "lewis6991/gitsigns.nvim"                        ,  commit = "6321c88" }
-    use { "f-person/git-blame.nvim"                        ,  commit = "7c49827" }
-    use { "sindrets/diffview.nvim"                         ,  commit = "94a3422" , cmd={"DiffviewOpen", "DiffviewFileHistory"}, opt=true
-                                                           ,  config = function () require('user.diffview') end}
-    -- use { "kdheepak/lazygit.nvim"                          ,  commit = "9c73fd6" , cmd={"LazyGit"}, opt=true}
-    use { "tpope/vim-fugitive"                             ,  commit = "dd8107c" , cmd={"G","Gvdiffsplit"}, opt=true}
-
-    -- DAP
-    -- use { "mfussenegger/nvim-dap"                       ,  commit = "" }
-    -- use { "rcarriga/nvim-dap-ui"                        ,  commit = "" }
-    -- use { "ravenxrz/DAPInstall.nvim"                    ,  commit = "" }
-
-    -- Telescope
-    -- use { "nvim-telescope/telescope.nvim"               ,  commit = "" }
-    -- use {'nvim-telescope/telescope-fzf-native.nvim'     ,  run = 'make' }
-
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if PACKER_BOOTSTRAP then
-        require("packer").sync()
-    end
-end)
