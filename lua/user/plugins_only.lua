@@ -13,7 +13,7 @@ return {
         config = function () require"user.nvim-tree" end},
     "nvim-lualine/lualine.nvim",
     {"akinsho/toggleterm.nvim",
-        cmd={"ToggleTerm","Lazygit"},
+        cmd={"ToggleTerm","LG"},
         lazy=true,
         config = function () require"user.toggleterm" end},
 

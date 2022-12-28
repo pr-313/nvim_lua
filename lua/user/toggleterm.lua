@@ -30,7 +30,7 @@ function _G.set_terminal_keymaps()
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
-vim.api.nvim_create_user_command("Lazygit",":lua _LAZYGIT_TOGGLE()",{})
+vim.api.nvim_create_user_command("LG",":lua _LAZYGIT_TOGGLE()",{})
 
 local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
