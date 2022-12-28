@@ -12,13 +12,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
--- vim.cmd [[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup end
--- ]]
 
 -- Use a protected call so we don't error out on first use
 local status_ok, lazy = pcall(require, "lazy")
@@ -54,7 +47,7 @@ lazy.setup("user.plugins_only",
     -- install missing plugins on startup. This doesn't increase startup time.
     missing = true,
     -- try to load one of these colorschemes when starting an installation during startup
-    colorscheme = { "habamax" },
+    colorscheme = { "default" },
   },
   ui = {
     -- a number <1 is a percentage., >1 is a fixed size
