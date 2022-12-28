@@ -71,7 +71,8 @@ return {
 
     -- LSP
     "neovim/nvim-lspconfig",    -- enable LSP
-    "williamboman/nvim-lsp-installer",    -- simple to use language server installer
+    "williamboman/mason.nvim",    -- simple to use language server installer
+    "williamboman/mason-lspconfig.nvim",
     -- "jose-elias-alvarez/null-ls.nvim"             ,    -- for formatters and linters
     -- "RRethy/vim-illuminate"                       ,
 
@@ -84,7 +85,7 @@ return {
         cmd={"SidebarNvimToggle"},
         lazy=true ,
         config = function() require'user.sidebar' end},
-    'kevinhwang91/nvim-bqf',  -- Quickfix
+    {'kevinhwang91/nvim-bqf', lazy=true},  -- Quickfix
 
     -- Misc
     {"tweekmonster/startuptime.vim", cmd={"StartupTime"}, lazy=true},
