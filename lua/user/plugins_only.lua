@@ -1,7 +1,6 @@
 -- Install your plugins here
 return {
     -- My plugins here
-    "wbthomason/packer.nvim",    -- Have packer manage itself
     "lewis6991/impatient.nvim",
     "nvim-lua/plenary.nvim",    -- Useful lua functions used by lots of plugins
     "numToStr/Comment.nvim",
