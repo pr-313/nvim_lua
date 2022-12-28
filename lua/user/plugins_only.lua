@@ -3,65 +3,60 @@ return {
     -- My plugins here
     "lewis6991/impatient.nvim",
     "nvim-lua/plenary.nvim",    -- Useful lua functions used by lots of plugins
-    "numToStr/Comment.nvim",
-    "JoosepAlviste/nvim-ts-context-commentstring",
+    {"numToStr/Comment.nvim", lazy=true, keys={"<leader>cc"}, dependencies={"nvim-ts-context-commentstring"},
+        config= function() require("user.comment")  end},
+    {"JoosepAlviste/nvim-ts-context-commentstring", lazy=true},
     "kyazdani42/nvim-web-devicons",
     'alvarosevilla95/luatab.nvim',
-    {"kyazdani42/nvim-tree.lua",
-        cmd={"NvimTreeToggle","NvimTreeFindFile"},
-        lazy=true,
+    {"kyazdani42/nvim-tree.lua", cmd={"NvimTreeToggle","NvimTreeFindFile"}, lazy=true,
         config = function () require"user.nvim-tree" end},
     "nvim-lualine/lualine.nvim",
-    {"akinsho/toggleterm.nvim",
-        cmd={"ToggleTerm","LG"},
-        lazy=true,
+    {"akinsho/toggleterm.nvim", cmd={"ToggleTerm","LG"}, lazy=true,
         config = function () require"user.toggleterm" end},
 
     -- "ahmedkhalf/project.nvim"                     ,
 
-    {"lukas-reineke/indent-blankline.nvim",
-        cmd={"IndentBlanklineToggle"},
-        lazy=true,
+    {"lukas-reineke/indent-blankline.nvim", cmd={"IndentBlanklineToggle"}, lazy=true,
         config = function () require"user.indentline" end},
     "goolord/alpha-nvim",
-    "vhda/verilog_systemverilog.vim",
+    {"vhda/verilog_systemverilog.vim", lazy=true, ft={"verilog_systemverilog", "verilog", "systemverilog"}},
 
     -- Colorschemes
     "gruvbox-community/gruvbox",
-    "folke/tokyonight.nvim",
-    "lunarvim/darkplus.nvim",
+    {"folke/tokyonight.nvim", lazy=true},
+    {"lunarvim/darkplus.nvim", lazy=true},
 
     -- Haarpoon
     "ThePrimeagen/harpoon",
 
     -- cmp plugins
-    "hrsh7th/nvim-cmp",    -- The completion plugin
-    "hrsh7th/cmp-buffer",    -- buffer completions
-    "hrsh7th/cmp-path",    -- path completions
-    "saadparwaiz1/cmp_luasnip",    -- snippet completions
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-nvim-lua",
-    "hrsh7th/cmp-cmdline",
+
+    {"hrsh7th/nvim-cmp", lazy=true, event="BufReadPre",
+        dependencies = {"cmp-buffer", "cmp-path", "cmp_luasnip", "cmp-nvim-lsp", "cmp-nvim-lua", "cmp-cmdline"},
+        config = function() require("user.cmp") end},
+    {"hrsh7th/cmp-buffer", lazy=true, event="BufReadPre"},
+    {"hrsh7th/cmp-path", lazy=true, event="BufReadPre"},
+    {"saadparwaiz1/cmp_luasnip", lazy=true, event="BufReadPre"},
+    {"hrsh7th/cmp-nvim-lsp", lazy=true, event="BufReadPre"},
+    {"hrsh7th/cmp-nvim-lua", lazy=true, event="BufReadPre"},
+    {"hrsh7th/cmp-cmdline", lazy=true, event="BufReadPre"},
 
     -- Jupyter
     -- "untitled-ai/jupyter_ascending.vim"           ,
 
     -- Fzf
-    {'ibhagwan/fzf-lua',
-        cmd={'FzfLua'},
-        lazy=true,
-        dependencies="fzf",
+    {'ibhagwan/fzf-lua', cmd={'FzfLua'}, lazy=true, dependencies="fzf",
         config = function () require"user.fzf-lua" end},
     {'junegunn/fzf',
-        build = './install --all'},
+        build = './install --all', lazy=true},
 
     -- Folding
     -- 'kevinhwang91/nvim-ufo'                        ,
     -- 'kevinhwang91/promise-async'                  ,
 
     -- snippets
-    "L3MON4D3/LuaSnip",    --snippet engine
-    "rafamadriz/friendly-snippets",    -- a bunch of snippets to use
+    {"L3MON4D3/LuaSnip", lazy=true, event="BufReadPre"},    --snippet engine
+    {"rafamadriz/friendly-snippets", lazy=true, event="BufReadPre"},   -- a bunch of snippets to use
 
     -- Clipboard ++
     "tversteeg/registers.nvim",
@@ -70,22 +65,23 @@ return {
     'rmagatti/auto-session',
 
     -- LSP
-    "neovim/nvim-lspconfig",    -- enable LSP
-    "williamboman/mason.nvim",    -- simple to use language server installer
-    "williamboman/mason-lspconfig.nvim",
+    {"neovim/nvim-lspconfig", lazy=true, event="VeryLazy"},
+    {"williamboman/mason.nvim", lazy=true, cmd={"Mason"}, dependencies={"mason-lspconfig"},
+        config = function () require("user.lsp.lsp-installer") end},    -- simple to use language server installer
+    {"williamboman/mason-lspconfig.nvim", lazy=true},
     -- "jose-elias-alvarez/null-ls.nvim"             ,    -- for formatters and linters
     -- "RRethy/vim-illuminate"                       ,
 
     -- Treesitter
-    "nvim-treesitter/nvim-treesitter",
+    {"nvim-treesitter/nvim-treesitter", lazy=true, event="BufReadPre",
+        config = function() require "user.treesitter" end},
     -- "nvim-treesitter/nvim-treesitter-angular"        ,
 
     -- Sidebar
-    {"sidebar-nvim/sidebar.nvim",
-        cmd={"SidebarNvimToggle"},
-        lazy=true ,
+    {"sidebar-nvim/sidebar.nvim", cmd={"SidebarNvimToggle"}, lazy=true ,
         config = function() require'user.sidebar' end},
-    {'kevinhwang91/nvim-bqf', lazy=true},  -- Quickfix
+    {'kevinhwang91/nvim-bqf', lazy=true, event="QuickFixCmdPre",
+        config= function() require "user.quickfix" end },  -- Quickfix
 
     -- Misc
     {"tweekmonster/startuptime.vim", cmd={"StartupTime"}, lazy=true},

@@ -81,7 +81,7 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
   callback = function()
         if vim.fn.getfsize(vim.fn.expand("%:p")) > 1000000 then
             vim.opt_local.filetype="text"
-            require("cmp").setup.buffer {enabled=false}
+            require("cmp").setup({sources={}})
             require("cmp").setup.cmdline ( '/' , {enabled=false} )
             vim.cmd [[
                 :LspStop
