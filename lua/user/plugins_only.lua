@@ -32,14 +32,14 @@ return {
         config = function () require"user.harpoon" end},
     -- cmp plugins
 
-    {"hrsh7th/nvim-cmp", lazy=true, event="BufReadPre",
+    {"hrsh7th/nvim-cmp", lazy=true, event="BufReadPost",
         config = function() require("user.cmp") end},
-    {"hrsh7th/cmp-buffer", lazy=true, event="BufReadPre", dependencies={"nvim-cmp"}},
-    {"hrsh7th/cmp-path", lazy=true, event="BufReadPre", dependencies={"nvim-cmp"}},
-    {"saadparwaiz1/cmp_luasnip", lazy=true, event="BufReadPre", dependencies={"nvim-cmp"}},
-    {"hrsh7th/cmp-nvim-lsp", lazy=true, event="BufReadPre", dependencies={"nvim-cmp"}},
-    {"hrsh7th/cmp-nvim-lua", lazy=true, event="BufReadPre", dependencies={"nvim-cmp"}},
-    {"hrsh7th/cmp-cmdline", lazy=true, event="CmdlineEnter", dependencies={"nvim-cmp"}},
+    {"hrsh7th/cmp-buffer"       , lazy=true , event="BufReadPost"  , dependencies={"nvim-cmp"}} ,
+    {"hrsh7th/cmp-path"         , lazy=true , event="BufReadPost"  , dependencies={"nvim-cmp"}} ,
+    {"saadparwaiz1/cmp_luasnip" , lazy=true , event="BufReadPost"  , dependencies={"nvim-cmp"}} ,
+    {"hrsh7th/cmp-nvim-lsp"     , lazy=true , event="BufReadPost"  , dependencies={"nvim-cmp"}} ,
+    {"hrsh7th/cmp-nvim-lua"     , lazy=true , event="BufReadPost"  , dependencies={"nvim-cmp"}} ,
+    {"hrsh7th/cmp-cmdline"      , lazy=true , event="CmdlineEnter" , dependencies={"nvim-cmp"}} ,
 
     -- Jupyter
     -- "untitled-ai/jupyter_ascending.vim"           ,
@@ -55,8 +55,8 @@ return {
     -- 'kevinhwang91/promise-async'                  ,
 
     -- snippets
-    {"L3MON4D3/LuaSnip", lazy=true, event="BufReadPre"},    --snippet engine
-    {"rafamadriz/friendly-snippets", lazy=true, event="BufReadPre"},   -- a bunch of snippets to use
+    {"L3MON4D3/LuaSnip", lazy=true, event="BufReadPost"},    --snippet engine
+    {"rafamadriz/friendly-snippets", lazy=true, event="BufReadPost"},   -- a bunch of snippets to use
 
     -- Clipboard ++
     "tversteeg/registers.nvim",
@@ -67,7 +67,7 @@ return {
     -- LSP
     {"neovim/nvim-lspconfig", lazy=true, event="BufReadPre"},
     {"williamboman/mason.nvim", lazy=true, cmd={"Mason"}, dependencies={"mason-lspconfig.nvim"},
-        config = function () require("user.lsp.lsp-installer") end, event="BufReadPre"},    -- simple to use language server installer
+        config = function () require("user.lsp.lsp-installer") end, event="BufEnter"},    -- simple to use language server installer
     {"williamboman/mason-lspconfig.nvim", lazy=true},
     -- "jose-elias-alvarez/null-ls.nvim"             ,    -- for formatters and linters
     -- "RRethy/vim-illuminate"                       ,
