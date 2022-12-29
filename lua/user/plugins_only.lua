@@ -32,14 +32,13 @@ return {
     -- cmp plugins
 
     {"hrsh7th/nvim-cmp", lazy=true, event="BufReadPre",
-        dependencies = {"cmp-buffer", "cmp-path", "cmp_luasnip", "cmp-nvim-lsp", "cmp-nvim-lua", "cmp-cmdline"},
         config = function() require("user.cmp") end},
-    {"hrsh7th/cmp-buffer", lazy=true, event="BufReadPre"},
-    {"hrsh7th/cmp-path", lazy=true, event="BufReadPre"},
-    {"saadparwaiz1/cmp_luasnip", lazy=true, event="BufReadPre"},
-    {"hrsh7th/cmp-nvim-lsp", lazy=true, event="BufReadPre"},
-    {"hrsh7th/cmp-nvim-lua", lazy=true, event="BufReadPre"},
-    {"hrsh7th/cmp-cmdline", lazy=true, event="BufReadPre"},
+    {"hrsh7th/cmp-buffer", lazy=true, event="BufReadPre", dependencies={"nvim-cmp"}},
+    {"hrsh7th/cmp-path", lazy=true, event="BufReadPre", dependencies={"nvim-cmp"}},
+    {"saadparwaiz1/cmp_luasnip", lazy=true, event="BufReadPre", dependencies={"nvim-cmp"}},
+    {"hrsh7th/cmp-nvim-lsp", lazy=true, event="BufReadPre", dependencies={"nvim-cmp"}},
+    {"hrsh7th/cmp-nvim-lua", lazy=true, event="BufReadPre", dependencies={"nvim-cmp"}},
+    {"hrsh7th/cmp-cmdline", lazy=true, event="CmdlineEnter", dependencies={"nvim-cmp"}},
 
     -- Jupyter
     -- "untitled-ai/jupyter_ascending.vim"           ,
