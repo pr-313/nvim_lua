@@ -64,9 +64,9 @@ return {
     'rmagatti/auto-session',
 
     -- LSP
-    {"neovim/nvim-lspconfig", lazy=true, event="VeryLazy"},
-    {"williamboman/mason.nvim", lazy=true, cmd={"Mason"}, dependencies={"mason-lspconfig"},
-        config = function () require("user.lsp.lsp-installer") end},    -- simple to use language server installer
+    {"neovim/nvim-lspconfig", lazy=true, event="BufReadPre"},
+    {"williamboman/mason.nvim", lazy=true, cmd={"Mason"}, dependencies={"mason-lspconfig.nvim"},
+        config = function () require("user.lsp.lsp-installer") end, event="BufReadPre"},    -- simple to use language server installer
     {"williamboman/mason-lspconfig.nvim", lazy=true},
     -- "jose-elias-alvarez/null-ls.nvim"             ,    -- for formatters and linters
     -- "RRethy/vim-illuminate"                       ,
