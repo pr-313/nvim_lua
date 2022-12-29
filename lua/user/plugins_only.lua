@@ -7,7 +7,8 @@ return {
         config= function() require("user.comment")  end},
     {"JoosepAlviste/nvim-ts-context-commentstring", lazy=true},
     "kyazdani42/nvim-web-devicons",
-    'alvarosevilla95/luatab.nvim',
+    {'alvarosevilla95/luatab.nvim', lazy=true, event="TabNew",
+        config = function () require"user.bufferline" end},
     {"kyazdani42/nvim-tree.lua", cmd={"NvimTreeToggle","NvimTreeFindFile"}, lazy=true,
         config = function () require"user.nvim-tree" end},
     "nvim-lualine/lualine.nvim",
@@ -27,8 +28,8 @@ return {
     {"lunarvim/darkplus.nvim", lazy=true},
 
     -- Haarpoon
-    "ThePrimeagen/harpoon",
-
+    {"ThePrimeagen/harpoon", lazy=true, event="VeryLazy",
+        config = function () require"user.harpoon" end},
     -- cmp plugins
 
     {"hrsh7th/nvim-cmp", lazy=true, event="BufReadPre",
@@ -93,7 +94,8 @@ return {
         config = function() require("user.noice") end},
 
     -- Git
-    "lewis6991/gitsigns.nvim",
+    {"lewis6991/gitsigns.nvim", lazy=true, event="BufReadPost",
+        config = function() require("user.gitstuff") end},
     "f-person/git-blame.nvim",
     {"sindrets/diffview.nvim", cmd={"DiffviewOpen", "DiffviewFileHistory"}, lazy=true, config = function () require('user.diffview') end},
     -- "kdheepak/lazygit.nvim"                          ,   , cmd={"LazyGit"}, lazy=true
