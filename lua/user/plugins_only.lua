@@ -90,8 +90,8 @@ return {
     {"szw/vim-maximizer", cmd={"MaximizerToggle"}, lazy=true},
     {"godlygeek/tabular", cmd={"Tab"}, lazy=true},
     {"preservim/tagbar", cmd={"TagbarToggle"}, lazy=true},
-    {"folke/noice.nvim", lazy=true, event="VeryLazy", dependencies={"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"},
-        config = function() require("user.noice") end},
+    --[[ {"folke/noice.nvim", lazy=true, event="VeryLazy", dependencies={"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"}, ]]
+    --[[     config = function() require("user.noice") end}, ]]
 
     -- Git
     {"lewis6991/gitsigns.nvim", lazy=true, event="BufReadPost",

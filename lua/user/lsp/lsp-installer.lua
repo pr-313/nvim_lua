@@ -5,7 +5,7 @@ end
 
 mason.setup({
     -- The directory in which to install packages.
-    --[[ install_root_dir = "/runs/simrun_tav/libs/lsp_server", ]]
+    install_root_dir = "/runs/simrun_tav/libs/lsp_server",
 
     -- Where Mason should put its bin location in your PATH. Can be one of:
     -- - "prepend" (default, Mason's bin location is put first in PATH)
