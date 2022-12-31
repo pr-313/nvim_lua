@@ -21,7 +21,7 @@ require "user.register"
 -- require "user.nvim-tree"
 -- require "user.fzf-lua"
 -- require "user.toggleterm"
--- require "user.indentline"
+--[[ require "user.indentline" ]]
 -- require "user.sidebar"
 -- require "user.pounce"
 -- require "user.dap"
