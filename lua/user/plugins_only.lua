@@ -23,7 +23,7 @@ return {
     {"vhda/verilog_systemverilog.vim", lazy=true, ft={"verilog_systemverilog", "verilog", "systemverilog"}},
 
     -- Colorschemes
-    "gruvbox-community/gruvbox",
+    {"gruvbox-community/gruvbox", lazy=true},
     {"folke/tokyonight.nvim", lazy=true},
     {"lunarvim/darkplus.nvim", lazy=true},
 
@@ -96,7 +96,7 @@ return {
     -- Git
     {"lewis6991/gitsigns.nvim", lazy=true, event="BufReadPost",
         config = function() require("user.gitstuff") end},
-    "f-person/git-blame.nvim",
+    {"f-person/git-blame.nvim", lazy=true, event="BufEnter"},
     {"sindrets/diffview.nvim", cmd={"DiffviewOpen", "DiffviewFileHistory"}, lazy=true, config = function () require('user.diffview') end},
     -- "kdheepak/lazygit.nvim"                          ,   , cmd={"LazyGit"}, lazy=true
     {"tpope/vim-fugitive", cmd={"G","Gvdiffsplit"}, lazy=true},
