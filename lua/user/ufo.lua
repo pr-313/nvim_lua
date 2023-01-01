@@ -1,17 +1,7 @@
 local status_ok, ufo = pcall(require, "ufo")
 if not status_ok then
-	return
+    return
 end
-vim.wo.foldcolumn = '1'
-vim.wo.foldlevel = 5 -- feel free to decrease the value
-vim.wo.foldenable = false
-local ftMap = {
-    git ='',
-    verilog ='',
-    verilog_systemverilog='',
-    text = '',
-    html = ''
-}
 local handler = function(virtText, lnum, endLnum, width, truncate)
     local newVirtText = {}
     local suffix = ('  %d '):format(endLnum - lnum)
@@ -39,30 +29,43 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
     table.insert(newVirtText, {suffix, 'MoreMsg'})
     return newVirtText
 end
--- option 1: coc.nvim as LSP client
--- use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
---
--- option 2: nvim lsp as LSP client
--- tell the server the capability of foldingRange
--- nvim hasn't added foldingRange to default capabilities, users must add it manually
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
+
+vim.o.foldcolumn = 'auto' -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldnestmax = 2
+vim.o.foldenable = true
+local ftMap = {
+    vim = 'indent',
+    python = {'indent'},
+    git = '',
+    lua = {'lsp','treesitter'},
+    fzf = ''
 }
-local language_servers = {'pylsp','bashls','sumneko_lua'} -- like {'gopls', 'clangd'}
-for _, ls in ipairs(language_servers) do
-    require('lspconfig')[ls].setup({
-        capabilities = capabilities,
-        -- other_fields = ...
-    })
-end
---
+-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+vim.keymap.set('n', '<M-o>', 'zr')
+vim.keymap.set('n', '<M-p>', 'zm')
 
 ufo.setup({
-    open_fold_hl_timeout = 0,
-    provider_selector = function(bufnr, filetype)
+    open_fold_hl_timeout = 150,
+    close_fold_kinds = {'imports', 'comment'},
+    fold_virt_text_handler = handler,
+    preview = {
+        win_config = {
+            border = {'', '─', '', '', '', '─', '', ''},
+            winhighlight = 'Normal:Folded',
+            winblend = 0
+        },
+        mappings = {
+            scrollU = '<C-u>',
+            scrollD = '<C-d>'
+        }
+    },
+    provider_selector = function(bufnr, filetype, buftype)
         return ftMap[filetype]
-    end,
-    fold_virt_text_handler = handler
+    end
 })
+--
+
