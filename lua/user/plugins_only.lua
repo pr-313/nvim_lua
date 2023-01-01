@@ -17,7 +17,7 @@ return {
     -- "ahmedkhalf/project.nvim"                     ,
 
     {"lukas-reineke/indent-blankline.nvim", cmd={"IndentBlanklineToggle"}, lazy=true,
-        config = function () require"user.indentline" end},
+        config = function () require"user.indentline" end, event='BufEnter'},
     "goolord/alpha-nvim",
     {"vhda/verilog_systemverilog.vim", lazy=true, ft={"verilog_systemverilog", "verilog", "systemverilog"}},
 
@@ -107,6 +107,6 @@ return {
 
     -- Telescope
     -- "nvim-telescope/telescope.nvim"               ,
-    -- 'nvim-telescope/telescope-fzf-native.nvim'     ,  run = 'make' }
+    -- 'nvim-telescope/telescope-fzf-native.nvim'     ,  run = 'make'
 
 }
