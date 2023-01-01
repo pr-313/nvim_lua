@@ -97,7 +97,8 @@ return {
     { 'junegunn/fzf',                 build = './install --all', lazy = true },
 
     -- Folding
-    -- 'kevinhwang91/nvim-ufo'                        ,
+    {'kevinhwang91/nvim-ufo', lazy=true, event="BufReadPost", dependencies={"kevinhwang91/promise-async"},
+        config = function () require("user.ufo") end},
     -- 'kevinhwang91/promise-async'                  ,
 
     -- snippets
