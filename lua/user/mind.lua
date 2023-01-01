@@ -2,7 +2,7 @@ local status_ok, mind = pcall(require, "mind")
 if not status_ok then
     return
 end
-
+local cmds = require("mind.commands")
 local sysname = vim.loop.os_uname().sysname
 local url_open
 if sysname == 'Linux' then
@@ -170,3 +170,22 @@ mind.setup({
     },
   }
 })
+
+
+vim.keymap.set("n", "<leader>ms",
+  function()
+    mind.wrap_smart_project_tree_fn(function(args)
+      cmds.open_data_index(args.get_tree(), args.data_dir, args.save_tree, args.opts)
+    end)
+  end)
+
+
+vim.keymap.set("n", "<leader>Ms",
+  function()
+    mind.wrap_main_tree_fn(function(args)
+      cmds.open_data_index(args.get_tree(), args.data_dir, args.save_tree, args.opts)
+    end)
+  end)
+
+vim.keymap.set("n", "<leader>mo", ":MindOpenProject<CR>")
+vim.keymap.set("n", "<leader>Mo", ":MindOpenMain<CR>")
