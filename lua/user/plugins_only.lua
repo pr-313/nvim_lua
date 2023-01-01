@@ -100,6 +100,11 @@ return {
     -- "kdheepak/lazygit.nvim"                          ,   , cmd={"LazyGit"}, lazy=true
     {"tpope/vim-fugitive", cmd={"G","Gvdiffsplit"}, lazy=true},
 
+    -- Note Taking
+    { 'phaazon/mind.nvim', branch = 'v2.2', requires = { 'nvim-lua/plenary.nvim' },
+        config = function() require'user.mind' end
+    }
+
     -- DAP
     -- "mfussenegger/nvim-dap"                       ,
     -- "rcarriga/nvim-dap-ui"                        ,
