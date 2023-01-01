@@ -66,7 +66,7 @@ lazy.setup("user.plugins_only",
       plugin = " ",
       runtime = " ",
       source = " ",
-      start = "",
+      start = ">",
       task = "✔ ",
       lazy = "鈴",
       list = {

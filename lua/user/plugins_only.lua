@@ -3,9 +3,8 @@ return {
     -- My plugins here
     "lewis6991/impatient.nvim",
     "nvim-lua/plenary.nvim",    -- Useful lua functions used by lots of plugins
-    {"numToStr/Comment.nvim", lazy=true, keys={"<leader>cc"}, dependencies={"nvim-ts-context-commentstring"},
-        config= function() require("user.comment")  end},
-    {"JoosepAlviste/nvim-ts-context-commentstring", lazy=true},
+    "numToStr/Comment.nvim",
+    "JoosepAlviste/nvim-ts-context-commentstring",
     "kyazdani42/nvim-web-devicons",
     {'alvarosevilla95/luatab.nvim', lazy=true, event="TabNew",
         config = function () require"user.bufferline" end},
@@ -47,11 +46,11 @@ return {
     -- Fzf
     {'ibhagwan/fzf-lua', cmd={'FzfLua'}, lazy=true, dependencies="fzf",
         config = function () require"user.fzf-lua" end},
-    {'junegunn/fzf',
-        build = './install --all', lazy=true},
+    {'junegunn/fzf', build = './install --all', lazy=true},
 
     -- Folding
-    -- 'kevinhwang91/nvim-ufo'                        ,
+    {'kevinhwang91/nvim-ufo', lazy=true, event="BufReadPost", dependencies={"kevinhwang91/promise-async"},
+        config = function () require("user.ufo") end},
     -- 'kevinhwang91/promise-async'                  ,
 
     -- snippets
