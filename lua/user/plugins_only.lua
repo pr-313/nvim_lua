@@ -25,6 +25,7 @@ return {
     {"gruvbox-community/gruvbox", lazy=true},
     {"folke/tokyonight.nvim", lazy=true},
     {"lunarvim/darkplus.nvim", lazy=true},
+    {"rebelot/kanagawa.nvim", lazy=true},
 
     -- Haarpoon
     {"ThePrimeagen/harpoon", lazy=true, event="VeryLazy",
