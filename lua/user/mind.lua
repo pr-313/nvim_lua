@@ -172,20 +172,20 @@ mind.setup({
 })
 
 
-vim.keymap.set("n", "<leader>ms",
+vim.api.nvim_create_user_command("LMS",
   function()
     mind.wrap_smart_project_tree_fn(function(args)
       cmds.open_data_index(args.get_tree(), args.data_dir, args.save_tree, args.opts)
     end)
-  end)
+  end, {})
 
 
-vim.keymap.set("n", "<leader>Ms",
+vim.api.nvim_create_user_command("GMS",
   function()
     mind.wrap_main_tree_fn(function(args)
       cmds.open_data_index(args.get_tree(), args.data_dir, args.save_tree, args.opts)
     end)
-  end)
+  end, {})
 
-vim.keymap.set("n", "<leader>mo", ":MindOpenProject<CR>")
-vim.keymap.set("n", "<leader>Mo", ":MindOpenMain<CR>")
+vim.keymap.set("n", "td", ":MindOpenProject<CR>")
+vim.keymap.set("n", "tD", ":MindOpenMain<CR>")
