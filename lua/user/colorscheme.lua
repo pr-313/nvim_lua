@@ -83,7 +83,7 @@ require('kanagawa').setup({
     --[[ theme = "default"           -- Load "default" theme or the experimental "light" theme ]]
 })
 
-local colorscheme = "gruvbox"
+local colorscheme = "kanagawa"
 -- setup must be called before loading
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
