@@ -187,5 +187,5 @@ vim.api.nvim_create_user_command("GMS",
     end)
   end, {})
 
-vim.keymap.set("n", "td", ":MindOpenProject<CR>")
-vim.keymap.set("n", "tD", ":MindOpenMain<CR>")
+vim.keymap.set("n", "tD", ":MindOpenProject<CR>")
+vim.keymap.set("n", "td", ":MindOpenMain<CR>")
