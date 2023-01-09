@@ -90,6 +90,9 @@ return {
     {"szw/vim-maximizer", cmd={"MaximizerToggle"}, lazy=true},
     {"godlygeek/tabular", cmd={"Tab"}, lazy=true},
     {"preservim/tagbar", cmd={"TagbarToggle"}, lazy=true},
+    {"folke/todo-comments.nvim", event="BufEnter", lazy=true, dependencies={"nvim-lua/plenary.nvim"},
+        config= function() require "user.todo_comment" end },  -- TODO Highlight
+
     --[[ {"folke/noice.nvim", lazy=true, event="VeryLazy", dependencies={"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"}, ]]
     --[[     config = function() require("user.noice") end}, ]]
 
