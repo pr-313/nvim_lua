@@ -11,6 +11,7 @@ local servers = {
   "pylsp",
   "bashls",
   "jsonls",
+  "yamlls",
   "vimls"
 }
 

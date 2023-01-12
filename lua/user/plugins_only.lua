@@ -25,6 +25,7 @@ return {
     {"gruvbox-community/gruvbox", lazy=true},
     {"folke/tokyonight.nvim", lazy=true},
     {"lunarvim/darkplus.nvim", lazy=true},
+    {"rebelot/kanagawa.nvim", lazy=true},
 
     -- Haarpoon
     {"ThePrimeagen/harpoon", lazy=true, event="VeryLazy",
@@ -63,9 +64,10 @@ return {
     'rmagatti/auto-session',
 
     -- LSP
-    {"neovim/nvim-lspconfig", lazy=true, event="BufReadPre"},
+    {"neovim/nvim-lspconfig", lazy=true, event="BufReadPre", dependencies="mason.nvim",
+        config = function () require("user.lsp") end},    -- simple to use language server installer
     {"williamboman/mason.nvim", lazy=true, cmd={"Mason"}, dependencies={"mason-lspconfig.nvim"},
-        config = function () require("user.lsp.lsp-installer") end, event="BufEnter"},    -- simple to use language server installer
+        config = function () require("user.lsp.lsp-installer") end, event="BufReadPre"},    -- simple to use language server installer
     {"williamboman/mason-lspconfig.nvim", lazy=true},
     -- "jose-elias-alvarez/null-ls.nvim"             ,    -- for formatters and linters
     -- "RRethy/vim-illuminate"                       ,
@@ -88,6 +90,9 @@ return {
     {"szw/vim-maximizer", cmd={"MaximizerToggle"}, lazy=true},
     {"godlygeek/tabular", cmd={"Tab"}, lazy=true},
     {"preservim/tagbar", cmd={"TagbarToggle"}, lazy=true},
+    {"folke/todo-comments.nvim", event="BufEnter", lazy=true, dependencies={"nvim-lua/plenary.nvim"},
+        config= function() require "user.todo_comment" end },  -- TODO Highlight
+
     --[[ {"folke/noice.nvim", lazy=true, event="VeryLazy", dependencies={"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"}, ]]
     --[[     config = function() require("user.noice") end}, ]]
 
