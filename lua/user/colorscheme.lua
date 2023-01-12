@@ -2,6 +2,17 @@ vim.g.tokyonight_style = "night"
 vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
 vim.g.gruvbox_contrast_dark = "hard"
 
+local colorscheme = "gruvbox"
+-- setup must be called before loading
+local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+if not status_ok then
+    return
+end
+
+local status_ok, kanagawa = pcall(require, "kanagawa")
+if not status_ok then
+  return
+end
 
 local palette_colors = {
 
@@ -63,8 +74,7 @@ local palette_colors = {
     katanaGray    = "#717C7C",
 }
 
--- Default options:
-require('kanagawa').setup({
+kanagawa.setup({
     undercurl = true,           -- enable undercurls
     commentStyle = { italic = true },
     functionStyle = {},
@@ -82,10 +92,3 @@ require('kanagawa').setup({
     overrides = {},
     --[[ theme = "default"           -- Load "default" theme or the experimental "light" theme ]]
 })
-
-local colorscheme = "kanagawa"
--- setup must be called before loading
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-if not status_ok then
-    return
-end
