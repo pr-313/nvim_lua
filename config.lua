@@ -28,13 +28,12 @@ lvim.plugins = {
 lvim.leader = ","
 -- add your own keymapping
 require("user.keymaps")
+require("user.telescope")
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 
--- -- Use which-key to add extra bindings with the leader-key prefix
-lvim.builtin.which_key.mappings["f"] = { "<cmd>Telescope live_grep<cr>", "Live Grep" }
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
 -- -- Change theme settings
