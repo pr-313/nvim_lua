@@ -1,3 +1,4 @@
+vim.g.mapleader = ","
 local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { noremap = true, silent = true }
@@ -19,19 +20,18 @@ keymap("n", "<M-h>", ":call TmuxResize('h', 4)<CR>", opts)
 keymap("n", "<M-l>", ":call TmuxResize('l', 4)<CR>", opts)
 
 -- Quick Write and quit
-keymap("n", "<leader>q", ":q<CR>", opts)
 keymap("n", "<leader>Q", ":qa<CR>", opts)
-keymap("n", "<leader>w", ":w<CR>", opts)
-keymap("n", "<leader>t", ":tabnew<CR>", opts)
+lvim.builtin.which_key.mappings["Q"] = { ":qa<cr>", "Quit All" }
+lvim.builtin.which_key.mappings["t"] = { ":tabnew<cr>", "Tab New" }
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":tabnext<CR>", opts)
 keymap("n", "<S-h>", ":tabprevious<CR>", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
-keymap("n", "<leader>d", "V\"_d", opts)
-keymap("v", "<leader>d", "\"_d", opts)
 keymap("n", "<C-p>", ":call ToggleNetrw()<CR>", opts)
+lvim.builtin.which_key.mappings["d"] = { "V\"_d", "Delete to null reg" }
+lvim.builtin.which_key.vmappings["d"] = { "\"_d", "Delete to null reg" }
 
 -- Window Maximizer
 keymap("n", "<leader><leader>", ":MaximizerToggle<CR>", opts)
@@ -50,7 +50,7 @@ keymap("n", "<M-b>", ":cprevious<CR>", opts)
 keymap("n", "<M-n>", ":cnext<CR>", opts)
 
 -- Quick Find
-keymap("v", "<leader>g", "y/<C-r>\"<cr>")
+lvim.builtin.which_key.vmappings["g"] = { "y/<C-r>\"<cr>", "Quick Lookup" }
 
 -- Undo Breaks
 keymap("i", ",", ",<c-g>u", opts)
@@ -63,18 +63,17 @@ keymap("i", "<space>", "<space><c-g>u", opts)
 keymap("n", "tu", ":UndotreeToggle<CR>", opts)
 
 -- Term Copy paste
-keymap("n", "<leader>y", "\"+y", opts)
 keymap("n", "Y", "y$", opts)
-keymap("n", "<leader>p", "\"+p", opts)
-keymap("v", "<leader>r", "y:%s@<C-r>\"@")
-keymap("v", "<leader>y", "\"+y", opts)
+lvim.builtin.which_key.mappings["P"] = { "\"+p", "Paste from system clipboard" }
+lvim.builtin.which_key.vmappings["r"] = { "y:%s@<C-r>\"@", "Start replace menu" }
+lvim.builtin.which_key.vmappings["y"] = { "\"+y", "Yank to system clipboard" }
+
 
 -- Clear highlights
 keymap("n", "<M-s>", "<cmd>nohlsearch<CR>", opts)
 
 -- Quick Sets
-keymap("n", "<leader>W", ":set wrap! wrap?<CR>", opts)
-keymap("n", "<leader>H", ":set hlsearch! hlsearch?<CR>", opts)
+lvim.builtin.which_key.mappings["W"] = { ":set wrap! wrap?<CR>", "Toggle Wrap" }
 
 -- Close buffers
 keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
@@ -88,4 +87,3 @@ keymap("n", "tf", ":NvimTreeFindFile<CR>", opts)
 
 -- Telescope
 keymap("n", "<C-f>", ":Telescope git_files<CR>", opts)
-
