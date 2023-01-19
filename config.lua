@@ -22,6 +22,7 @@ lvim.plugins = {
   { "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" }, lazy=true },
   { "szw/vim-maximizer", cmd = { "MaximizerToggle" }, lazy = true },
   { "mbbill/undotree", cmd = { "UndotreeToggle" }, lazy = true },
+  { "ellisonleao/gruvbox.nvim" }
 }
 
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
@@ -36,8 +37,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
--- -- Change theme settings
-lvim.colorscheme = "onedarker"
+require("user.colors")
 
 lvim.builtin.illuminate.active = false
 lvim.builtin.lir.active = false
