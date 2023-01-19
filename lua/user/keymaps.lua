@@ -74,6 +74,18 @@ keymap("n", "<M-s>", "<cmd>nohlsearch<CR>", opts)
 
 -- Quick Sets
 lvim.builtin.which_key.mappings["W"] = { ":set wrap! wrap?<CR>", "Toggle Wrap" }
+lvim.builtin.which_key.mappings["/"] = {}
+lvim.builtin.which_key.mappings["c"] = {
+  name = "Comment",
+  c = {"<Plug>(comment_toggle_linewise_current)", "Comment toggle current line"},
+  b = {"<Plug>(comment_toggle_blockwise_current)", "Comment toggle block"}
+}
+
+lvim.builtin.which_key.vmappings["c"] = {
+  name = "Comment",
+  c = {"<Plug>(comment_toggle_linewise_current)", "Comment toggle current line"},
+  b = {"<Plug>(comment_toggle_blockwise_current)", "Comment toggle block"}
+}
 
 -- Close buffers
 keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
