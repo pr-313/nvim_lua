@@ -31,13 +31,13 @@ require("user.keymaps")
 require("user.telescope")
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
-lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
-lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+-- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
+-- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
 -- -- Change theme settings
-lvim.colorscheme = "tokyonight-night"
+lvim.colorscheme = "onedarker"
 
 lvim.builtin.illuminate.active = false
 lvim.builtin.lir.active = false

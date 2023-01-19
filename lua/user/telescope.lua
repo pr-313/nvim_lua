@@ -23,7 +23,7 @@ lvim.builtin.telescope.defaults.layout_config = {
     flip_columns = 80,
   },
   horizontal = {
-    preview_width = 50
+    preview_width = 90
   },
   vertical = {
     preview_height = 30
