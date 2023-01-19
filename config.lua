@@ -6,7 +6,9 @@
 -- vim options
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
+vim.opt.timeoutlen = 300
+vim.opt.guicursor = ""
 -- general
 lvim.log.level = "info"
 lvim.format_on_save = {
