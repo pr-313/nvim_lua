@@ -38,7 +38,7 @@ lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
 -- -- Change theme settings
-lvim.colorscheme = "tokyonight-storm"
+lvim.colorscheme = "tokyonight-night"
 
 lvim.builtin.alpha.dashboard.section.buttons.entries[1][3] = "<CMD>Telescope git_files<CR>"
 lvim.builtin.alpha.active = true
