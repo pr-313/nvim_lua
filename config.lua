@@ -17,11 +17,12 @@ lvim.format_on_save = {
   timeout = 1000,
 }
 -- to disable icons and use a minimalist setup, uncomment the following
--- lvim.use_icons = false
+lvim.use_icons = false
 
 -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
 lvim.plugins = {
-  { "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" }, lazy = true },
+  { "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" }, lazy = true,
+    config = function () require("user.diffview") end},
   { "szw/vim-maximizer", cmd = { "MaximizerToggle" }, lazy = true },
   { "mbbill/undotree", cmd = { "UndotreeToggle" }, lazy = true },
   { "ellisonleao/gruvbox.nvim" }
@@ -53,3 +54,4 @@ lvim.builtin.terminal.active = true
 
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = false
+lvim.builtin.mason.install_root_dir = "/runs/simrun_tav/libs/lsp_server"
