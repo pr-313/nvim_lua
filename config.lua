@@ -25,7 +25,11 @@ lvim.plugins = {
     config = function () require("user.diffview") end},
   { "szw/vim-maximizer", cmd = { "MaximizerToggle" }, lazy = true },
   { "mbbill/undotree", cmd = { "UndotreeToggle" }, lazy = true },
-  { "ellisonleao/gruvbox.nvim" }
+  { "ellisonleao/gruvbox.nvim" },
+  -- Fzf
+  {'ibhagwan/fzf-lua', cmd={'FzfLua'}, lazy=true, dependencies="fzf",
+      config = function () require"user.fzf-lua" end},
+  {'junegunn/fzf', build = './install --all', lazy=true},
 }
 
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
@@ -49,9 +53,17 @@ lvim.builtin.lir.active = false
 lvim.builtin.project.active = false
 lvim.builtin.dap.active = false
 lvim.builtin.bufferline.active = false
+lvim.builtin.telescope.active = true
 
 lvim.builtin.terminal.active = true
 
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = false
 lvim.builtin.mason.install_root_dir = "/runs/simrun_tav/libs/lsp_server"
+
+lvim.lsp.automatic_configuration.skipped_filetypes[1] = "markdown"
+lvim.lsp.automatic_configuration.skipped_filetypes[2] = "rst"
+lvim.lsp.automatic_configuration.skipped_filetypes[3] = "plaintext"
+lvim.lsp.automatic_configuration.skipped_filetypes[4] = "toml"
+lvim.lsp.automatic_configuration.skipped_filetypes[5] = "proto"
+lvim.lsp.automatic_configuration.skipped_filetypes[6] = "verilog"

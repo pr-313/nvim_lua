@@ -7,12 +7,12 @@ function Find_selection()
   require('telescope.builtin').grep_string({ search = vim.fn.getreg('"') });
 end
 
-vim.keymap.set("n", "te", ":Telescope<CR>", { noremap = true, silent = true })
-lvim.builtin.which_key.mappings["f"] = { "<cmd>Telescope live_grep<cr>", "Live Grep" }
-lvim.builtin.which_key.mappings["sl"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer" }
-lvim.builtin.which_key.mappings["F"] = { ":lua Get_search_seed_from_prompt()<CR>", "Fuzzy Grep with Seed Word" }
+-- vim.keymap.set("n", "te", ":Telescope<CR>", { noremap = true, silent = true })
+-- lvim.builtin.which_key.mappings["f"] = { "<cmd>Telescope live_grep<cr>", "Live Grep" }
+-- lvim.builtin.which_key.mappings["sl"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer" }
+-- lvim.builtin.which_key.mappings["F"] = { ":lua Get_search_seed_from_prompt()<CR>", "Fuzzy Grep with Seed Word" }
+-- lvim.builtin.which_key.vmappings["f"] = { "y:lua Find_selection()<cr>", "Fuzzy Grep with Seed Word" }
 
-lvim.builtin.which_key.vmappings["f"] = { "y:lua Find_selection()<cr>", "Fuzzy Grep with Seed Word" }
 lvim.builtin.telescope.theme = "ivy"
 lvim.builtin.telescope.defaults.layout_strategy = 'flex'
 lvim.builtin.telescope.defaults.layout_config = {
