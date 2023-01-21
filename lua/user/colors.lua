@@ -27,4 +27,4 @@ gruvbox.setup({
 })
 
 -- -- Change theme settings
-lvim.colorscheme = "gruvbox"
+lvim.colorscheme = "tokyonight-night"

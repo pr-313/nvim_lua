@@ -23,9 +23,7 @@ lvim.builtin.illuminate.active = false
 lvim.builtin.lir.active = false
 lvim.builtin.project.active = false
 lvim.builtin.dap.active = false
-lvim.builtin.bufferline.active = false
-lvim.builtin.telescope.active = true
-lvim.builtin.breadcrumbs.active = false
+lvim.builtin.bufferline.active = true
 
 lvim.builtin.terminal.active = true
 

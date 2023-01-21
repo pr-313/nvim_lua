@@ -37,12 +37,8 @@ lvim.builtin.which_key.vmappings["d"] = { "\"_d", "Delete to null reg" }
 keymap("n", "<leader><leader>", ":MaximizerToggle<CR>", opts)
 
 -- Folding
-keymap("n", "<Space>", "za", opts)
-keymap("v", "<Space>", "zf", opts)
-
--- Moving Lines
-keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
-keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
+-- keymap("n", "<Space>", "za", opts)
+-- keymap("v", "<Space>", "zf", opts)
 
 -- Quickfix navigation
 keymap("n", "<M-m>", ":copen<CR>", opts)
