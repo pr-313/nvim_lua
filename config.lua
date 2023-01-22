@@ -26,7 +26,7 @@ lvim.plugins = {
   { "szw/vim-maximizer", cmd = { "MaximizerToggle" }, lazy = true },
   { "mbbill/undotree", cmd = { "UndotreeToggle" }, lazy = true },
   { "ellisonleao/gruvbox.nvim"},
-  { "f-person/git-blame.nvim", lazy = true, event = "User FileOpened" },
+  -- { "f-person/git-blame.nvim", lazy = true, event = "User FileOpened" },
   -- Fzf
   { 'ibhagwan/fzf-lua', cmd = { 'FzfLua' }, lazy = true, dependencies = "fzf",
     config = function() require "user.fzf-lua" end },
