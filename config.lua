@@ -21,10 +21,16 @@ lvim.format_on_save = {
 
 -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
 lvim.plugins = {
-  { "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" }, lazy = true },
+  { "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" }, lazy = true,
+    config = function() require("user.diffview") end },
   { "szw/vim-maximizer", cmd = { "MaximizerToggle" }, lazy = true },
   { "mbbill/undotree", cmd = { "UndotreeToggle" }, lazy = true },
-  { "ellisonleao/gruvbox.nvim" }
+  { "ellisonleao/gruvbox.nvim"},
+  { "f-person/git-blame.nvim", lazy = true, event = "User FileOpened" },
+  -- Fzf
+  { 'ibhagwan/fzf-lua', cmd = { 'FzfLua' }, lazy = true, dependencies = "fzf",
+    config = function() require "user.fzf-lua" end },
+  { 'junegunn/fzf', build = './install --all', lazy = true },
 }
 
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
@@ -48,6 +54,7 @@ lvim.builtin.lir.active = false
 lvim.builtin.project.active = false
 lvim.builtin.dap.active = false
 lvim.builtin.bufferline.active = false
+lvim.builtin.telescope.active = true
 
 lvim.builtin.terminal.active = true
 

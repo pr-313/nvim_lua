@@ -21,8 +21,8 @@ keymap("n", "<M-l>", ":call TmuxResize('l', 4)<CR>", opts)
 
 -- Quick Write and quit
 keymap("n", "<leader>Q", ":qa<CR>", opts)
-lvim.builtin.which_key.mappings["Q"] = { ":qa<cr>", "Quit All" }
 lvim.builtin.which_key.mappings["t"] = { ":tabnew<cr>", "Tab New" }
+lvim.builtin.which_key.mappings["Q"] = { ":qa<cr>", "Quit All" }
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":tabnext<CR>", opts)
@@ -98,4 +98,31 @@ keymap("n", "tt", ":NvimTreeToggle<CR>", opts)
 keymap("n", "tf", ":NvimTreeFindFile<CR>", opts)
 
 -- Telescope
-keymap("n", "<C-f>", ":Telescope git_files<CR>", opts)
+lvim.builtin.which_key.mappings.L.k[1] = "<cmd>FzfLua keymaps<cr>"
+lvim.builtin.which_key.mappings.g.C[1] = "<cmd>FzfLua git_bcommits<cr>"
+lvim.builtin.which_key.mappings.g.b[1] = "<cmd>FzfLua git_branches<cr>"
+lvim.builtin.which_key.mappings.g.c[1] = "<cmd>FzfLua git_commits<cr>"
+lvim.builtin.which_key.mappings.g.o[1] = "<cmd>FzfLua git_status<cr>"
+lvim.builtin.which_key.mappings.l.S[1] = "<cmd>FzfLua lsp_live_workspace_symbols<cr>"
+lvim.builtin.which_key.mappings.l.e[1] = "<cmd>FzfLua quickfix<cr>"
+lvim.builtin.which_key.mappings.l.s[1] = "<cmd>FzfLua lsp_document_symbols<cr>"
+lvim.builtin.which_key.mappings.l.w[1] = "<cmd>FzfLua diagnostics_document<cr>"
+lvim.builtin.which_key.mappings.s.C[1] = "<cmd>FzfLua commands<cr>"
+lvim.builtin.which_key.mappings.s.H[1] = "<cmd>FzfLua highlights<cr>"
+lvim.builtin.which_key.mappings.s.M[1] = "<cmd>FzfLua man_pages<cr>"
+lvim.builtin.which_key.mappings.s.R[1] = "<cmd>FzfLua registers<cr>"
+lvim.builtin.which_key.mappings.s.b[1] = "<cmd>FzfLua git_branches<cr>"
+lvim.builtin.which_key.mappings.s.c[1] = "<cmd>FzfLua colorschemes<cr>"
+lvim.builtin.which_key.mappings.s.f[1] = "<cmd>FzfLua files<cr>"
+lvim.builtin.which_key.mappings.s.h[1] = "<cmd>FzfLua help_tags<cr>"
+lvim.builtin.which_key.mappings.s.k[1] = "<cmd>FzfLua keymaps<cr>"
+lvim.builtin.which_key.mappings.s.p[1] = ""
+lvim.builtin.which_key.mappings.s.r[1] = "<cmd>FzfLua oldfiles<cr>"
+lvim.builtin.which_key.mappings.s.t[1] = "<cmd>FzfLua live_grep<cr>"
+-- Fzf
+keymap("n", "<C-f>", ":lua require('fzf-lua').files({ fzf_opts = {['--no-preview'] = ''}, winopts = {preview = {vertical = 'up:0%'}} })<CR>", opts)
+keymap("n", "te", ":FzfLua<CR>", opts)
+lvim.builtin.which_key.mappings["f"] = { ":FzfLua live_grep<CR>", "Live Grep" }
+lvim.builtin.which_key.mappings["sl"] = { ":FzfLua lgrep_curbuf<CR>", "Current Buffer" }
+lvim.builtin.which_key.mappings["F"] = { ":FzfLua grep<CR>", "Fuzzy Grep with Seed Word" }
+lvim.builtin.which_key.vmappings["f"] = { "<ESC>:FzfLua grep_visual<CR>", "Fuzzy Grep with Seed Word" }
