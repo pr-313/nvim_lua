@@ -60,10 +60,8 @@ lvim.builtin.terminal.active = true
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = false
 lvim.builtin.mason.install_root_dir = "/runs/simrun_tav/libs/lsp_server"
+lvim.lsp.nlsp_settings.setup.config_home = "/runs/simrun_tav/libs/lvim/lsp-settings"
+lvim.lsp.templates_dir = "/runs/simrun_tav/libs/lunarvim/site/after/ftplugin"
 
-lvim.lsp.automatic_configuration.skipped_filetypes[1] = "markdown"
-lvim.lsp.automatic_configuration.skipped_filetypes[2] = "rst"
-lvim.lsp.automatic_configuration.skipped_filetypes[3] = "plaintext"
-lvim.lsp.automatic_configuration.skipped_filetypes[4] = "toml"
-lvim.lsp.automatic_configuration.skipped_filetypes[5] = "proto"
 lvim.lsp.automatic_configuration.skipped_filetypes[6] = "verilog"
+lvim.lsp.automatic_configuration.skipped_servers[43] = "svls"
