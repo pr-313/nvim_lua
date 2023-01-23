@@ -21,8 +21,8 @@ keymap("n", "<M-l>", ":call TmuxResize('l', 4)<CR>", opts)
 
 -- Quick Write and quit
 keymap("n", "<leader>Q", ":qa<CR>", opts)
-lvim.builtin.which_key.mappings["Q"] = { ":qa<cr>", "Quit All" }
 lvim.builtin.which_key.mappings["t"] = { ":tabnew<cr>", "Tab New" }
+lvim.builtin.which_key.mappings["Q"] = { ":qa<cr>", "Quit All" }
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":tabnext<CR>", opts)
@@ -72,8 +72,6 @@ lvim.builtin.which_key.vmappings["y"] = { "\"+y", "Yank to system clipboard" }
 -- Clear highlights
 keymap("n", "<M-s>", "<cmd>nohlsearch<CR>", opts)
 
-
-
 -- Quick Sets
 lvim.builtin.which_key.mappings["W"] = { ":set wrap! wrap?<CR>", "Toggle Wrap" }
 lvim.builtin.which_key.mappings["/"] = {}
@@ -122,7 +120,7 @@ lvim.builtin.which_key.mappings.s.p[1] = ""
 lvim.builtin.which_key.mappings.s.r[1] = "<cmd>FzfLua oldfiles<cr>"
 lvim.builtin.which_key.mappings.s.t[1] = "<cmd>FzfLua live_grep<cr>"
 -- Fzf
-keymap("n", "<C-f>", ":FzfLua files<CR>", opts)
+keymap("n", "<C-f>", ":lua require('fzf-lua').files({ fzf_opts = {['--no-preview'] = ''}, winopts = {preview = {vertical = 'up:0%'}} })<CR>", opts)
 keymap("n", "te", ":FzfLua<CR>", opts)
 lvim.builtin.which_key.mappings["f"] = { ":FzfLua live_grep<CR>", "Live Grep" }
 lvim.builtin.which_key.mappings["sl"] = { ":FzfLua lgrep_curbuf<CR>", "Current Buffer" }

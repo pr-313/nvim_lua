@@ -1,5 +1,6 @@
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
+lvim.builtin.alpha.esc_to_quit = false
 lvim.builtin.alpha.dashboard.section.buttons.entries[1][1] = "f"
 lvim.builtin.alpha.dashboard.section.buttons.entries[1][2] = "  Find File"
 lvim.builtin.alpha.dashboard.section.buttons.entries[1][3] = "<CMD>FzfLua files<CR>"
