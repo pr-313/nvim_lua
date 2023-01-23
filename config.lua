@@ -25,12 +25,30 @@ lvim.plugins = {
     config = function() require("user.diffview") end },
   { "szw/vim-maximizer", cmd = { "MaximizerToggle" }, lazy = true },
   { "mbbill/undotree", cmd = { "UndotreeToggle" }, lazy = true },
-  { "ellisonleao/gruvbox.nvim"},
+  { "ellisonleao/gruvbox.nvim" },
   -- { "f-person/git-blame.nvim", lazy = true, event = "User FileOpened" },
   -- Fzf
   { 'ibhagwan/fzf-lua', cmd = { 'FzfLua' }, lazy = true, dependencies = "fzf",
     config = function() require "user.fzf-lua" end },
   { 'junegunn/fzf', build = './install --all', lazy = true },
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    opts = {
+      load = {
+        ["core.defaults"] = {}, -- Loads default behaviour
+        ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+        ["core.norg.dirman"] = { -- Manages Neorg workspaces
+          config = {
+            workspaces = {
+              notes = "~/notes",
+            },
+          },
+        },
+      },
+    },
+    dependencies = { { "nvim-lua/plenary.nvim" } },
+  }
 }
 
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
@@ -51,7 +69,7 @@ require("user.cmp")
 
 lvim.builtin.illuminate.active = false
 lvim.builtin.lir.active = false
-lvim.builtin.project.active = false
+lvim.builtin.project.active = true
 lvim.builtin.dap.active = false
 lvim.builtin.bufferline.active = false
 lvim.builtin.telescope.active = true
@@ -60,3 +78,4 @@ lvim.builtin.terminal.active = true
 
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = false
+vim.api.nvim_clear_autocmds { pattern = "alpha", group = "_filetype_settings" }
