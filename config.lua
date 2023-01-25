@@ -34,6 +34,7 @@ lvim.plugins = {
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
+    enabled = false,
     opts = {
       load = {
         ["core.defaults"] = {}, -- Loads default behaviour
@@ -79,3 +80,5 @@ lvim.builtin.terminal.active = true
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = false
 vim.api.nvim_clear_autocmds { pattern = "alpha", group = "_filetype_settings" }
+lvim.builtin.telescope.defaults.path_display = { shorten = 5 }
+
