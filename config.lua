@@ -34,6 +34,7 @@ lvim.plugins = {
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
+    enabled = false,
     opts = {
       load = {
         ["core.defaults"] = {}, -- Loads default behaviour
@@ -85,3 +86,5 @@ lvim.lsp.templates_dir = "/runs/simrun_tav/libs/lunarvim/site/after/ftplugin"
 lvim.lsp.automatic_configuration.skipped_filetypes[6] = "verilog"
 lvim.lsp.automatic_configuration.skipped_servers[43] = "svls"
 vim.api.nvim_clear_autocmds { pattern = "alpha", group = "_filetype_settings" }
+lvim.builtin.telescope.defaults.path_display = { shorten = 5 }
+
