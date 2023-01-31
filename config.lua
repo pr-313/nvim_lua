@@ -58,12 +58,14 @@ lvim.plugins = {
     -- Fzf
     { 'ibhagwan/fzf-lua', cmd = { 'FzfLua' }, lazy = true, dependencies = "fzf", enabled = false,
         config = function() require "user.fzf-lua" end },
-    { 'junegunn/fzf', build = './install --all', lazy = true, enabled = false },
+    { 'junegunn/fzf', build = './install --all', lazy = true, enabled = true },
     {"vhda/verilog_systemverilog.vim", lazy=true, ft={"verilog_systemverilog", "verilog", "systemverilog"}},
     {"godlygeek/tabular", cmd={"Tab"}, lazy=true},
     {"tpope/vim-fugitive", cmd={"G","Gvdiffsplit"}, lazy=true},
     {"folke/todo-comments.nvim", event="BufEnter", lazy=true, dependencies={"nvim-lua/plenary.nvim"},
         config= function() require "user.todo_comment" end },  -- TODO Highlight
+    {"ThePrimeagen/harpoon", lazy=true, event="VeryLazy",
+        config = function () require"user.harpoon" end},
 }
 
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
@@ -102,3 +104,7 @@ lvim.lsp.automatic_configuration.skipped_servers[43] = "svls"
 vim.api.nvim_clear_autocmds { pattern = "alpha", group = "_filetype_settings" }
 lvim.builtin.telescope.defaults.path_display = { shorten = 5 }
 
+lvim.lsp.automatic_configuration.skipped_servers[44] = "sumneko_lua"
+lvim.builtin.telescope.defaults.path_display = { truncate = 5 }
+
+vim.cmd("silent! source ~/my_nvim/*.vim")
