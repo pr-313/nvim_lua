@@ -33,6 +33,8 @@ lvim.plugins = {
     {"vhda/verilog_systemverilog.vim", lazy=true, ft={"verilog_systemverilog", "verilog", "systemverilog"}},
     {"godlygeek/tabular", cmd={"Tab"}, lazy=true},
     {"tpope/vim-fugitive", cmd={"G","Gvdiffsplit"}, lazy=true},
+    {"folke/todo-comments.nvim", event="BufEnter", lazy=true, dependencies={"nvim-lua/plenary.nvim"},
+        config= function() require "user.todo_comment" end },  -- TODO Highlight
 }
 
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
