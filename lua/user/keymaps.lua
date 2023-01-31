@@ -2,7 +2,7 @@ vim.g.mapleader = ","
 local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { noremap = true, silent = true }
-vim.cmd("source ~/.config/lvim/lua/user/some_vim_funcs.vim")
+vim.cmd("source /runs/simrun_tav/libs/lvim/lua/user/some_vim_funcs.vim")
 
 -- Normal --
 -- Better window navigation
