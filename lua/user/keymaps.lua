@@ -97,6 +97,19 @@ keymap("v", "p", '"_dP', opts)
 keymap("n", "tt", ":NvimTreeToggle<CR>", opts)
 keymap("n", "tf", ":NvimTreeFindFile<CR>", opts)
 
+--Harpoon
+keymap("n", "<Leader>a", ":lua require(\"harpoon.mark\").add_file()<cr>:echom \"File added to Harpoon\"<CR>", opts)
+keymap("n", "<Leader>m", ":lua require(\"harpoon.ui\").toggle_quick_menu()<cr>", opts)
+keymap("n", "<Leader>1", ":lua require(\"harpoon.ui\").nav_file(1)<cr>:echom \"File in Harpoon 1\"<CR>", opts)
+keymap("n", "<Leader>2", ":lua require(\"harpoon.ui\").nav_file(2)<cr>:echom \"File in Harpoon 1\"<CR>", opts)
+keymap("n", "<Leader>3", ":lua require(\"harpoon.ui\").nav_file(3)<cr>:echom \"File in Harpoon 1\"<CR>", opts)
+keymap("n", "<Leader>4", ":lua require(\"harpoon.ui\").nav_file(4)<cr>:echom \"File in Harpoon 1\"<CR>", opts)
+keymap("n", "<Leader>5", ":lua require(\"harpoon.ui\").nav_file(5)<cr>:echom \"File in Harpoon 1\"<CR>", opts)
+keymap("n", "<Leader>6", ":lua require(\"harpoon.ui\").nav_file(6)<cr>:echom \"File in Harpoon 1\"<CR>", opts)
+keymap("n", "<Leader>7", ":lua require(\"harpoon.ui\").nav_file(7)<cr>:echom \"File in Harpoon 1\"<CR>", opts)
+keymap("n", "<Leader>8", ":lua require(\"harpoon.ui\").nav_file(8)<cr>:echom \"File in Harpoon 1\"<CR>", opts)
+keymap("n", "<Leader>9", ":lua require(\"harpoon.ui\").nav_file(9)<cr>:echom \"File in Harpoon 1\"<CR>", opts)
+
 -- Telescope
 keymap("n", "<C-f>",
     function()

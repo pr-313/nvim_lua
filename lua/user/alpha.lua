@@ -13,6 +13,6 @@ lvim.builtin.alpha.dashboard.section.buttons.entries[3][3] = "<CMD>Telescope pro
 lvim.builtin.alpha.dashboard.section.buttons.entries[4][1] = "r"
 lvim.builtin.alpha.dashboard.section.buttons.entries[4][2] = "  Recent files"
 lvim.builtin.alpha.dashboard.section.buttons.entries[4][3] = ":Telescope oldfiles <CR>"
-lvim.builtin.alpha.dashboard.section.buttons.entries[5][1] = "t"
+lvim.builtin.alpha.dashboard.section.buttons.entries[5][1] = "st"
 lvim.builtin.alpha.dashboard.section.buttons.entries[5][2] = "  Find Text"
 lvim.builtin.alpha.dashboard.section.buttons.entries[5][3] = "<CMD>Telescope live_grep<CR>"
