@@ -23,20 +23,30 @@ lvim.use_icons = false
 lvim.plugins = {
   { "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" }, lazy = true,
     config = function() require("user.diffview") end },
+
   { "szw/vim-maximizer", cmd = { "MaximizerToggle" }, lazy = true },
+
   { "mbbill/undotree", cmd = { "UndotreeToggle" }, lazy = true },
+
   { "ellisonleao/gruvbox.nvim" },
   -- { "f-person/git-blame.nvim", lazy = true, event = "User FileOpened" },
   -- Fzf
   { 'ibhagwan/fzf-lua', cmd = { 'FzfLua' }, lazy = true, dependencies = "fzf",
     config = function() require "user.fzf-lua" end },
   { 'junegunn/fzf', build = './install --all', lazy = true },
-  { "rlane/pounce.nvim", cmd = { "Pounce" }, lazy = true, config = function() require 'user.pounce' end },
+
+  { "rlane/pounce.nvim", cmd = { "Pounce" }, lazy = true,
+    config = function() require 'user.pounce' end },
+
   { "vhda/verilog_systemverilog.vim", lazy = true, ft = { "verilog_systemverilog", "verilog", "systemverilog" } },
+
   { "godlygeek/tabular", cmd = { "Tab" }, lazy = true },
+
   { "tpope/vim-fugitive", cmd = { "G", "Gvdiffsplit" }, lazy = true },
+
   { "folke/todo-comments.nvim", event = "BufEnter", lazy = true, dependencies = { "nvim-lua/plenary.nvim" },
     config = function() require "user.todo_comment" end }, -- TODO Highlight
+
   { "ThePrimeagen/harpoon", lazy = true, event = "VeryLazy",
     config = function() require "user.harpoon" end },
 }
@@ -74,10 +84,10 @@ lvim.lsp.templates_dir = "/runs/simrun_tav/libs/lunarvim/site/after/ftplugin"
 
 lvim.lsp.automatic_configuration.skipped_filetypes[6] = "verilog"
 lvim.lsp.automatic_configuration.skipped_servers[43] = "svls"
-vim.api.nvim_clear_autocmds { pattern = "alpha", group = "_filetype_settings" }
-lvim.builtin.telescope.defaults.path_display = { shorten = 5 }
-
 lvim.lsp.automatic_configuration.skipped_servers[44] = "sumneko_lua"
+
 lvim.builtin.telescope.defaults.path_display = { truncate = 5 }
+
+vim.api.nvim_clear_autocmds { pattern = "alpha", group = "_filetype_settings" }
 
 vim.cmd("silent! source ~/my_nvim/*.vim")
