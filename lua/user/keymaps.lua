@@ -109,6 +109,11 @@ keymap("n", "<Leader>6", ":lua require(\"harpoon.ui\").nav_file(6)<cr>:echom \"F
 keymap("n", "<Leader>7", ":lua require(\"harpoon.ui\").nav_file(7)<cr>:echom \"File in Harpoon 1\"<CR>", opts)
 keymap("n", "<Leader>8", ":lua require(\"harpoon.ui\").nav_file(8)<cr>:echom \"File in Harpoon 1\"<CR>", opts)
 keymap("n", "<Leader>9", ":lua require(\"harpoon.ui\").nav_file(9)<cr>:echom \"File in Harpoon 1\"<CR>", opts)
+-- Pounce
+
+keymap("n", "s", "<cmd>Pounce<CR>", opts)
+keymap("n", "S", "<cmd>Pounce<CR>", opts)
+keymap("v", "s", "<cmd>Pounce<CR>", opts)
 
 -- Telescope
 lvim.builtin.which_key.mappings.L.k[1] = "<cmd>FzfLua keymaps<cr>"

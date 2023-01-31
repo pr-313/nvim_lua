@@ -22,7 +22,7 @@ lvim.use_icons = false
 -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
 lvim.plugins = {
   { "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" }, lazy = true,
-    config = function () require("user.diffview") end},
+    config = function() require("user.diffview") end },
   { "szw/vim-maximizer", cmd = { "MaximizerToggle" }, lazy = true },
   { "mbbill/undotree", cmd = { "UndotreeToggle" }, lazy = true },
   { "ellisonleao/gruvbox.nvim" },
@@ -31,41 +31,14 @@ lvim.plugins = {
   { 'ibhagwan/fzf-lua', cmd = { 'FzfLua' }, lazy = true, dependencies = "fzf",
     config = function() require "user.fzf-lua" end },
   { 'junegunn/fzf', build = './install --all', lazy = true },
-  {
-    "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    enabled = false,
-    opts = {
-      load = {
-        ["core.defaults"] = {}, -- Loads default behaviour
-        ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-        ["core.norg.dirman"] = { -- Manages Neorg workspaces
-          config = {
-            workspaces = {
-              notes = "~/notes",
-            },
-          },
-        },
-      },
-    },
-    dependencies = { { "nvim-lua/plenary.nvim" } },
-  }
-    { "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" }, lazy = true,
-        config = function() require("user.diffview") end },
-    { "szw/vim-maximizer", cmd = { "MaximizerToggle" }, lazy = true },
-    { "mbbill/undotree", cmd = { "UndotreeToggle" }, lazy = true },
-    { "ellisonleao/gruvbox.nvim" },
-    -- Fzf
-    { 'ibhagwan/fzf-lua', cmd = { 'FzfLua' }, lazy = true, dependencies = "fzf", enabled = false,
-        config = function() require "user.fzf-lua" end },
-    { 'junegunn/fzf', build = './install --all', lazy = true, enabled = true },
-    {"vhda/verilog_systemverilog.vim", lazy=true, ft={"verilog_systemverilog", "verilog", "systemverilog"}},
-    {"godlygeek/tabular", cmd={"Tab"}, lazy=true},
-    {"tpope/vim-fugitive", cmd={"G","Gvdiffsplit"}, lazy=true},
-    {"folke/todo-comments.nvim", event="BufEnter", lazy=true, dependencies={"nvim-lua/plenary.nvim"},
-        config= function() require "user.todo_comment" end },  -- TODO Highlight
-    {"ThePrimeagen/harpoon", lazy=true, event="VeryLazy",
-        config = function () require"user.harpoon" end},
+  { "rlane/pounce.nvim", cmd = { "Pounce" }, lazy = true, config = function() require 'user.pounce' end },
+  { "vhda/verilog_systemverilog.vim", lazy = true, ft = { "verilog_systemverilog", "verilog", "systemverilog" } },
+  { "godlygeek/tabular", cmd = { "Tab" }, lazy = true },
+  { "tpope/vim-fugitive", cmd = { "G", "Gvdiffsplit" }, lazy = true },
+  { "folke/todo-comments.nvim", event = "BufEnter", lazy = true, dependencies = { "nvim-lua/plenary.nvim" },
+    config = function() require "user.todo_comment" end }, -- TODO Highlight
+  { "ThePrimeagen/harpoon", lazy = true, event = "VeryLazy",
+    config = function() require "user.harpoon" end },
 }
 
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
