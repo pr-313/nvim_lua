@@ -76,15 +76,15 @@ keymap("n", "<M-s>", "<cmd>nohlsearch<CR>", opts)
 lvim.builtin.which_key.mappings["W"] = { ":set wrap! wrap?<CR>", "Toggle Wrap" }
 lvim.builtin.which_key.mappings["/"] = {}
 lvim.builtin.which_key.mappings["c"] = {
-  name = "Comment",
-  c = {"<Plug>(comment_toggle_linewise_current)", "Comment toggle current line"},
-  b = {"<Plug>(comment_toggle_blockwise_current)", "Comment toggle block"}
+    name = "Comment",
+    c = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
+    b = { "<Plug>(comment_toggle_blockwise_current)", "Comment toggle block" }
 }
 
 lvim.builtin.which_key.vmappings["c"] = {
-  name = "Comment",
-  c = {"<Plug>(comment_toggle_linewise_current)", "Comment toggle current line"},
-  b = {"<Plug>(comment_toggle_blockwise_current)", "Comment toggle block"}
+    name = "Comment",
+    c = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
+    b = { "<Plug>(comment_toggle_blockwise_current)", "Comment toggle block" }
 }
 
 -- Close buffers
@@ -98,6 +98,10 @@ keymap("n", "tt", ":NvimTreeToggle<CR>", opts)
 keymap("n", "tf", ":NvimTreeFindFile<CR>", opts)
 
 -- Telescope
+keymap("n", "<C-f>",
+    function()
+        require("lvim.core.telescope.custom-finders").find_project_files { previewer = false }
+    end, opts)
 -- lvim.builtin.which_key.mappings.L.k[1] = "<cmd>FzfLua keymaps<cr>"
 -- lvim.builtin.which_key.mappings.g.C[1] = "<cmd>FzfLua git_bcommits<cr>"
 -- lvim.builtin.which_key.mappings.g.b[1] = "<cmd>FzfLua git_branches<cr>"
