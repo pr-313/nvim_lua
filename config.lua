@@ -4,8 +4,8 @@
 ]]
 
 -- vim options
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
 vim.opt.relativenumber = false
 vim.opt.timeoutlen = 300
 vim.opt.guicursor = ""
@@ -53,19 +53,6 @@ lvim.plugins = {
 
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
 lvim.leader = ","
--- add your own keymapping
-require("user.keymaps")
-require("user.telescope")
-
--- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
--- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
-
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
-
-require("user.colors")
-require("user.alpha")
-require("user.nvim_tree")
-require("user.cmp")
 
 lvim.builtin.illuminate.active = false
 lvim.builtin.lir.active = false
@@ -89,5 +76,13 @@ lvim.lsp.automatic_configuration.skipped_servers[44] = "sumneko_lua"
 lvim.builtin.telescope.defaults.path_display = { truncate = 5 }
 
 vim.api.nvim_clear_autocmds { pattern = "alpha", group = "_filetype_settings" }
+
+-- add your own keymapping
+require("user.keymaps")
+require("user.telescope")
+require("user.colors")
+require("user.alpha")
+require("user.nvim_tree")
+require("user.cmp")
 
 vim.cmd("silent! source ~/my_nvim/*.vim")
