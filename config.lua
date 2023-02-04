@@ -70,7 +70,7 @@ require("user.cmp")
 
 lvim.builtin.illuminate.active = false
 lvim.builtin.lir.active = false
-lvim.builtin.project.active = true
+lvim.builtin.project.active = false
 lvim.builtin.dap.active = false
 lvim.builtin.bufferline.active = false
 lvim.builtin.telescope.active = true
