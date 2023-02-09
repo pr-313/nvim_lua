@@ -85,5 +85,6 @@ require("user.alpha")
 require("user.nvim_tree")
 require("user.cmp")
 require("user.lualine")
+require("user.autocommands")
 
 vim.cmd("silent! source ~/my_nvim/*.vim")
