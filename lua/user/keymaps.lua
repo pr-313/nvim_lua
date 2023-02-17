@@ -77,14 +77,14 @@ lvim.builtin.which_key.mappings["W"] = { ":set wrap! wrap?<CR>", "Toggle Wrap" }
 lvim.builtin.which_key.mappings["/"] = {}
 lvim.builtin.which_key.mappings["c"] = {
   name = "Comment",
-  c = {"<Plug>(comment_toggle_linewise_current)", "Comment toggle current line"},
-  b = {"<Plug>(comment_toggle_blockwise_current)", "Comment toggle block"}
+    c = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
+    b = { "<Plug>(comment_toggle_blockwise_current)", "Comment toggle block" }
 }
 
 lvim.builtin.which_key.vmappings["c"] = {
   name = "Comment",
-  c = {"<Plug>(comment_toggle_linewise_current)", "Comment toggle current line"},
-  b = {"<Plug>(comment_toggle_blockwise_current)", "Comment toggle block"}
+    c = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
+    b = { "<Plug>(comment_toggle_blockwise_current)", "Comment toggle block" }
 }
 
 -- Close buffers
@@ -96,6 +96,27 @@ keymap("v", "p", '"_dP', opts)
 -- NvimTree
 keymap("n", "tt", ":NvimTreeToggle<CR>", opts)
 keymap("n", "tf", ":NvimTreeFindFile<CR>", opts)
+
+--Harpoon
+lvim.builtin.which_key.mappings["a"] = { ":lua require(\"harpoon.mark\").add_file()<cr>:echom \"File added to Harpoon\"<CR>", "Add to Harpoon Menu" }
+lvim.builtin.which_key.mappings["m"] = { ":lua require(\"harpoon.ui\").toggle_quick_menu()<cr>", "Open Harpoon Menu" }
+lvim.builtin.which_key.mappings["h"] = {
+    name = "Harpoon Files",
+    ["1"] = { ":lua require(\"harpoon.ui\").nav_file(1)<cr>:echom \"File in Harpoon 1\"<CR>", "File 1" },
+    ["2"] = { ":lua require(\"harpoon.ui\").nav_file(2)<cr>:echom \"File in Harpoon 2\"<CR>", "File 2" },
+    ["3"] = { ":lua require(\"harpoon.ui\").nav_file(3)<cr>:echom \"File in Harpoon 3\"<CR>", "File 3" },
+    ["4"] = { ":lua require(\"harpoon.ui\").nav_file(4)<cr>:echom \"File in Harpoon 4\"<CR>", "File 4" },
+    ["5"] = { ":lua require(\"harpoon.ui\").nav_file(5)<cr>:echom \"File in Harpoon 5\"<CR>", "File 5" },
+    ["6"] = { ":lua require(\"harpoon.ui\").nav_file(6)<cr>:echom \"File in Harpoon 6\"<CR>", "File 6" },
+    ["7"] = { ":lua require(\"harpoon.ui\").nav_file(7)<cr>:echom \"File in Harpoon 7\"<CR>", "File 7" },
+    ["8"] = { ":lua require(\"harpoon.ui\").nav_file(8)<cr>:echom \"File in Harpoon 8\"<CR>", "File 8" },
+    ["9"] = { ":lua require(\"harpoon.ui\").nav_file(9)<cr>:echom \"File in Harpoon 9\"<CR>", "File 9" },
+}
+-- Pounce
+
+keymap("n", "s", "<cmd>Pounce<CR>", opts)
+keymap("n", "S", "<cmd>Pounce<CR>", opts)
+keymap("v", "s", "<cmd>Pounce<CR>", opts)
 
 -- Telescope
 lvim.builtin.which_key.mappings.L.k[1] = "<cmd>FzfLua keymaps<cr>"
