@@ -76,13 +76,13 @@ keymap("n", "<M-s>", "<cmd>nohlsearch<CR>", opts)
 lvim.builtin.which_key.mappings["W"] = { ":set wrap! wrap?<CR>", "Toggle Wrap" }
 lvim.builtin.which_key.mappings["/"] = {}
 lvim.builtin.which_key.mappings["c"] = {
-  name = "Comment",
+    name = "Comment",
     c = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
     b = { "<Plug>(comment_toggle_blockwise_current)", "Comment toggle block" }
 }
 
 lvim.builtin.which_key.vmappings["c"] = {
-  name = "Comment",
+    name = "Comment",
     c = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
     b = { "<Plug>(comment_toggle_blockwise_current)", "Comment toggle block" }
 }
@@ -97,22 +97,7 @@ keymap("v", "p", '"_dP', opts)
 keymap("n", "tt", ":NvimTreeToggle<CR>", opts)
 keymap("n", "tf", ":NvimTreeFindFile<CR>", opts)
 
---Harpoon
-lvim.builtin.which_key.mappings["a"] = { ":lua require(\"harpoon.mark\").add_file()<cr>:echom \"File added to Harpoon\"<CR>", "Add to Harpoon Menu" }
-lvim.builtin.which_key.mappings["m"] = { ":lua require(\"harpoon.ui\").toggle_quick_menu()<cr>", "Open Harpoon Menu" }
-lvim.builtin.which_key.mappings["h"] = {
-    name = "Harpoon Files",
-    ["1"] = { ":lua require(\"harpoon.ui\").nav_file(1)<cr>:echom \"File in Harpoon 1\"<CR>", "File 1" },
-    ["2"] = { ":lua require(\"harpoon.ui\").nav_file(2)<cr>:echom \"File in Harpoon 2\"<CR>", "File 2" },
-    ["3"] = { ":lua require(\"harpoon.ui\").nav_file(3)<cr>:echom \"File in Harpoon 3\"<CR>", "File 3" },
-    ["4"] = { ":lua require(\"harpoon.ui\").nav_file(4)<cr>:echom \"File in Harpoon 4\"<CR>", "File 4" },
-    ["5"] = { ":lua require(\"harpoon.ui\").nav_file(5)<cr>:echom \"File in Harpoon 5\"<CR>", "File 5" },
-    ["6"] = { ":lua require(\"harpoon.ui\").nav_file(6)<cr>:echom \"File in Harpoon 6\"<CR>", "File 6" },
-    ["7"] = { ":lua require(\"harpoon.ui\").nav_file(7)<cr>:echom \"File in Harpoon 7\"<CR>", "File 7" },
-    ["8"] = { ":lua require(\"harpoon.ui\").nav_file(8)<cr>:echom \"File in Harpoon 8\"<CR>", "File 8" },
-    ["9"] = { ":lua require(\"harpoon.ui\").nav_file(9)<cr>:echom \"File in Harpoon 9\"<CR>", "File 9" },
-}
--- Pounce
+lvim.builtin.which_key.mappings["h"] = { ":lua Harpoon_refresh_names()<CR>:WhichKey ,h<CR>", "+Harpoon Files" }
 
 keymap("n", "s", "<cmd>Pounce<CR>", opts)
 keymap("n", "S", "<cmd>Pounce<CR>", opts)
@@ -141,7 +126,9 @@ lvim.builtin.which_key.mappings.s.p[1] = ""
 lvim.builtin.which_key.mappings.s.r[1] = "<cmd>FzfLua oldfiles<cr>"
 lvim.builtin.which_key.mappings.s.t[1] = "<cmd>FzfLua live_grep<cr>"
 -- Fzf
-keymap("n", "<C-f>", ":lua require('fzf-lua').files({ fzf_opts = {['--no-preview'] = ''}, winopts = {preview = {vertical = 'up:0%'}} })<CR>", opts)
+keymap("n", "<C-f>",
+    ":lua require('fzf-lua').files({ fzf_opts = {['--no-preview'] = ''}, winopts = {preview = {vertical = 'up:0%'}} })<CR>"
+    , opts)
 keymap("n", "te", ":FzfLua<CR>", opts)
 lvim.builtin.which_key.mappings["f"] = { ":FzfLua live_grep<CR>", "Live Grep" }
 lvim.builtin.which_key.mappings["sl"] = { ":FzfLua lgrep_curbuf<CR>", "Current Buffer" }
