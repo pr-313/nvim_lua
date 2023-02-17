@@ -74,11 +74,10 @@ lvim.builtin.project.active = false
 lvim.builtin.dap.active = false
 lvim.builtin.bufferline.active = false
 lvim.builtin.telescope.active = true
+lvim.builtin.breadcrumbs.active = false
 
 lvim.builtin.terminal.active = true
 
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = false
-vim.api.nvim_clear_autocmds { pattern = "alpha", group = "_filetype_settings" }
 lvim.builtin.telescope.defaults.path_display = { shorten = 5 }
-

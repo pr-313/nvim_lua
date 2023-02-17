@@ -84,6 +84,10 @@ command! -bang LetmeWrite setlocal cpoptions-=W
 let g:verilog_disable_indent_lst= "all"
 let g:verilog_syntax_fold_lst = "class,function,task,module,specify,interface,sequence,block"
 let g:jupyter_ascending_python_executable="python3"
+
+
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 " let g:tagbar_ctags_bin="/runs/simrun_tav/libs/bin/ctags"
 
 set includeexpr=substitute(v:fname,',.*','','g')
