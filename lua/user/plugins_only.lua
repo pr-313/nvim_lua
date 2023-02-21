@@ -21,6 +21,14 @@ return {
     "goolord/alpha-nvim",
     {"vhda/verilog_systemverilog.vim", lazy=true, ft={"verilog_systemverilog", "verilog", "systemverilog"}},
 
+    -- markdown
+    {"NFrid/due.nvim", lazy=true, ft={"markdown"}, event="BufReadPost",
+        config = function () require"user.due" end},
+    {"jubnzv/mdeval.nvim", lazy=true, ft={"markdown"}, event="BufReadPost",
+        config = function () require"user.mdeval" end},
+
+    {"junegunn/vim-easy-align"},
+
     -- Colorschemes
     {"gruvbox-community/gruvbox", lazy=true},
     {"folke/tokyonight.nvim", lazy=true},

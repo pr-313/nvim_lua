@@ -56,6 +56,9 @@ keymap("v", "<Space>", "zf", opts)
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
+keymap("n", "ga", "<Plug>(EasyAlign)", opts)
+keymap("x", "ga", "<Plug>(EasyAlign)", opts)
+
 -- Quickfix navigation
 keymap("n", "<M-m>", ":copen<CR>", opts)
 keymap("n", "<M-b>", ":cprevious<CR>", opts)
