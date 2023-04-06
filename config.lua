@@ -47,7 +47,7 @@ lvim.plugins = {
     { "folke/todo-comments.nvim", event = "BufEnter", lazy = true, dependencies = { "nvim-lua/plenary.nvim" },
         config = function() require "user.todo_comment" end }, -- TODO Highlight
 
-    { "ThePrimeagen/harpoon", lazy = true, event = "VeryLazy",
+    { "ThePrimeagen/harpoon", lazy = true, event = "VeryLazy", enabled = false,
         config = function() require "user.harpoon" end },
 }
 
