@@ -25,6 +25,22 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   group="MyGroup"
 })
 
+vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+  pattern = { "markdown", "*.md" },
+  callback = function()
+    vim.cmd "mkview"
+  end,
+  group="MyGroup"
+})
+
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  pattern = { "markdown", "*.md" },
+  callback = function()
+    vim.cmd "loadview"
+  end,
+  group="MyGroup"
+})
+
 -- vim.cmd "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
 
 -- Fixes Autocomment

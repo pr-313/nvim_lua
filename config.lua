@@ -49,6 +49,13 @@ lvim.plugins = {
 
     { "ThePrimeagen/harpoon", lazy = true, event = "VeryLazy", enabled = false,
         config = function() require "user.harpoon" end },
+
+    {"jubnzv/mdeval.nvim", lazy=true, ft={"markdown"}, event="BufReadPost", enabled = false,
+        config = function () require"user.mdeval" end},
+
+    {"NFrid/due.nvim", lazy=true, ft={"markdown"}, event="BufReadPost",
+        config = function () require"user.due" end},
+
 }
 
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
