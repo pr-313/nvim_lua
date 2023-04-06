@@ -67,9 +67,6 @@ lvim.builtin.terminal.active = true
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = false
 
-lvim.lsp.automatic_configuration.skipped_filetypes[6] = "verilog"
-lvim.lsp.automatic_configuration.skipped_servers[43] = "svls"
-
 lvim.builtin.telescope.defaults.path_display = { truncate = 5 }
 
 vim.api.nvim_clear_autocmds { pattern = "alpha", group = "_filetype_settings" }
