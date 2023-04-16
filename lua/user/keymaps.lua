@@ -1,4 +1,4 @@
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { noremap = true, silent = true }
@@ -37,8 +37,8 @@ lvim.builtin.which_key.vmappings["d"] = { "\"_d", "Delete to null reg" }
 keymap("n", "<leader><leader>", ":MaximizerToggle<CR>", opts)
 
 -- Folding
--- keymap("n", "<Space>", "za", opts)
--- keymap("v", "<Space>", "zf", opts)
+keymap("n", "<Space>", "za", opts)
+keymap("v", "<Space>", "zf", opts)
 
 -- Quickfix navigation
 keymap("n", "<M-m>", ":copen<CR>", opts)
@@ -84,7 +84,7 @@ lvim.builtin.which_key.vmappings["c"] = {
 }
 
 -- Close buffers
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
+keymap("n", "<S-q>", "<cmd>BufferKill<CR>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)

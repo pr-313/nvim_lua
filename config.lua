@@ -1,6 +1,6 @@
 -- vim options
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 vim.opt.relativenumber = false
 vim.opt.timeoutlen = 300
 vim.opt.guicursor = ""
@@ -17,7 +17,7 @@ lvim.format_on_save = {
 -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
 require("user.plugins")
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
-lvim.leader = " "
+lvim.leader = ","
 
 lvim.builtin.illuminate.active = false
 lvim.builtin.lir.active = false
@@ -32,8 +32,6 @@ lvim.builtin.terminal.active = true
 lvim.builtin.treesitter.auto_install = false
 
 lvim.builtin.telescope.defaults.path_display = { truncate = 5 }
-
-vim.api.nvim_clear_autocmds { pattern = "alpha", group = "_filetype_settings" }
 
 -- add your own keymapping
 require("user.keymaps")
