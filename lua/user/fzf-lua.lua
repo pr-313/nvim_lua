@@ -27,14 +27,14 @@ fzf_lua.setup {
         -- window, can be set to 'false' to remove all borders or to
         -- 'none', 'single', 'double', 'thicc' or 'rounded' (default)
         border     = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-        fullscreen = false, -- start fullscreen?
+        fullscreen = false,            -- start fullscreen?
         hl         = {
-            normal     = 'Normal', -- window normal color (fg+bg)
-            border     = 'Normal', -- border color (try 'FloatBorder')
+            normal     = 'Normal',     -- window normal color (fg+bg)
+            border     = 'Normal',     -- border color (try 'FloatBorder')
             -- Only valid with the builtin previewer:
-            cursor     = 'Cursor', -- cursor highlight (grep/LSP matches)
+            cursor     = 'Cursor',     -- cursor highlight (grep/LSP matches)
             cursorline = 'CursorLine', -- cursor line
-            search     = 'IncSearch', -- search matches (ctags|help)
+            search     = 'IncSearch',  -- search matches (ctags|help)
             -- title       = 'Normal',        -- preview border title (file/buffer)
             -- scrollbar_f = 'PmenuThumb',    -- scrollbar "full" section highlight
             -- scrollbar_e = 'PmenuSbar',     -- scrollbar "empty" section highlight
@@ -42,26 +42,27 @@ fzf_lua.setup {
         preview    = {
             -- default     = 'bat',           -- override the default previewer?
             -- default uses the 'builtin' previewer
-            border       = 'border', -- border|noborder, applies only to
+            border       = 'border',    -- border|noborder, applies only to
             -- native fzf previewers (bat/cat/git/etc)
-            wrap         = 'nowrap', -- wrap|nowrap
-            hidden       = 'nohidden', -- hidden|nohidden
-            vertical     = 'up:75%', -- up|down:size
+            wrap         = 'nowrap',    -- wrap|nowrap
+            hidden       = 'nohidden',  -- hidden|nohidden
+            vertical     = 'up:75%',    -- up|down:size
             horizontal   = 'right:60%', -- right|left:size
-            layout       = 'vertical', -- horizontal|vertical|flex
-            flip_columns = 120, -- #cols to switch to horizontal on flex
+            layout       = 'vertical',  -- horizontal|vertical|flex
+            flip_columns = 120,         -- #cols to switch to horizontal on flex
             -- Only valid with the builtin previewer:
-            title        = true, -- preview border title (file/buf)?
-            scrollbar    = 'float', -- `false` or string:'float|border'
+            title        = true,        -- preview border title (file/buf)?
+            scrollbar    = 'float',     -- `false` or string:'float|border'
             -- float:  in-window floating border
             -- border: in-border chars (see below)
-            scrolloff    = '-2', -- float scrollbar offset from right
+            scrolloff    = '-2',        -- float scrollbar offset from right
             -- applies only when scrollbar = 'float'
             scrollchars  = { '█', '' }, -- scrollbar chars ({ <full>, <empty> }
             -- applies only when scrollbar = 'border'
-            delay        = 100, -- delay(ms) displaying the preview
+            delay        = 100,         -- delay(ms) displaying the preview
             -- prevents lag on fast scrolling
-            winopts      = { -- builtin previewer window options
+            winopts      = {
+                                        -- builtin previewer window options
                 number         = true,
                 relativenumber = false,
                 cursorline     = true,
@@ -171,7 +172,7 @@ fzf_lua.setup {
       ["header"]      = { "fg", "Comment" },
       ["gutter"]      = { "bg", "Normal" },
   }, ]]
-    previewers          = {
+    previewers        = {
         cat = {
             cmd  = "cat",
             args = "--number",
@@ -180,7 +181,7 @@ fzf_lua.setup {
             cmd    = "bat",
             args   = "--style=numbers,changes --color always",
             theme  = 'Coldark-Dark', -- bat preview theme (bat --list-themes)
-            config = nil, -- nil uses $BAT_CONFIG_PATH
+            config = nil,            -- nil uses $BAT_CONFIG_PATH
         },
         head = {
             cmd  = "head",
@@ -197,9 +198,9 @@ fzf_lua.setup {
             cmd = "man -c %s | col -bx",
         },
         builtin = {
-            syntax          = true, -- preview syntax highlight?
-            syntax_limit_l  = 0, -- syntax limit (lines), 0=nolimit
-            syntax_limit_b  = 1024 * 1024, -- syntax limit (bytes), 0=nolimit
+            syntax          = true,             -- preview syntax highlight?
+            syntax_limit_l  = 0,                -- syntax limit (lines), 0=nolimit
+            syntax_limit_b  = 1024 * 1024,      -- syntax limit (bytes), 0=nolimit
             limit_b         = 1024 * 1024 * 10, -- preview limit (bytes), 0=nolimit
             -- preview extensions using a custom shell command:
             -- for example, use `viu` for image previews
@@ -218,12 +219,12 @@ fzf_lua.setup {
         },
     },
     -- provider setup
-    files               = {
+    files             = {
         -- previewer      = "bat",          -- uncomment to override previewer
         -- (name from 'previewers' table)
         -- set to 'false' to disable
         prompt       = 'Files❯ ',
-        multiprocess = true, -- run command in a separate process
+        multiprocess = true,  -- run command in a separate process
         git_icons    = false, -- show git icons?
         file_icons   = false, -- show file icons?
         color_icons  = false, -- colorize file|git icons
@@ -244,11 +245,11 @@ fzf_lua.setup {
             ["ctrl-y"]  = function(selected) print(selected[1]) end,
         }
     },
-    git                 = {
+    git               = {
         files = {
             prompt       = 'GitFiles❯ ',
             cmd          = 'git ls-files --exclude-standard',
-            multiprocess = true, -- run command in a separate process
+            multiprocess = true,  -- run command in a separate process
             git_icons    = false, -- show git icons?
             file_icons   = false, -- show file icons?
             color_icons  = false, -- colorize file|git icons
@@ -323,10 +324,10 @@ fzf_lua.setup {
             -- ["A"]        = { icon = "+", color = "green" },
         },
     },
-    grep                = {
+    grep              = {
         prompt         = 'Rg❯ ',
         input_prompt   = 'Grep For❯ ',
-        multiprocess   = true, -- run command in a separate process
+        multiprocess   = true,  -- run command in a separate process
         git_icons      = false, -- show git icons?
         file_icons     = false, -- show file icons?
         color_icons    = false, -- colorize file|git icons
@@ -340,9 +341,9 @@ fzf_lua.setup {
         -- search strings will be split using the 'glob_separator' and translated
         -- to '--iglob=' arguments, requires 'rg'
         -- can still be used when 'false' by calling 'live_grep_glob' directly
-        rg_glob        = false, -- default to glob parsing?
+        rg_glob        = false,     -- default to glob parsing?
         glob_flag      = "--iglob", -- for case sensitive globs use '--glob'
-        glob_separator = "%s%-%-", -- query separator pattern (lua): ' --'
+        glob_separator = "%s%-%-",  -- query separator pattern (lua): ' --'
         -- advanced usage: for custom argument parsing define
         -- 'rg_glob_fn' to return a pair:
         --   first returned argument is the new search query
@@ -359,22 +360,22 @@ fzf_lua.setup {
         no_header      = false, -- hide grep|cwd header?
         no_header_i    = false, -- hide interactive header?
     },
-    args                = {
+    args              = {
         prompt     = 'Args❯ ',
         files_only = true,
         -- actions inherit from 'actions.files' and merge
         actions    = { ["ctrl-x"] = { actions.arg_del, actions.resume } }
     },
-    oldfiles            = {
+    oldfiles          = {
         prompt                  = 'History❯ ',
         cwd_only                = false,
         file_icons              = false, -- show file icons?
         color_icons             = false, -- colorize file|git icons
         sort_lastused           = false, -- sort buffers() by last used
-        stat_file               = true, -- verify files exist on disk
+        stat_file               = true,  -- verify files exist on disk
         include_current_session = false, -- include bufs from current session
     },
-    buffers             = {
+    buffers           = {
         prompt        = 'Buffers❯ ',
         file_icons    = false, -- show file icons?
         color_icons   = false, -- colorize file|git icons
@@ -388,7 +389,7 @@ fzf_lua.setup {
             ["ctrl-x"] = { actions.buf_del, actions.resume },
         }
     },
-    tabs                = {
+    tabs              = {
         prompt      = 'Tabs❯ ',
         tab_title   = "Tab",
         tab_marker  = "<<",
@@ -405,11 +406,11 @@ fzf_lua.setup {
             ["--with-nth"]  = '2..',
         },
     },
-    lines               = {
+    lines             = {
         previewer       = "builtin", -- set to 'false' to disable
         prompt          = 'Lines❯ ',
-        show_unlisted   = false, -- exclude 'help' buffers
-        no_term_buffers = true, -- exclude 'term' buffers
+        show_unlisted   = false,     -- exclude 'help' buffers
+        no_term_buffers = true,      -- exclude 'term' buffers
         fzf_opts        = {
             -- do not include bufnr in fuzzy matching
             -- tiebreak by line no.
@@ -423,11 +424,11 @@ fzf_lua.setup {
             ["alt-q"]   = { actions.buf_sel_to_qf }
         },
     },
-    blines              = {
+    blines            = {
         previewer       = "builtin", -- set to 'false' to disable
         prompt          = 'BLines❯ ',
-        show_unlisted   = true, -- include 'help' buffers
-        no_term_buffers = false, -- include 'term' buffers
+        show_unlisted   = true,      -- include 'help' buffers
+        no_term_buffers = false,     -- include 'term' buffers
         fzf_opts        = {
             -- hide filename, tiebreak by line no.
             ['--delimiter'] = "'[\\]:]'",
@@ -440,7 +441,7 @@ fzf_lua.setup {
             ["alt-q"]   = { actions.buf_sel_to_qf }
         },
     },
-    tags                = {
+    tags              = {
         prompt       = 'Tags❯ ',
         ctags_file   = "tags",
         multiprocess = true,
@@ -458,7 +459,7 @@ fzf_lua.setup {
         no_header    = false, -- hide grep|cwd header?
         no_header_i  = false, -- hide interactive header?
     },
-    btags               = {
+    btags             = {
         prompt       = 'BTags❯ ',
         ctags_file   = "tags",
         multiprocess = true,
@@ -474,7 +475,7 @@ fzf_lua.setup {
         },
         -- actions inherit from 'actions.files'
     },
-    colorschemes        = {
+    colorschemes      = {
         prompt        = 'Colorschemes❯ ',
         live_preview  = true, -- apply the colorscheme on preview?
         actions       = { ["default"] = actions.colorscheme, },
@@ -485,20 +486,20 @@ fzf_lua.setup {
             -- require('feline').reset_highlights()
         end,
     },
-    quickfix            = {
+    quickfix          = {
         file_icons = false,
         git_icons  = false,
     },
-    lsp                 = {
+    lsp               = {
         prompt_postfix   = '❯ ', -- will be appended to the LSP label
         -- to override use 'prompt' instead
         cwd_only         = false, -- LSP/diagnostics for cwd only?
-        async_or_timeout = 5000, -- timeout(ms) or 'true' for async calls
+        async_or_timeout = 5000,  -- timeout(ms) or 'true' for async calls
         file_icons       = false,
         git_icons        = false,
         lsp_icons        = false,
         ui_select        = true, -- use 'vim.ui.select' for code actions
-        symbol_style     = 1, -- style for document/workspace symbols
+        symbol_style     = 1,    -- style for document/workspace symbols
         -- false: disable,    1: icon+kind
         --     2: icon only,  3: kind only
         -- NOTE: icons are extracted from
@@ -511,9 +512,9 @@ fzf_lua.setup {
         symbol_fmt       = function(s) return "[" .. s .. "]" end,
         severity         = "hint",
         icons            = {
-            ["Error"]       = { icon = "", color = "red" }, -- error
+            ["Error"]       = { icon = "", color = "red" },   -- error
             ["Warning"]     = { icon = "", color = "yellow" }, -- warning
-            ["Information"] = { icon = "", color = "blue" }, -- info
+            ["Information"] = { icon = "", color = "blue" },  -- info
             ["Hint"]        = { icon = "", color = "magenta" }, -- hint
         },
     },
@@ -527,12 +528,12 @@ fzf_lua.setup {
     -- available colors (terminal):
     --    clear, bold, black, red, green, yellow
     --    blue, magenta, cyan, grey, dark_grey, white
-    file_icon_colors    = {
+    file_icon_colors  = {
         ["sh"] = "green",
     },
     -- padding can help kitty term users with
     -- double-width icon rendering
-    file_icon_padding   = '',
+    file_icon_padding = '',
     -- uncomment if your terminal/font does not support unicode character
     -- 'EN SPACE' (U+2002), the below sets it to 'NBSP' (U+00A0) instead
     -- nbsp = '\xc2\xa0',

@@ -17,38 +17,38 @@ local id = vim.api.nvim_create_augroup("MyGroup", {
 
 -- Set wrap and spell in markdown and gitcommit
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "gitcommit", "markdown" },
-  callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
-  end,
-  group="MyGroup"
+    pattern = { "gitcommit", "markdown" },
+    callback = function()
+        vim.opt_local.wrap = true
+        vim.opt_local.spell = true
+    end,
+    group = "MyGroup"
 })
 
 vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
-  pattern = { "markdown", "*.md" },
-  callback = function()
-    vim.cmd "mkview"
-  end,
-  group="MyGroup"
+    pattern = { "markdown", "*.md" },
+    callback = function()
+        vim.cmd "mkview"
+    end,
+    group = "MyGroup"
 })
 
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { "markdown", "*.md" },
-  callback = function()
-    vim.cmd "loadview"
-  end,
-  group="MyGroup"
+    pattern = { "markdown", "*.md" },
+    callback = function()
+        vim.cmd "loadview"
+    end,
+    group = "MyGroup"
 })
 
 -- vim.cmd "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
 
 -- Fixes Autocomment
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-  callback = function()
-    vim.cmd "set formatoptions-=cro"
-  end,
-  group="MyGroup"
+    callback = function()
+        vim.cmd "set formatoptions-=cro"
+    end,
+    group = "MyGroup"
 })
 
 -- -- Highlight Yanked Text
@@ -61,24 +61,24 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = {"git"},
-  callback = function()
-    vim.cmd [[
-      set foldmethod=syntax 
+    pattern = { "git" },
+    callback = function()
+        vim.cmd [[
+      set foldmethod=syntax
     ]]
-  end,
-  group="MyGroup"
+    end,
+    group = "MyGroup"
 })
 
 
 vim.api.nvim_create_autocmd({ "BufRead" }, {
-  pattern = {"*.inc","*.v","*.sv","*.svh"},
-  callback = function()
-    vim.cmd [[
+    pattern = { "*.inc", "*.v", "*.sv", "*.svh" },
+    callback = function()
+        vim.cmd [[
       setlocal filetype=verilog_systemverilog
     ]]
-  end,
-  group="MyGroup"
+    end,
+    group = "MyGroup"
 })
 
 -- vim.api.nvim_create_autocmd({ "BufRead" }, {
@@ -98,11 +98,10 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
 
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = {"*.log"},
-  callback = function()
-    vim.cmd [[
+    pattern = { "*.log" },
+    callback = function()
+        vim.cmd [[
       setlocal filetype=text
     ]]
-  end,
+    end,
 })
-
