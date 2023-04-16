@@ -97,7 +97,7 @@ keymap("v", "p", '"_dP', opts)
 keymap("n", "tt", ":NvimTreeToggle<CR>", opts)
 keymap("n", "tf", ":NvimTreeFindFile<CR>", opts)
 
-lvim.builtin.which_key.mappings["h"] = { ":lua Harpoon_refresh_names()<CR>:WhichKey ,h<CR>", "+Harpoon Files" }
+-- lvim.builtin.which_key.mappings["h"] = { ":lua Harpoon_refresh_names()<CR>:WhichKey ,h<CR>", "+Harpoon Files" }
 
 keymap("n", "s", "<cmd>Pounce<CR>", opts)
 keymap("n", "S", "<cmd>Pounce<CR>", opts)
