@@ -17,7 +17,7 @@ lvim.format_on_save = {
 -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
 require("user.plugins")
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
-lvim.leader = ","
+lvim.leader = " "
 
 lvim.builtin.illuminate.active = false
 lvim.builtin.lir.active = false

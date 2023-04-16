@@ -1,4 +1,4 @@
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { noremap = true, silent = true }
@@ -25,8 +25,8 @@ lvim.builtin.which_key.mappings["t"] = { ":tabnew<cr>", "Tab New" }
 lvim.builtin.which_key.mappings["Q"] = { ":qa<cr>", "Quit All" }
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":tabnext<CR>", opts)
-keymap("n", "<S-h>", ":tabprevious<CR>", opts)
+keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 keymap("n", "<C-p>", ":call ToggleNetrw()<CR>", opts)
