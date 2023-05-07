@@ -61,6 +61,7 @@ keymap("i", ";", ";<c-g>u", opts)
 keymap("i", "<CR>", "<CR><c-g>u", opts)
 keymap("i", "<space>", "<space><c-g>u", opts)
 keymap("n", "tu", ":UndotreeToggle<CR>", opts)
+keymap("n", "tg", ":TagbarToggle<CR>", opts)
 
 -- Term Copy paste
 keymap("n", "Y", "y$", opts)

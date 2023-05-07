@@ -27,6 +27,13 @@ lvim.plugins = {
         dependencies = "fzf",
         config = function() require "user.fzf-lua" end
     },
+
+    {
+        "preservim/tagbar",
+        cmd = { "TagbarToggle" },
+        lazy = true
+    },
+
     {
         'junegunn/fzf',
         build = './install --all',
