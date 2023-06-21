@@ -12,7 +12,7 @@ vim.opt.showmode = false                        -- we don't need to see things l
 vim.opt.showtabline = 1                         -- always show tabs
 vim.opt.smartcase = true                        -- smart case
 vim.opt.smartindent = false                     -- make indenting smarter again
-vim.opt.autoindent = true                     -- make indenting smarter again
+vim.opt.autoindent = true                       -- make indenting smarter again
 vim.opt.splitbelow = true                       -- force all horizontal splits to go below current window
 vim.opt.splitright = true                       -- force all vertical splits to go to the right of current window
 vim.opt.swapfile = false                        -- creates a swapfile
@@ -32,16 +32,16 @@ vim.opt.showcmd = true
 vim.opt.foldlevel = 0
 vim.opt.ruler = false
 vim.opt.autoread = true
-vim.opt.numberwidth = 4                         -- set number column width to 2 {default 4}
-vim.opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
-vim.opt.wrap = false                            -- display lines as one long line
-vim.opt.scrolloff = 8                           -- is one of my fav
+vim.opt.numberwidth = 4    -- set number column width to 2 {default 4}
+vim.opt.signcolumn =
+"yes"                      -- always show the sign column, otherwise it would shift the text each time
+vim.opt.wrap = false       -- display lines as one long line
+vim.opt.scrolloff = 8      -- is one of my fav
 vim.opt.sidescrolloff = 8
-vim.opt.keymodel= {"startsel","stopsel"}
+vim.opt.keymodel = { "startsel", "stopsel" }
 -- vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
-vim.opt.fillchars.eob=" "
+vim.opt.fillchars.eob = " "
 vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
-vim.opt.nrformats = {"alpha", "hex", "bin"}
-
+vim.opt.nrformats = { "alpha", "hex", "bin" }

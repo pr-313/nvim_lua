@@ -63,4 +63,4 @@ comment.setup {
 }
 
 local ft = require("Comment.ft")
-ft.set('verilog_systemverilog', {'//%s', '/*%s*/'})
+ft.set('verilog_systemverilog', { '//%s', '/*%s*/' })

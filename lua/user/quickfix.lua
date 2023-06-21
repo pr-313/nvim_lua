@@ -1,6 +1,6 @@
 local status_ok, bqf = pcall(require, "bqf")
 if not status_ok then
-	return
+    return
 end
 vim.cmd([[
     hi BqfPreviewBorder guifg=#50a14f ctermfg=71
@@ -8,7 +8,8 @@ vim.cmd([[
 ]])
 
 bqf.setup({
-    {   auto_enable = {
+    {
+        auto_enable = {
             description = [[enable nvim-bqf in quickfix window automatically]],
             default = true
         },
@@ -33,7 +34,7 @@ bqf.setup({
             border_chars = {
                 description = [[border and scroll bar chars, they respectively represent:
                 vline, vline, hline, hline, ulcorner, urcorner, blcorner, brcorner, sbar]],
-                default = {'│', '│', '─', '─', '╭', '╮', '╰', '╯', '█'}
+                default = { '│', '│', '─', '─', '╭', '╮', '╰', '╯', '█' }
             },
             delay_syntax = {
                 description = [[delay time, to do syntax for previewed buffer, unit is millisecond]],
@@ -88,7 +89,7 @@ bqf.setup({
                 },
                 extra_opts = {
                     description = 'extra options for fzf',
-                    default = {'--bind', 'ctrl-o:toggle-all'}
+                    default = { '--bind', 'ctrl-o:toggle-all' }
                 }
             }
         }

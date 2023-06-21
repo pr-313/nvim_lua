@@ -16,7 +16,7 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
         else
             chunkText = truncate(chunkText, targetWidth - curWidth)
             local hlGroup = chunk[2]
-            table.insert(newVirtText, {chunkText, hlGroup})
+            table.insert(newVirtText, { chunkText, hlGroup })
             chunkWidth = vim.fn.strdisplaywidth(chunkText)
             -- str width returned from truncate() may less than 2nd argument, need padding
             if curWidth + chunkWidth < targetWidth then
@@ -26,20 +26,20 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
         end
         curWidth = curWidth + chunkWidth
     end
-    table.insert(newVirtText, {suffix, 'MoreMsg'})
+    table.insert(newVirtText, { suffix, 'MoreMsg' })
     return newVirtText
 end
 
 vim.o.foldcolumn = 'auto' -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevel = 99      -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldnestmax = 2
 vim.o.foldenable = true
 local ftMap = {
     vim = 'indent',
-    python = {'indent'},
+    python = { 'indent' },
     git = '',
-    lua = {'lsp','treesitter'},
+    lua = { 'lsp', 'treesitter' },
     fzf = ''
 }
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
@@ -50,11 +50,11 @@ vim.keymap.set('n', '<M-p>', 'zm')
 
 ufo.setup({
     open_fold_hl_timeout = 150,
-    close_fold_kinds = {'imports', 'comment'},
+    close_fold_kinds = { 'imports', 'comment' },
     fold_virt_text_handler = handler,
     preview = {
         win_config = {
-            border = {'', '─', '', '', '', '─', '', ''},
+            border = { '', '─', '', '', '', '─', '', '' },
             winhighlight = 'Normal:Folded',
             winblend = 0
         },
@@ -68,4 +68,3 @@ ufo.setup({
     end
 })
 --
-

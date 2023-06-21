@@ -1,9 +1,9 @@
 local status_ok, luatab = pcall(require, "luatab")
 if not status_ok then
-  return
+    return
 end
 
-luatab.setup{
+luatab.setup {
     -- title = function() return '' end,
     -- modified = function() return '' end,
     -- windowCount = function() return '' end,
