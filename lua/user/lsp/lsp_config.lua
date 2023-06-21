@@ -4,7 +4,7 @@ if not lspconfig_status_ok then
 end
 
 local servers = {
-  "sumneko_lua",
+  "lua_ls",
   "cssls",
   "html",
   "tsserver",
@@ -13,6 +13,7 @@ local servers = {
   "jsonls",
   "yamlls",
   "gopls",
+  "verible",
   "vimls"
 }
 
@@ -24,14 +25,19 @@ for _, server in pairs(servers) do
     capabilities = require("user.lsp.handlers").capabilities,
   }
 
-  if server == "sumneko_lua" then
-    local sumneko_opts = require "user.lsp.settings.sumneko_lua"
-    opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+  if server == "lua_ls" then
+    local lua_ls_opts = require "user.lsp.settings.lua_ls"
+    opts = vim.tbl_deep_extend("force", lua_ls_opts, opts)
   end
 
   if server == "pylsp" then
     local pylsp_opts = require "user.lsp.settings.python"
     opts = vim.tbl_deep_extend("force", pylsp_opts, opts)
+  end
+
+  if server == "verible" then
+    local verible_opts = require "user.lsp.settings.verible"
+    opts = vim.tbl_deep_extend("force", verible_opts, opts)
   end
 
   lspconfig[server].setup(opts)

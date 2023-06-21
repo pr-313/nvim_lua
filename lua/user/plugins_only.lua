@@ -69,7 +69,7 @@ return {
     "tversteeg/registers.nvim",
 
     -- Sessions
-    'rmagatti/auto-session',
+    -- 'rmagatti/auto-session',
 
     -- LSP
     {"neovim/nvim-lspconfig", lazy=true, event="BufReadPre", dependencies="mason.nvim",

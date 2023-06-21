@@ -26,7 +26,7 @@ lualine.setup {
     lualine_b = {'branch'},
     lualine_c = {{'filename',
                     path = 1}},
-    lualine_x = {{git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available}, {require('auto-session-library').current_session_name},'encoding', 'fileformat', 'filetype'},
+    lualine_x = {{git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available}, {'encoding', 'fileformat', 'filetype'}},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
