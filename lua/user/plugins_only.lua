@@ -5,7 +5,7 @@ return {
     "nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
     "numToStr/Comment.nvim",
     "JoosepAlviste/nvim-ts-context-commentstring",
-    "kyazdani42/nvim-web-devicons",
+    "nvim-tree/nvim-web-devicons",
     {
         'alvarosevilla95/luatab.nvim',
         lazy = true,
