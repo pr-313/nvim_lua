@@ -152,10 +152,10 @@ nvim_tree.setup {
             padding = " ",
             symlink_arrow = "  ",
             show = {
-                file = true,
+                file = false,
                 folder = true,
                 folder_arrow = true,
-                git = true,
+                git = false,
                 modified = true,
             },
             glyphs = {
