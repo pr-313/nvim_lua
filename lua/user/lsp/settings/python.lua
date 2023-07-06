@@ -2,7 +2,10 @@ return {
     settings = {
         pylsp = {
             plugins = {
-                pycodestyle = { enabled = false }
+                pycodestyle = {
+                    enabled = false,
+                    maxLineLength = 140
+                }
             },
         },
     },
