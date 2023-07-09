@@ -14,6 +14,7 @@ local servers = {
   "yamlls",
   "gopls",
   "verible",
+  "perlnavigator",
   "vimls"
 }
 
