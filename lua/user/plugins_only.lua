@@ -132,13 +132,13 @@ return {
 
     {
         "jay-babu/mason-null-ls.nvim",
-        event = { "BufReadPre", "BufNewFile" },
+        -- event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             "williamboman/mason.nvim",
             "jose-elias-alvarez/null-ls.nvim",
         },
         config = function()
-            require("user.lsp.null-ls") -- require your null-ls config here (example below)
+            require("user.lsp.null-ls")
         end,
     },
 
@@ -213,7 +213,15 @@ return {
         'phaazon/mind.nvim',
         branch = 'v2.2',
         requires = { 'nvim-lua/plenary.nvim' },
-        config = function() require 'user.mind' end
+        config = function() require 'user.mind' end,
+        enabled = false
+    },
+
+    {
+        'stevearc/oil.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = { "nvim-tree/nvim-web-devicons" },
     }
 
     -- DAP
