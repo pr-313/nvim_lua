@@ -43,7 +43,7 @@ keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 keymap("n", "<leader>d", "V\"_d", opts)
 keymap("v", "<leader>d", "\"_d", opts)
-keymap("n", "<C-p>", ":call ToggleNetrw()<CR>", opts)
+keymap("n", "<C-p>", ":Oil --float<CR>", opts)
 
 -- Window Maximizer
 keymap("n", "<leader><leader>", ":MaximizerToggle<CR>", opts)
