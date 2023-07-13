@@ -76,12 +76,12 @@ return {
         event = "BufReadPost",
         config = function() require("user.cmp") end
     },
-    { "hrsh7th/cmp-buffer",        lazy = true, event = "BufReadPost", dependencies = { "nvim-cmp" } },
-    { "hrsh7th/cmp-path",          lazy = true, event = "BufReadPost", dependencies = { "nvim-cmp" } },
-    { "saadparwaiz1/cmp_luasnip",  lazy = true, event = "BufReadPost", dependencies = { "nvim-cmp" } },
-    { "hrsh7th/cmp-nvim-lsp",      lazy = true, event = "BufReadPost", dependencies = { "nvim-cmp" } },
-    { "hrsh7th/cmp-nvim-lua",      lazy = true, event = "BufReadPost", dependencies = { "nvim-cmp" } },
-    { "hrsh7th/cmp-cmdline",       lazy = true, event = "CmdlineEnter", dependencies = { "nvim-cmp" } },
+    { "hrsh7th/cmp-buffer",       lazy = true, event = "BufReadPost",  dependencies = { "nvim-cmp" } },
+    { "hrsh7th/cmp-path",         lazy = true, event = "BufReadPost",  dependencies = { "nvim-cmp" } },
+    { "saadparwaiz1/cmp_luasnip", lazy = true, event = "BufReadPost",  dependencies = { "nvim-cmp" } },
+    { "hrsh7th/cmp-nvim-lsp",     lazy = true, event = "BufReadPost",  dependencies = { "nvim-cmp" } },
+    { "hrsh7th/cmp-nvim-lua",     lazy = true, event = "BufReadPost",  dependencies = { "nvim-cmp" } },
+    { "hrsh7th/cmp-cmdline",      lazy = true, event = "CmdlineEnter", dependencies = { "nvim-cmp" } },
 
     -- Jupyter
     -- "untitled-ai/jupyter_ascending.vim"           ,
@@ -117,7 +117,8 @@ return {
         event = "BufReadPre",
         dependencies = "mason.nvim",
         config = function() require("user.lsp") end
-    },                                                                                   -- simple to use language server installer
+    },
+
     {
         "williamboman/mason.nvim",
         lazy = true,
@@ -125,10 +126,21 @@ return {
         dependencies = { "mason-lspconfig.nvim" },
         config = function() require("user.lsp.lsp-installer") end,
         event = "BufReadPre"
-    },                                                                                   -- simple to use language server installer
+    },
+
     { "williamboman/mason-lspconfig.nvim", lazy = true },
-    -- "jose-elias-alvarez/null-ls.nvim"             ,    -- for formatters and linters
-    -- "RRethy/vim-illuminate"                       ,
+
+    {
+        "jay-babu/mason-null-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "williamboman/mason.nvim",
+            "jose-elias-alvarez/null-ls.nvim",
+        },
+        config = function()
+            require("user.lsp.null-ls") -- require your null-ls config here (example below)
+        end,
+    },
 
     -- Treesitter
     {
@@ -152,23 +164,27 @@ return {
         ft = "qf",
         event = "QuickFixCmdPost",
         config = function() require "user.quickfix" end
-    },                                                    -- Quickfix
+    }, -- Quickfix
 
     -- Misc
-    { "tweekmonster/startuptime.vim",      cmd = { "StartupTime" }, lazy = true },
+    { "tweekmonster/startuptime.vim",      cmd = { "StartupTime" },    lazy = true },
     { "mbbill/undotree",                   cmd = { "UndotreeToggle" }, lazy = true },
-    { "rlane/pounce.nvim",                 cmd = { "Pounce" },      lazy = true,
-                                                                                    config = function() require 'user.pounce' end },
-    { "szw/vim-maximizer",                 cmd = { "MaximizerToggle" }, lazy = true },
-    { "godlygeek/tabular",                 cmd = { "Tab" },         lazy = true },
-    { "preservim/tagbar",                  cmd = { "TagbarToggle" }, lazy = true },
+    {
+        "rlane/pounce.nvim",
+        cmd = { "Pounce" },
+        lazy = true,
+        config = function() require 'user.pounce' end
+    },
+    { "szw/vim-maximizer", cmd = { "MaximizerToggle" }, lazy = true },
+    { "godlygeek/tabular", cmd = { "Tab" },             lazy = true },
+    { "preservim/tagbar",  cmd = { "TagbarToggle" },    lazy = true },
     {
         "folke/todo-comments.nvim",
         event = "BufEnter",
         lazy = true,
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function() require "user.todo_comment" end
-    },                                                        -- TODO Highlight
+    }, -- TODO Highlight
 
     --[[ {"folke/noice.nvim", lazy=true, event="VeryLazy", dependencies={"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"}, ]]
     --[[     config = function() require("user.noice") end}, ]]
@@ -180,12 +196,17 @@ return {
         event = "BufReadPost",
         config = function() require("user.gitstuff") end
     },
-    { "f-person/git-blame.nvim", lazy = true,                                 event = "BufEnter" },
-    { "sindrets/diffview.nvim",  cmd = { "DiffviewOpen", "DiffviewFileHistory" }, lazy = true,
-                                                                                                   config = function()
-            require('user.diffview') end },
+    { "f-person/git-blame.nvim", lazy = true,                  event = "BufEnter" },
+    {
+        "sindrets/diffview.nvim",
+        cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+        lazy = true,
+        config = function()
+            require('user.diffview')
+        end
+    },
     -- "kdheepak/lazygit.nvim"                          ,   , cmd={"LazyGit"}, lazy=true
-    { "tpope/vim-fugitive",      cmd = { "G", "Gvdiffsplit" },                lazy = true },
+    { "tpope/vim-fugitive",      cmd = { "G", "Gvdiffsplit" }, lazy = true },
 
     -- Note Taking
     {

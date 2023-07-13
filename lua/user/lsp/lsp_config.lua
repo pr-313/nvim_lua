@@ -15,7 +15,10 @@ local servers = {
   "gopls",
   "verible",
   "perlnavigator",
-  "vimls"
+  "vimls",
+  -- "prettier",
+  -- "markuplint"
+
 }
 
 local opts = {}
