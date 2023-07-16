@@ -1,6 +1,6 @@
 let g:NetrwIsOpen=0
-source ~/.config/nvim/plugin/autoload/matchit.vim
-source ~/.config/nvim/plugin/matchit.vim
+" source ~/.config/nvim/plugin/autoload/matchit.vim
+" source ~/.config/nvim/plugin/matchit.vim
 
 function! ToggleNetrw()
     if g:NetrwIsOpen
