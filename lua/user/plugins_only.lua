@@ -26,7 +26,7 @@ return {
         config = function() require "user.toggleterm" end
     },
 
-    -- "ahmedkhalf/project.nvim"                     ,
+  -- "ahmedkhalf/project.nvim"                     ,
 
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -83,8 +83,8 @@ return {
     { "hrsh7th/cmp-nvim-lua",     lazy = true, event = "BufReadPost",  dependencies = { "nvim-cmp" } },
     { "hrsh7th/cmp-cmdline",      lazy = true, event = "CmdlineEnter", dependencies = { "nvim-cmp" } },
 
-    -- Jupyter
-    -- "untitled-ai/jupyter_ascending.vim"           ,
+  -- Jupyter
+  -- "untitled-ai/jupyter_ascending.vim"           ,
 
     -- Fzf
     {
@@ -96,17 +96,17 @@ return {
     },
     { 'junegunn/fzf',                 build = './install --all', lazy = true },
 
-    -- Folding
-    {'kevinhwang91/nvim-ufo', lazy=true, event="BufReadPost", dependencies={"kevinhwang91/promise-async"},
-        config = function () require("user.ufo") end},
-    -- 'kevinhwang91/promise-async'                  ,
+  -- Folding
+  { 'kevinhwang91/nvim-ufo', lazy = true, event = "BufReadPost", dependencies = { "kevinhwang91/promise-async" },
+    config = function() require("user.ufo") end },
+  -- 'kevinhwang91/promise-async'                  ,
 
     -- snippets
     { "L3MON4D3/LuaSnip",             lazy = true,               event = "BufReadPost" }, --snippet engine
     { "rafamadriz/friendly-snippets", lazy = true,               event = "BufReadPost" }, -- a bunch of snippets to use
 
-    -- Clipboard ++
-    "tversteeg/registers.nvim",
+  -- Clipboard ++
+  "tversteeg/registers.nvim",
 
     -- Sessions
     -- 'rmagatti/auto-session',
@@ -187,8 +187,8 @@ return {
         config = function() require "user.todo_comment" end
     }, -- TODO Highlight
 
-    --[[ {"folke/noice.nvim", lazy=true, event="VeryLazy", dependencies={"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"}, ]]
-    --[[     config = function() require("user.noice") end}, ]]
+  --[[ {"folke/noice.nvim", lazy=true, event="VeryLazy", dependencies={"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"}, ]]
+  --[[     config = function() require("user.noice") end}, ]]
 
     -- Git
     {
@@ -226,13 +226,13 @@ return {
         config = function() require 'user.oil' end,
     }
 
-    -- DAP
-    -- "mfussenegger/nvim-dap"                       ,
-    -- "rcarriga/nvim-dap-ui"                        ,
-    -- "ravenxrz/DAPInstall.nvim"                    ,
+  -- DAP
+  -- "mfussenegger/nvim-dap"                       ,
+  -- "rcarriga/nvim-dap-ui"                        ,
+  -- "ravenxrz/DAPInstall.nvim"                    ,
 
-    -- Telescope
-    -- "nvim-telescope/telescope.nvim"               ,
-    -- 'nvim-telescope/telescope-fzf-native.nvim'     ,  run = 'make'
+  -- Telescope
+  -- "nvim-telescope/telescope.nvim"               ,
+  -- 'nvim-telescope/telescope-fzf-native.nvim'     ,  run = 'make'
 
 }

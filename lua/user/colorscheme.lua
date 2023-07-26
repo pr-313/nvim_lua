@@ -2,7 +2,7 @@ vim.g.tokyonight_style = "night"
 vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
 vim.g.gruvbox_contrast_dark = "hard"
 
-local colorscheme = "gruvbox"
+local colorscheme = "kanagawa"
 -- setup must be called before loading
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
