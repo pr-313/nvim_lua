@@ -226,7 +226,8 @@ return {
     {
         'stevearc/oil.nvim',
         opts = {},
-        -- Optional dependencies
+        lazy = true,
+        cmd = { "Oil" },
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function() require 'user.oil' end,
     }
