@@ -23,16 +23,16 @@ map({ "n" }, "<leader>t", ":tabnew<CR>", { desc = "", silent = true })
 
 -- Fzf
 map({ "n" }, "<C-f>", ":FzfLua files<CR>", { desc = "Find Files", silent = true, noremap = true })
-map({ "n" }, "te", ":FzfLua<CR>", { desc = "", silent = true })
-map({ "n" }, "<leader>f", ":FzfLua live_grep<CR>", { desc = "", silent = true })
--- keymap("n", "<leader>l", ":FzfLua lgrep_curbuf<CR>", {desc = "", silent = true})
-map({ "n" }, "<leader>h", ":FzfLua oldfiles<CR>", { desc = "", silent = true })
-map({ "v" }, "<leader>f", "<ESC>:FzfLua grep_visual<CR>", { desc = "", silent = true })
-map({ "n" }, "<leader>F", ":FzfLua grep<CR>", { desc = "", silent = true })
+map({ "n" }, "te", ":FzfLua<CR>", { desc = "Fzf Lua", silent = true })
+map({ "n" }, "<leader>f", ":FzfLua live_grep<CR>", { desc = "Live Grep", silent = true })
+map({ "n" }, "<leader>l", ":FzfLua lgrep_curbuf<CR>", { desc = "Grep Current Buf", silent = true })
+map({ "n" }, "<leader>h", ":FzfLua oldfiles<CR>", { desc = "Recent Files", silent = true })
+map({ "v" }, "<leader>f", "<ESC>:FzfLua grep_visual<CR>", { desc = "Grep With Selection", silent = true })
+map({ "n" }, "<leader>F", ":FzfLua grep<CR>", { desc = "Grep With Seed", silent = true })
 
 -- NeoTree
-map({ "n" }, "tt", ":Neotree toggle<CR>", { desc = "", silent = true })
-map({ "n" }, "tf", ":NvimTreeFindFile<CR>", { desc = "", silent = true })
+map({ "n" }, "tt", ":Neotree toggle<CR>", { desc = "Neotree Toggle", silent = true })
+map({ "n" }, "tf", ":Neotree focus<CR>", { desc = "Neotree Focus File", silent = true })
 
 -- This file is automatically loaded by lazyvim.config.init
 local Util = require("lazyvim.util")
@@ -115,7 +115,7 @@ map("v", "<", "<gv")
 map("v", ">", ">gv")
 
 -- lazy
-map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+-- map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
