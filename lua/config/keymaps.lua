@@ -22,7 +22,7 @@ map({ "n" }, "<leader>w", ":w<CR>", { desc = "", silent = true })
 map({ "n" }, "<leader>t", ":tabnew<CR>", { desc = "", silent = true })
 
 -- Fzf
-map({ "n" }, "<C-f>", ":FzfLua files<CR>", { desc = "", silent = true })
+map({ "n" }, "<C-f>", ":FzfLua files<CR>", { desc = "Find Files", silent = true, noremap = true })
 map({ "n" }, "te", ":FzfLua<CR>", { desc = "", silent = true })
 map({ "n" }, "<leader>f", ":FzfLua live_grep<CR>", { desc = "", silent = true })
 -- keymap("n", "<leader>l", ":FzfLua lgrep_curbuf<CR>", {desc = "", silent = true})
@@ -78,6 +78,7 @@ map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<esc>", { desc = "Escape", noremap = true })
+map({ "i", "n" }, "<A-s>", "<cmd>noh<cr>", { desc = "Escape", noremap = true })
 
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
@@ -165,6 +166,7 @@ map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
 
 -- Terminal Mappings
 map("t", "<esc><esc>", "<esc><esc>", { desc = "Enter Normal Mode" })
+map("t", "<esc>", "<esc>", { desc = "Enter Normal Mode" })
 map("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
 map("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
 map("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
