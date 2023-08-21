@@ -33,6 +33,7 @@ map({ "n" }, "<leader>F", ":FzfLua grep<CR>", { desc = "Grep With Seed", silent 
 -- NeoTree
 map({ "n" }, "tt", ":Neotree toggle<CR>", { desc = "Neotree Toggle", silent = true })
 map({ "n" }, "tf", ":Neotree focus<CR>", { desc = "Neotree Focus File", silent = true })
+map({ "n" }, "<C-p>", ":Oil --float<CR>", { desc = "Open parent directory", silent = true })
 
 -- This file is automatically loaded by lazyvim.config.init
 local Util = require("lazyvim.util")
