@@ -36,7 +36,7 @@ keymap("n", "<leader>Q", ":qa<CR>", opts)
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>t", ":tabnew<CR>", opts)
 
--- Navigate buffers
+
 keymap("n", "<S-l>", ":tabnext<CR>", opts)
 keymap("n", "<S-h>", ":tabprevious<CR>", opts)
 keymap("n", "n", "nzzzv", opts)
@@ -63,6 +63,10 @@ keymap("x", "ga", "<Plug>(EasyAlign)", opts)
 keymap("n", "<M-m>", ":copen<CR>", opts)
 keymap("n", "<M-b>", ":cprevious<CR>", opts)
 keymap("n", "<M-n>", ":cnext<CR>", opts)
+
+-- Load/Store View
+keymap("n", "<M-M>", ":mkview<CR>", opts)
+keymap("n", "<M-R>", ":loadview<CR>", opts)
 
 -- Verilog
 keymap("n", "<M-V>", ":set filetype=verilog_systemverilog<CR>", opts)
