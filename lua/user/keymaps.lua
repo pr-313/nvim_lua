@@ -165,6 +165,9 @@ keymap("n", "tg", ":TagbarToggle<CR>", opts)
 -- Sidebar
 keymap("n", "ts", ":SidebarNvimToggle<CR>", opts)
 
+-- Formatter
+keymap("n", "<leader>lF", ":!verilogFormat %<CR>", opts)
+
 -- Git
 keymap("n", "<leader>gg", ":LG<CR>", opts)
 keymap('n', ',co', '<Plug>(git-conflict-ours)')
