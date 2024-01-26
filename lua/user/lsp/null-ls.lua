@@ -3,15 +3,19 @@ if not status then
     return
 end
 
+local null_ls = require 'null-ls'
+null_ls.setup()
+
 mason_null_ls.setup({
-    -- A list of sources to install if they're not already installed.
-    -- This setting has no relation with the `automatic_installation` setting.
-    ensure_installed = { "stylua", "prettier" },
-    -- Run `require("null-ls").setup`.
-    -- Will automatically install masons tools based on selected sources in `null-ls`.
-    -- Can also be an exclusion list.
-    -- Example: `automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }`
-    automatic_installation = false,
-    -- See [#handlers-usage](#handlers-usage) section
-    handlers = nil,
+    ensure_installed = { 'stylua', 'shfmt', 'prettier' },
+    handlers = {
+        function() end, -- disables automatic setup of all null-ls sources
+        stylua = function(source_name, methods)
+            null_ls.register(null_ls.builtins.formatting.stylua)
+        end,
+        shfmt = function(source_name, methods)
+            -- custom logic
+            require('mason-null-ls').default_setup(source_name, methods) -- to maintain default behavior
+        end,
+    },
 })
