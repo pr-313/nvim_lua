@@ -62,12 +62,12 @@ return {
     { "rebelot/kanagawa.nvim",          lazy = true },
 
     -- Haarpoon
-    {
-        "ThePrimeagen/harpoon",
-        lazy = true,
-        event = "VeryLazy",
-        config = function() require "user.harpoon" end
-    },
+    -- {
+    --     "ThePrimeagen/harpoon",
+    --     lazy = true,
+    --     event = "VeryLazy",
+    --     config = function() require "user.harpoon" end
+    -- },
     -- cmp plugins
 
     {
@@ -196,7 +196,7 @@ return {
         event = "BufReadPost",
         config = function() require("user.gitstuff") end
     },
-    { "f-person/git-blame.nvim", lazy = true,                  event = "BufEnter" },
+    -- { "f-person/git-blame.nvim", lazy = true,                  event = "BufEnter" },
     {
         "sindrets/diffview.nvim",
         cmd = { "DiffviewOpen", "DiffviewFileHistory" },
