@@ -53,3 +53,7 @@ vim.opt.iskeyword:append("-")
 
 -- skip clipboard sync inside SSH; OSC 52 handles it
 vim.opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
+
+-- disable unused providers (suppresses checkhealth warnings)
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0

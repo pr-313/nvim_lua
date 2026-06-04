@@ -43,23 +43,22 @@ M.setup = function()
 end
 
 local function lsp_keymaps(bufnr)
-  local opts = { noremap = true, silent = true }
-  local keymap = vim.api.nvim_buf_set_keymap
-  keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
-  keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
-  keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
-  keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-  keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
-  keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
-  keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-  keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+  local opts = { noremap = true, silent = true, buffer = bufnr }
+  local k = vim.keymap.set
+  k("n", "gD",          vim.lsp.buf.declaration,                        opts)
+  k("n", "gd",          vim.lsp.buf.definition,                         opts)
+  k("n", "K",           vim.lsp.buf.hover,                              opts)
+  k("n", "gI",          vim.lsp.buf.implementation,                     opts)
+  k("n", "gr",          vim.lsp.buf.references,                         opts)
+  k("n", "gl",          vim.diagnostic.open_float,                      opts)
+  k("n", "<leader>lf",  function() require("conform").format({ async = true, lsp_fallback = true }) end, opts)
+  k("n", "<leader>li",  "<cmd>LspInfo<cr>",                             opts)
+  k("n", "<leader>la",  vim.lsp.buf.code_action,                        opts)
+  k("n", "<leader>lj",  vim.diagnostic.goto_next,                       opts)
+  k("n", "<leader>lk",  vim.diagnostic.goto_prev,                       opts)
+  k("n", "<leader>lr",  vim.lsp.buf.rename,                             opts)
+  k("n", "<leader>ls",  vim.lsp.buf.signature_help,                     opts)
+  k("n", "<leader>lq",  vim.diagnostic.setloclist,                      opts)
 end
 
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
